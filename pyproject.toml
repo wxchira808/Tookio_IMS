@@ -1,0 +1,20 @@
+[project]
+name = "incident_management_system"
+authors = [
+    { name = "Brian Wachira", email = "bwkinyua01@gmail.com"}
+]
+description = "An Incident Management System designed for efficient reporting, tracking, assignment, and resolution of incidents within an organization. Built on Frappe to streamline workflows, enhance accountability, and improve response times."
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # "frappe~=15.0.0" # Installed and managed by bench.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+# These dependencies are only installed when developer mode is enabled
+[tool.bench.dev-dependencies]
+# package_name = "~=1.1.0"
