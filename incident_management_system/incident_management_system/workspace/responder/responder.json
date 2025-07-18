@@ -1,0 +1,63 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"ongaB_UhPh\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"RE3qDKDPaR\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"8h1HDe598t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Currently Investigating\",\"col\":4}},{\"id\":\"UsCl1rOqTH\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"FofEFeffDC\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"HPTdzn0Fb5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incidents\",\"col\":3}},{\"id\":\"xssUKfuTfF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Action Items\",\"col\":3}}]",
+ "creation": "2025-07-18 11:39:09.702057",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "edit",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Responder",
+ "links": [],
+ "modified": "2025-07-18 14:50:35.279863",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Responder",
+ "number_cards": [
+  {
+   "label": "Resolved Incidents",
+   "number_card_name": "Resolved Incidents"
+  },
+  {
+   "label": "Open Incidents",
+   "number_card_name": "Open Incidents"
+  },
+  {
+   "label": "Currently Investigating",
+   "number_card_name": "Currently Investigating"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Incident Responder"
+  }
+ ],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Incidents",
+   "link_to": "Incident",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Action Items",
+   "link_to": "Action Item",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Responder"
+}

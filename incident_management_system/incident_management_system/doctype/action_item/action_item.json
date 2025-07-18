@@ -1,0 +1,359 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:ACT-{YYYY}-{#####}",
+ "creation": "2025-07-09 10:05:50.779779",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_tab",
+  "action_title",
+  "action_description",
+  "action_type",
+  "priority",
+  "status",
+  "tab_2_tab",
+  "incident",
+  "risk_assessment",
+  "parent_action",
+  "tracking_and_progress_tab",
+  "start_date",
+  "completion_date",
+  "progress_percentage",
+  "last_update_date",
+  "status_notes",
+  "completion_notes",
+  "verification_and_approval_tab",
+  "verification_required",
+  "section_break_kfes",
+  "verified_by",
+  "verification_date",
+  "verification_notes",
+  "approval_required",
+  "section_break_jvcz",
+  "approved_by",
+  "approval_date",
+  "approval_comments",
+  "impact_and_cost_tab",
+  "cost_estimate",
+  "actual_cost",
+  "department",
+  "resource_requirements",
+  "business_impact",
+  "escalation_tab",
+  "escalation_required",
+  "section_break_wojf",
+  "escalated_to",
+  "escalated_date",
+  "escalated_reason",
+  "escalated_level",
+  "review_and_follow_up_tab",
+  "review_required",
+  "section_break_ybdg",
+  "review_date",
+  "review_frequency",
+  "next_review_date",
+  "effectiveness_rating"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "action_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Action Title"
+  },
+  {
+   "fieldname": "action_description",
+   "fieldtype": "Text Editor",
+   "label": "Action Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "action_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action Type",
+   "options": "\nImmediate\nCorrective\nPreventive\nInvestigation\nFollow-Up\nCompliance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "\nUrgent\nHigh\nNormal\nLow",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nOpen\nIn Progress\nCompleted\nOverdue\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "incident",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Incident",
+   "options": "Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_assessment",
+   "fieldtype": "Link",
+   "label": "Risk Assessment",
+   "options": "Risk Assessment"
+  },
+  {
+   "fieldname": "parent_action",
+   "fieldtype": "Link",
+   "label": "Parent Action",
+   "options": "Action Item"
+  },
+  {
+   "fieldname": "tracking_and_progress_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tracking And Progress"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Completion Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "progress_percentage",
+   "fieldtype": "Percent",
+   "label": "Progress Percentage"
+  },
+  {
+   "fieldname": "last_update_date",
+   "fieldtype": "Date",
+   "label": "Last Update Date"
+  },
+  {
+   "fieldname": "status_notes",
+   "fieldtype": "Text Editor",
+   "label": "Status Notes"
+  },
+  {
+   "fieldname": "completion_notes",
+   "fieldtype": "Text Editor",
+   "label": "Completion Notes"
+  },
+  {
+   "fieldname": "verification_and_approval_tab",
+   "fieldtype": "Tab Break",
+   "label": "Verification And Approval"
+  },
+  {
+   "default": "0",
+   "fieldname": "verification_required",
+   "fieldtype": "Check",
+   "label": "Verification Required"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "verification_date",
+   "fieldtype": "Date",
+   "label": "Verification Date"
+  },
+  {
+   "fieldname": "verification_notes",
+   "fieldtype": "Text",
+   "label": "Verification Notes"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval Comments"
+  },
+  {
+   "fieldname": "impact_and_cost_tab",
+   "fieldtype": "Tab Break",
+   "label": "Impact And Cost"
+  },
+  {
+   "fieldname": "cost_estimate",
+   "fieldtype": "Currency",
+   "label": "Cost Estimate"
+  },
+  {
+   "fieldname": "actual_cost",
+   "fieldtype": "Currency",
+   "label": "Actual Cost"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "resource_requirements",
+   "fieldtype": "Text",
+   "label": "Resource Requirements"
+  },
+  {
+   "fieldname": "business_impact",
+   "fieldtype": "Select",
+   "label": "Business Impact",
+   "options": "\nNone\nLow\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "escalation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Escalation"
+  },
+  {
+   "default": "0",
+   "fieldname": "escalation_required",
+   "fieldtype": "Check",
+   "label": "Escalation Required"
+  },
+  {
+   "fieldname": "escalated_to",
+   "fieldtype": "Link",
+   "label": "Escalated To",
+   "options": "User"
+  },
+  {
+   "fieldname": "escalated_date",
+   "fieldtype": "Date",
+   "label": "Escalated Date"
+  },
+  {
+   "fieldname": "escalated_reason",
+   "fieldtype": "Text",
+   "label": "Escalated Reason"
+  },
+  {
+   "fieldname": "escalated_level",
+   "fieldtype": "Select",
+   "label": "Escalated Level",
+   "options": "\nLevel 1\nLevel 2\nLevel 3\nLevel 4"
+  },
+  {
+   "fieldname": "review_and_follow_up_tab",
+   "fieldtype": "Tab Break",
+   "label": "Review And Follow-up"
+  },
+  {
+   "default": "0",
+   "fieldname": "review_required",
+   "fieldtype": "Check",
+   "label": "Review Required"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  },
+  {
+   "fieldname": "review_frequency",
+   "fieldtype": "Select",
+   "label": "Review Frequency",
+   "options": "\nOne-time\nWeekly\nMonthly\nQuarterly\nAnnually"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "effectiveness_rating",
+   "fieldtype": "Select",
+   "label": "Effectiveness Rating",
+   "options": "\nVery Effective\nEffective\nPartially Effective\nIneffective\nNot Assessed"
+  },
+  {
+   "default": "0",
+   "fieldname": "approval_required",
+   "fieldtype": "Check",
+   "label": "Approval Required"
+  },
+  {
+   "depends_on": "eval:doc.approval_required == 1\r\n",
+   "fieldname": "section_break_jvcz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.verification_required == 1\r\n",
+   "fieldname": "section_break_kfes",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.escalation_required == 1\r\n",
+   "fieldname": "section_break_wojf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.review_required == 1\r\n",
+   "fieldname": "section_break_ybdg",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-12 00:06:47.684951",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Action Item",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "action_title",
+ "track_changes": 1
+}

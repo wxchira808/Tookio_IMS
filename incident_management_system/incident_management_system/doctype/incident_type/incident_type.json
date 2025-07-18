@@ -1,0 +1,351 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:type_name",
+ "creation": "2025-07-08 17:18:40.287702",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_section",
+  "type_name",
+  "description",
+  "is_active",
+  "color",
+  "icon",
+  "tab_2_tab",
+  "classification_and_severity_section",
+  "category",
+  "default_severity",
+  "default_priority",
+  "risk_level",
+  "sla_and_escalation_tab",
+  "sla_and_escalation_section",
+  "initial_response_time",
+  "resolution_time",
+  "escalation_time_l1",
+  "escalation_time_l2",
+  "escalation_time_l3",
+  "auto_escalation",
+  "assignment_rules_tab",
+  "assignment_rules_section",
+  "default_assigned_to",
+  "default_department",
+  "assignment_rule",
+  "requires_investigation",
+  "requires_root_cause",
+  "notification_settings_tab",
+  "notification_settings_section",
+  "notify_on_creation",
+  "notify_on_assignment",
+  "notify_on_escalation",
+  "notify_on_resolution",
+  "notification_template",
+  "escalation_notification_template",
+  "tab_6_tab",
+  "compliance_and_reporting_section",
+  "regulatory_reporting_required",
+  "compliance_framework",
+  "retention_period",
+  "external_reporting_required",
+  "reporting_authority",
+  "tab_7_tab",
+  "templates_section",
+  "investigation_template",
+  "resolution_template"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "type_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Classification And Severity"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "fieldname": "icon",
+   "fieldtype": "Icon",
+   "label": "Icon"
+  },
+  {
+   "fieldname": "classification_and_severity_section",
+   "fieldtype": "Section Break",
+   "label": "Classification And Severity"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nSafety\nSecurity\nEnvironmental\nQuality\nIT\nHR\nOperational\nFinancial\nCompliance"
+  },
+  {
+   "fieldname": "default_severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Default Severity",
+   "options": "\nCritical\nHigh\nMedium\nLow"
+  },
+  {
+   "fieldname": "default_priority",
+   "fieldtype": "Select",
+   "label": "Default Priority",
+   "options": "\nUrgent\nHigh\nNormal\nLow"
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "\nVery High\nHigh\nMedium\nLow\nVery Low"
+  },
+  {
+   "fieldname": "sla_and_escalation_tab",
+   "fieldtype": "Tab Break",
+   "label": "SLA And Escalation"
+  },
+  {
+   "fieldname": "sla_and_escalation_section",
+   "fieldtype": "Section Break",
+   "label": "SLA And Escalation"
+  },
+  {
+   "fieldname": "resolution_time",
+   "fieldtype": "Duration",
+   "label": "Resolution Time"
+  },
+  {
+   "fieldname": "escalation_time_l1",
+   "fieldtype": "Duration",
+   "label": "Escalation Time L1"
+  },
+  {
+   "fieldname": "escalation_time_l2",
+   "fieldtype": "Duration",
+   "label": "Escalation Time L2"
+  },
+  {
+   "fieldname": "escalation_time_l3",
+   "fieldtype": "Duration",
+   "label": "Escalation Time L3"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_escalation",
+   "fieldtype": "Check",
+   "label": "Auto Escalation"
+  },
+  {
+   "fieldname": "assignment_rules_tab",
+   "fieldtype": "Tab Break",
+   "label": "Assignment Rules"
+  },
+  {
+   "fieldname": "assignment_rules_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment Rules"
+  },
+  {
+   "fieldname": "default_assigned_to",
+   "fieldtype": "Link",
+   "label": "Default Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "default_department",
+   "fieldtype": "Link",
+   "label": "Default Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "assignment_rule",
+   "fieldtype": "Select",
+   "label": "Assignment Rule",
+   "options": "\nRound Robin\nSkill Based\nDepartment Based\nManual"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_investigation",
+   "fieldtype": "Check",
+   "label": "Requires Investigation"
+  },
+  {
+   "default": "1",
+   "fieldname": "requires_root_cause",
+   "fieldtype": "Check",
+   "label": "Requires Root Cause"
+  },
+  {
+   "fieldname": "notification_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notification Settings"
+  },
+  {
+   "fieldname": "notification_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings"
+  },
+  {
+   "default": "1",
+   "fieldname": "notify_on_creation",
+   "fieldtype": "Check",
+   "label": "Notify On Creation"
+  },
+  {
+   "default": "1",
+   "fieldname": "notify_on_assignment",
+   "fieldtype": "Check",
+   "label": "Notify On Assignment"
+  },
+  {
+   "default": "1",
+   "fieldname": "notify_on_escalation",
+   "fieldtype": "Check",
+   "label": "Notify On Escalation"
+  },
+  {
+   "default": "1",
+   "fieldname": "notify_on_resolution",
+   "fieldtype": "Check",
+   "label": "Notify On Resolution"
+  },
+  {
+   "fieldname": "notification_template",
+   "fieldtype": "Link",
+   "label": "Notification Template",
+   "options": "Email Template"
+  },
+  {
+   "fieldname": "escalation_notification_template",
+   "fieldtype": "Link",
+   "label": "Escalation Notification Template",
+   "options": "Email Template"
+  },
+  {
+   "fieldname": "tab_6_tab",
+   "fieldtype": "Tab Break",
+   "label": "Compliance And Reporting"
+  },
+  {
+   "fieldname": "compliance_and_reporting_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance And Reporting"
+  },
+  {
+   "default": "0",
+   "fieldname": "regulatory_reporting_required",
+   "fieldtype": "Check",
+   "label": "Regulatory Reporting Required"
+  },
+  {
+   "fieldname": "compliance_framework",
+   "fieldtype": "Select",
+   "label": "Compliance Framework",
+   "options": "\nISO 45001\nISO 14001\nSOX\nGDPR\nCustom"
+  },
+  {
+   "default": "7",
+   "fieldname": "retention_period",
+   "fieldtype": "Int",
+   "hide_days": 1,
+   "hide_seconds": 1,
+   "label": "Retention Period(Years)"
+  },
+  {
+   "default": "0",
+   "fieldname": "external_reporting_required",
+   "fieldtype": "Check",
+   "label": "External Reporting Required"
+  },
+  {
+   "fieldname": "reporting_authority",
+   "fieldtype": "Data",
+   "label": "Reporting Authority"
+  },
+  {
+   "fieldname": "tab_7_tab",
+   "fieldtype": "Tab Break",
+   "label": "Templates"
+  },
+  {
+   "fieldname": "investigation_template",
+   "fieldtype": "Text Editor",
+   "label": "Investigation Template"
+  },
+  {
+   "fieldname": "resolution_template",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Template"
+  },
+  {
+   "fieldname": "templates_section",
+   "fieldtype": "Section Break",
+   "label": "Templates"
+  },
+  {
+   "fieldname": "initial_response_time",
+   "fieldtype": "Duration",
+   "label": "Initial Response Time"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-08 21:34:37.998783",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incident Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "type_name",
+ "sort_order": "ASC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Critical"
+  },
+  {
+   "color": "Light Blue",
+   "title": "Low"
+  }
+ ],
+ "track_changes": 1
+}

@@ -1,0 +1,46 @@
+{
+ "based_on": "",
+ "chart_name": "Incidents By Severity",
+ "chart_type": "Group By",
+ "creation": "2025-07-12 12:12:16.565772",
+ "currency": "",
+ "custom_options": "",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "document_type": "Incident",
+ "dynamic_filters_json": "[]",
+ "filters_json": "{}",
+ "group_by_based_on": "severity",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "last_synced_on": "2025-07-12 12:13:57.116301",
+ "modified": "2025-07-12 12:21:44.469002",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incidents By Severity",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "parent_document_type": "",
+ "report_name": "Incidents By Severity",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  }
+ ],
+ "source": "",
+ "time_interval": "Weekly",
+ "timeseries": 0,
+ "timespan": "Last Month",
+ "type": "Donut",
+ "use_report_chart": 0,
+ "value_based_on": "",
+ "x_field": "severity",
+ "y_axis": [
+  {
+   "color": "",
+   "y_field": "count"
+  }
+ ]
+}

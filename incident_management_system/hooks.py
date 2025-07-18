@@ -5,6 +5,16 @@ app_description = "An Incident Management System designed for efficient reportin
 app_email = "bwkinyua01@gmail.com"
 app_license = "mit"
 
+
+
+
+fixtures = [
+    {
+    "dt": "Custom DocPerm"
+}
+]
+
+
 # Apps
 # ------------------
 
@@ -242,3 +252,11 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+
+
+#doc_events = {
+ #   "ToDo": {
+  #      "after_insert": "incident_management_system.config.to_do_override.todo_after_insert"
+   # }
+#}

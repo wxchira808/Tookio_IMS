@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-09 11:38:41.558488",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "update_date",
+  "updated_by",
+  "old_status",
+  "new_status",
+  "update_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "update_date",
+   "fieldtype": "Datetime",
+   "label": "Update Date"
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Link",
+   "label": "Updated By",
+   "options": "User"
+  },
+  {
+   "fieldname": "old_status",
+   "fieldtype": "Data",
+   "label": "Old Status"
+  },
+  {
+   "fieldname": "new_status",
+   "fieldtype": "Data",
+   "label": "New Status"
+  },
+  {
+   "fieldname": "update_notes",
+   "fieldtype": "Text",
+   "label": "Update Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-09 11:39:55.584250",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Update Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

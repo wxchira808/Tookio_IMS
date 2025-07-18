@@ -1,0 +1,375 @@
+{
+ "actions": [],
+ "autoname": "format:RA-{incident}-{###}",
+ "creation": "2025-07-09 00:53:21.902578",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_tab",
+  "basic_information_section",
+  "incident",
+  "assessment_date",
+  "assessment_type",
+  "assessment_status",
+  "risk_scoring_tab",
+  "likelihood",
+  "impact_severity",
+  "risk_score",
+  "risk_level",
+  "inherent_risk",
+  "resudual_risk",
+  "impact_categories_tab",
+  "financial_impact_rating",
+  "operational_impact_rating",
+  "regulatory_impact_rating",
+  "reputational_impact_rating",
+  "safety_impact_rating",
+  "environmental_impact_rating",
+  "customer_impact_rating",
+  "risk_details_tab",
+  "risk_description",
+  "potential_consequences",
+  "affected_stakeholders",
+  "risk_category",
+  "risk_owner",
+  "existing_controls_tab",
+  "existing_controls",
+  "control_effectiveness",
+  "control_gaps",
+  "monitoring_mechanisms",
+  "mitigation_measures_tab",
+  "immediate_actions",
+  "short_term_actions",
+  "long_term_actions",
+  "mitigation_owner",
+  "mitigation_date",
+  "mitigation_status",
+  "review_and_approval_tab",
+  "review_frequency",
+  "next_review_date",
+  "reviewed_by",
+  "review_notes",
+  "approved_by",
+  "approval_date",
+  "approval_comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "incident",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Incident",
+   "options": "Incident",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Assessment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessment_type",
+   "fieldtype": "Select",
+   "label": "Assessment Type",
+   "options": "\nInitial\nUpdated\nFinal",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "assessment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Assessment Status",
+   "options": "\nDraft\nCompleted\nApproved\nRejected"
+  },
+  {
+   "fieldname": "basic_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "risk_scoring_tab",
+   "fieldtype": "Tab Break",
+   "label": "Risk Scoring"
+  },
+  {
+   "fieldname": "likelihood",
+   "fieldtype": "Select",
+   "label": "Likelihood",
+   "options": "\n1 - Very Likely\n2 - Unlikely\n3 - Possible\n4 - Likely\n5 - Very Likely"
+  },
+  {
+   "fieldname": "impact_severity",
+   "fieldtype": "Select",
+   "label": "Impact Severity",
+   "options": "\n1 - Insignificant\n2 - Minor\n3 - Moderate\n4 - Major\n5 - Catastrophic"
+  },
+  {
+   "description": "Formula: Likelihood * Impact Severity",
+   "fieldname": "risk_score",
+   "fieldtype": "Int",
+   "label": "Risk Score",
+   "read_only": 1
+  },
+  {
+   "description": "Autocalculated",
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "\nVery Low\nLow\nMedium\nHigh\nVery High",
+   "read_only": 1
+  },
+  {
+   "description": "Risk Before Controls",
+   "fieldname": "inherent_risk",
+   "fieldtype": "Float",
+   "label": "Inherent Risk",
+   "precision": "2"
+  },
+  {
+   "description": "Risk After Controls",
+   "fieldname": "resudual_risk",
+   "fieldtype": "Float",
+   "label": "Resudual Risk",
+   "precision": "2"
+  },
+  {
+   "fieldname": "impact_categories_tab",
+   "fieldtype": "Tab Break",
+   "label": "Impact Categories"
+  },
+  {
+   "fieldname": "financial_impact_rating",
+   "fieldtype": "Select",
+   "label": "Financial Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "operational_impact_rating",
+   "fieldtype": "Select",
+   "label": "Operational Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "regulatory_impact_rating",
+   "fieldtype": "Select",
+   "label": "Regulatory Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "reputational_impact_rating",
+   "fieldtype": "Select",
+   "label": "Reputational Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "safety_impact_rating",
+   "fieldtype": "Select",
+   "label": "Safety Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "environmental_impact_rating",
+   "fieldtype": "Select",
+   "label": "Environmental Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "customer_impact_rating",
+   "fieldtype": "Select",
+   "label": "Customer Impact Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "risk_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Risk Details"
+  },
+  {
+   "fieldname": "risk_description",
+   "fieldtype": "Text Editor",
+   "label": "Risk Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "potential_consequences",
+   "fieldtype": "Text Editor",
+   "label": "Potential Consequences"
+  },
+  {
+   "fieldname": "affected_stakeholders",
+   "fieldtype": "Small Text",
+   "label": "Affected Stakeholders"
+  },
+  {
+   "fieldname": "risk_category",
+   "fieldtype": "Select",
+   "label": "Risk Category",
+   "options": "\nStrategic\nOperational\nFinancial\nCompliance\nReputational\nTechnical"
+  },
+  {
+   "fieldname": "risk_owner",
+   "fieldtype": "Link",
+   "label": "Risk Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "existing_controls_tab",
+   "fieldtype": "Tab Break",
+   "label": "Existing Controls"
+  },
+  {
+   "fieldname": "existing_controls",
+   "fieldtype": "Text Editor",
+   "label": "Existing Controls"
+  },
+  {
+   "fieldname": "control_effectiveness",
+   "fieldtype": "Select",
+   "label": "Control Effectiveness",
+   "options": "\nIneffective\nPartially Effective\nEffective\nVery Efffective"
+  },
+  {
+   "fieldname": "control_gaps",
+   "fieldtype": "Text Editor",
+   "label": "Control Gaps"
+  },
+  {
+   "fieldname": "monitoring_mechanisms",
+   "fieldtype": "Text Editor",
+   "label": "Monitoring Mechanisms"
+  },
+  {
+   "fieldname": "mitigation_measures_tab",
+   "fieldtype": "Tab Break",
+   "label": "Mitigation Measures"
+  },
+  {
+   "fieldname": "immediate_actions",
+   "fieldtype": "Text Editor",
+   "label": "Immediate Actions"
+  },
+  {
+   "fieldname": "short_term_actions",
+   "fieldtype": "Text Editor",
+   "label": "Short Term Actions"
+  },
+  {
+   "fieldname": "long_term_actions",
+   "fieldtype": "Text Editor",
+   "label": "Long Term Actions"
+  },
+  {
+   "fieldname": "mitigation_owner",
+   "fieldtype": "Link",
+   "label": "Mitigation Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "mitigation_date",
+   "fieldtype": "Date",
+   "label": "Mitigation Date"
+  },
+  {
+   "fieldname": "mitigation_status",
+   "fieldtype": "Select",
+   "label": "Mitigation Status",
+   "options": "\nNot Started\nIn Progress\nCompleted\nOverdue"
+  },
+  {
+   "fieldname": "review_and_approval_tab",
+   "fieldtype": "Tab Break",
+   "label": "Review And Approval"
+  },
+  {
+   "fieldname": "review_frequency",
+   "fieldtype": "Select",
+   "label": "Review Frequency",
+   "options": "\nWeekly\nMonthly\nQuarterly\nAnnually\nAs Needed"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "review_notes",
+   "fieldtype": "Text",
+   "label": "Review Notes"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval Comments"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-10 10:44:10.995868",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Risk Assessment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Yellow",
+   "title": "Draft"
+  },
+  {
+   "color": "Cyan",
+   "title": "Completed"
+  },
+  {
+   "color": "Green",
+   "title": "Approved"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  }
+ ]
+}

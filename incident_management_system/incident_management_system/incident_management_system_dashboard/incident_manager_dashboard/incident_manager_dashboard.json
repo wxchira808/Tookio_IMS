@@ -1,0 +1,29 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Resolved Incidents",
+   "width": "Half"
+  },
+  {
+   "chart": "Incidents By Status",
+   "width": "Half"
+  },
+  {
+   "chart": "Incidents By Severity",
+   "width": "Half"
+  }
+ ],
+ "creation": "2025-07-11 18:56:21.479265",
+ "dashboard_name": "Incident Manager Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2025-07-16 17:41:36.529897",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incident Manager Dashboard",
+ "owner": "Administrator"
+}
