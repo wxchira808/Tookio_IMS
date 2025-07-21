@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:INV-{incident}",
+ "creation": "2025-07-20 18:09:20.308967",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_vc3j",
+  "incident",
+  "root_cause_category",
+  "root_cause_description",
+  "investigation_findings",
+  "lessons_learned",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_vc3j",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "root_cause_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Root Cause Category",
+   "options": "\nHuman Error\nSystem Failure\nProcess Gap\nExternal Factor\nUnknown\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "root_cause_description",
+   "fieldtype": "Text Editor",
+   "label": "Root Cause Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "investigation_findings",
+   "fieldtype": "Text Editor",
+   "label": "Investigation Findings",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lessons_learned",
+   "fieldtype": "Text Editor",
+   "label": "Lessons Learned"
+  },
+  {
+   "fieldname": "incident",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Incident",
+   "options": "Incident",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Incident Investigation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-07-21 14:59:44.612406",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incident Investigation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

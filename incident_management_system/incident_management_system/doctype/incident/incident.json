@@ -1,13 +1,12 @@
 {
  "actions": [],
- "autoname": "format:INC-{YYYY}-{#####}",
+ "autoname": "Format:INC-{YYYY}-{MM}-{DD}-{###}",
  "creation": "2025-07-08 17:15:29.039696",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "incident_details_tab",
   "incident_details_section",
-  "title",
   "description",
   "categorization_section",
   "incident_type",
@@ -31,6 +30,7 @@
   "sla_breach_time",
   "investigation_tab",
   "investigation_section",
+  "investigation_id",
   "root_cause_category",
   "root_cause_description",
   "investigation_findings",
@@ -63,7 +63,8 @@
   "stakeholder_notification",
   "media_involvement",
   "route",
-  "published"
+  "published",
+  "amended_from"
  ],
  "fields": [
   {
@@ -72,29 +73,20 @@
    "label": "Incident Details"
   },
   {
-   "fieldname": "title",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Title",
-   "reqd": 1,
-   "set_only_once": 1
-  },
-  {
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "label": "Description",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "incident_type",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Incident Type",
    "options": "Incident Type",
    "permlevel": 2
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "severity",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -104,6 +96,7 @@
    "permlevel": 2
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "priority",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -113,13 +106,15 @@
    "permlevel": 2
   },
   {
-   "default": "Draft",
+   "allow_on_submit": 1,
+   "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Draft\nOpen\nInvestigating\nResolved\nClosed\nCancelled"
+   "options": "Draft\nOpen\nInvestigation\nResolved\nClosed\nCancelled"
   },
   {
    "fieldname": "time_and_location_section",
@@ -130,35 +125,30 @@
    "fieldname": "incident_date",
    "fieldtype": "Datetime",
    "label": "Incident Date",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "default": "now",
    "fieldname": "reported_date",
    "fieldtype": "Datetime",
    "label": "Reported Date",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "location",
    "fieldtype": "Text",
-   "label": "Location",
-   "set_only_once": 1
+   "label": "Location"
   },
   {
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Department",
-   "set_only_once": 1
+   "options": "Department"
   },
   {
    "fieldname": "affected_systems",
    "fieldtype": "Small Text",
-   "label": "Affected Systems",
-   "set_only_once": 1
+   "label": "Affected Systems"
   },
   {
    "fieldname": "incident_details_tab",
@@ -223,6 +213,7 @@
    "label": "Investigation"
   },
   {
+   "fetch_from": "investigation_id.root_cause_category",
    "fieldname": "root_cause_category",
    "fieldtype": "Select",
    "label": "Root Cause Category",
@@ -230,18 +221,21 @@
    "permlevel": 1
   },
   {
+   "fetch_from": "investigation_id.root_cause_description",
    "fieldname": "root_cause_description",
    "fieldtype": "Text Editor",
    "label": "Root Cause Description",
    "permlevel": 1
   },
   {
+   "fetch_from": "investigation_id.investigation_findings",
    "fieldname": "investigation_findings",
    "fieldtype": "Text Editor",
    "label": "Investigation Findings",
    "permlevel": 1
   },
   {
+   "fetch_from": "investigation_id.lessons_learned",
    "fieldname": "lessons_learned",
    "fieldtype": "Text Editor",
    "label": "Lessons Learned",
@@ -422,12 +416,31 @@
   {
    "fieldname": "published",
    "fieldtype": "Data",
-   "label": "Published"
+   "label": "Published",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Incident",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "investigation_id",
+   "fieldtype": "Link",
+   "label": "Investigation ID",
+   "options": "Incident Investigation",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "has_web_view": 1,
  "is_published_field": "published",
+ "is_submittable": 1,
  "links": [
   {
    "link_doctype": "Risk Assessment",
@@ -436,9 +449,17 @@
   {
    "link_doctype": "Action Item",
    "link_fieldname": "incident"
+  },
+  {
+   "link_doctype": "Incident Resolution",
+   "link_fieldname": "incident"
+  },
+  {
+   "link_doctype": "Incident Investigation",
+   "link_fieldname": "incident"
   }
  ],
- "modified": "2025-07-18 14:31:03.423155",
+ "modified": "2025-07-21 18:34:04.354116",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident",
@@ -459,7 +480,6 @@
   }
  ],
  "route": "incident",
- "search_fields": "severity,priority,status",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [
