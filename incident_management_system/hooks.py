@@ -11,11 +11,18 @@ app_license = "mit"
 fixtures = [
     {
     "dt": "Custom DocPerm"
-}
+},
+{
+        "dt": "Workspace",
+        "filters": [
+            ["name", "in", [
+                "Incident Manager","Incident Reporter","Incident Resolver"
+
+           ]]
+        ]
+    }
 ]
 
-# ...existing code...
-# ...existing code...
 
 doc_events = {
     "ToDo": {
