@@ -75,5 +75,6 @@
    "type": "DocType"
   }
  ],
- "title": "Incident Responder"
+ "title": "Incident Responder",
+ "type": "Module"
 }

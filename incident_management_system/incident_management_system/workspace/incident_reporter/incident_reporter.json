@@ -46,5 +46,6 @@
    "type": "DocType"
   }
  ],
- "title": "Incident Reporter"
+ "title": "Incident Reporter",
+ "type": "Module"
 }

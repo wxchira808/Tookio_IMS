@@ -129,5 +129,6 @@
    "type": "Dashboard"
   }
  ],
- "title": "Incident Manager"
+ "title": "Incident Manager",
+ "type": "Module"
 }
