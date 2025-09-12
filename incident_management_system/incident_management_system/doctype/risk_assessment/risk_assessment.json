@@ -64,8 +64,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Incident",
-   "options": "Incident",
-   "reqd": 1
+   "options": "Incident"
   },
   {
    "default": "Today",
@@ -332,7 +331,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-10 10:44:10.995868",
+ "modified": "2025-07-23 11:21:25.192584",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Risk Assessment",

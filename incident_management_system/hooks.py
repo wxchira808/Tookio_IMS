@@ -14,6 +14,16 @@ fixtures = [
 }
 ]
 
+# ...existing code...
+# ...existing code...
+
+doc_events = {
+    "ToDo": {
+        "on_update": "incident_management_system.utils.assign_to_override.assign_to_overrride"
+    }
+}
+
+#app_include_css = "/assets/incident_management_system/css/incident_management_system.css"
 
 # Apps
 # ------------------

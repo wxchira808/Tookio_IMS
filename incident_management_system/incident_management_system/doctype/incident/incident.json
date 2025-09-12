@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_events_in_timeline": 1,
  "autoname": "Format:INC-{YYYY}-{MM}-{DD}-{###}",
  "creation": "2025-07-08 17:15:29.039696",
  "doctype": "DocType",
@@ -7,8 +8,9 @@
  "field_order": [
   "incident_details_tab",
   "incident_details_section",
+  "title1",
   "description",
-  "categorization_section",
+  "attachments",
   "incident_type",
   "severity",
   "priority",
@@ -18,7 +20,6 @@
   "incident_date",
   "reported_date",
   "location",
-  "department",
   "affected_systems",
   "assignment_and_escalation_tab",
   "assignment_and_escalation_section",
@@ -37,6 +38,7 @@
   "lessons_learned",
   "resolution_tab",
   "resolution_section",
+  "resolution_id",
   "resolution_summary",
   "corrective_actions",
   "preventive_actions",
@@ -76,14 +78,16 @@
    "fieldname": "description",
    "fieldtype": "Text Editor",
    "label": "Description",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "incident_type",
    "fieldtype": "Link",
    "label": "Incident Type",
    "options": "Incident Type",
-   "permlevel": 2
+   "reqd": 1
   },
   {
    "allow_on_submit": 1,
@@ -93,7 +97,7 @@
    "in_standard_filter": 1,
    "label": "Severity",
    "options": "\nCritical\nHigh\nMedium\nLow",
-   "permlevel": 2
+   "reqd": 1
   },
   {
    "allow_on_submit": 1,
@@ -103,14 +107,14 @@
    "in_standard_filter": 1,
    "label": "Priority",
    "options": "\nUrgent\nHigh\nNormal\nLow",
-   "permlevel": 2
+   "reqd": 1
   },
   {
    "allow_on_submit": 1,
-   "default": "Open",
+   "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
-   "hidden": 1,
+   "ignore_user_permissions": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
@@ -125,25 +129,23 @@
    "fieldname": "incident_date",
    "fieldtype": "Datetime",
    "label": "Incident Date",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "default": "now",
    "fieldname": "reported_date",
    "fieldtype": "Datetime",
    "label": "Reported Date",
-   "reqd": 1
+   "read_only": 1,
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "location",
    "fieldtype": "Text",
-   "label": "Location"
-  },
-  {
-   "fieldname": "department",
-   "fieldtype": "Link",
-   "label": "Department",
-   "options": "Department"
+   "label": "Location",
+   "set_only_once": 1
   },
   {
    "fieldname": "affected_systems",
@@ -213,38 +215,47 @@
    "label": "Investigation"
   },
   {
+   "allow_on_submit": 1,
    "fetch_from": "investigation_id.root_cause_category",
    "fieldname": "root_cause_category",
    "fieldtype": "Select",
    "label": "Root Cause Category",
    "options": "\nHuman Error\nSystem Failure\nProcess Gap\nExternal Factor\nUnknown\nOther",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fetch_from": "investigation_id.root_cause_description",
    "fieldname": "root_cause_description",
    "fieldtype": "Text Editor",
    "label": "Root Cause Description",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fetch_from": "investigation_id.investigation_findings",
    "fieldname": "investigation_findings",
    "fieldtype": "Text Editor",
    "label": "Investigation Findings",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fetch_from": "investigation_id.lessons_learned",
    "fieldname": "lessons_learned",
    "fieldtype": "Text Editor",
    "label": "Lessons Learned",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
    "fieldname": "resolution_tab",
    "fieldtype": "Tab Break",
-   "label": "Resolution"
+   "label": "Resolution",
+   "read_only": 1
   },
   {
    "fieldname": "resolution_section",
@@ -252,33 +263,46 @@
    "label": "Resolution"
   },
   {
+   "allow_on_submit": 1,
+   "fetch_from": "resolution_id.resolution_summary",
    "fieldname": "resolution_summary",
    "fieldtype": "Text Editor",
    "label": "Resolution Summary",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
+   "fetch_from": "resolution_id.corrective_actions",
    "fieldname": "corrective_actions",
    "fieldtype": "Text Editor",
    "label": "Corrective Actions",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
+   "fetch_from": "resolution_id.preventive_actions",
    "fieldname": "preventive_actions",
    "fieldtype": "Text Editor",
    "label": "Preventive Actions",
-   "permlevel": 1
+   "permlevel": 1,
+   "read_only": 1
   },
   {
+   "allow_on_submit": 1,
+   "fetch_from": "resolution_id.resolution_date",
    "fieldname": "resolution_date",
    "fieldtype": "Datetime",
    "label": "Resolution Date",
-   "permlevel": 2
+   "permlevel": 2,
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "verification_required",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Verification Required",
    "permlevel": 2
   },
@@ -321,6 +345,7 @@
   {
    "fieldname": "financial_impact",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Financial Impact",
    "permlevel": 2
   },
@@ -394,13 +419,9 @@
    "default": "0",
    "fieldname": "media_involvement",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Media Involvement",
    "permlevel": 2
-  },
-  {
-   "fieldname": "categorization_section",
-   "fieldtype": "Section Break",
-   "label": "Categorization"
   },
   {
    "depends_on": "eval: doc.verification_required ==1",
@@ -430,11 +451,34 @@
    "search_index": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "investigation_id",
    "fieldtype": "Link",
    "label": "Investigation ID",
    "options": "Incident Investigation",
    "read_only": 1
+  },
+  {
+   "fieldname": "title1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "resolution_id",
+   "fieldtype": "Link",
+   "label": "Resolution ID",
+   "options": "Incident Resolution",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments",
+   "make_attachment_public": 1
   }
  ],
  "grid_page_length": 50,
@@ -443,11 +487,7 @@
  "is_submittable": 1,
  "links": [
   {
-   "link_doctype": "Risk Assessment",
-   "link_fieldname": "incident"
-  },
-  {
-   "link_doctype": "Action Item",
+   "link_doctype": "Incident Investigation",
    "link_fieldname": "incident"
   },
   {
@@ -455,11 +495,11 @@
    "link_fieldname": "incident"
   },
   {
-   "link_doctype": "Incident Investigation",
+   "link_doctype": "Risk Assessment",
    "link_fieldname": "incident"
   }
  ],
- "modified": "2025-07-21 18:34:04.354116",
+ "modified": "2025-09-12 01:29:12.338950",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident",
@@ -480,6 +520,7 @@
   }
  ],
  "route": "incident",
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [
@@ -490,14 +531,6 @@
   {
    "color": "Yellow",
    "title": "Open"
-  },
-  {
-   "color": "Blue",
-   "title": "In Progress"
-  },
-  {
-   "color": "Orange",
-   "title": "Pending"
   },
   {
    "color": "Green",
@@ -512,12 +545,8 @@
    "title": "Cancelled"
   },
   {
-   "color": "Red",
-   "title": "Critical"
-  },
-  {
-   "color": "Pink",
-   "title": "High"
+   "color": "Blue",
+   "title": "Investigation"
   }
  ],
  "track_changes": 1

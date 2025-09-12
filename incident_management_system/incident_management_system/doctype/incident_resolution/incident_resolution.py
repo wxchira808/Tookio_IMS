@@ -5,7 +5,14 @@ import frappe
 from frappe.model.document import Document
 
 class IncidentResolution(Document):
+    def validate(self):
+        if not frappe.db.exists("Incident Investigation", {"incident": self.incident, "docstatus": 1}):
+            frappe.throw("Cannot create Resolution without a submitted Investigation")
+
     def on_submit(self):
+        # Update parent incident status when resolution is submitted
         if self.incident:
-            frappe.db.set_value("Incident", self.incident, "status", "Resolved")
-            frappe.msgprint(f"Incident {self.incident} marked as Resolved.")
+            incident = frappe.get_doc("Incident", self.incident)
+            incident.status = "Resolved"
+            incident.resolution_id = self.name
+            incident.save()

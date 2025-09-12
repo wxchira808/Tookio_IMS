@@ -1,0 +1,133 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"7YhsemaQ5S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"5Nw-_EG_dv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"oBfNXeF47t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Currently Investigating\",\"col\":4}},{\"id\":\"mnUb0reZ0-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"D7ZS81zaLh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Manager Dashboard\",\"col\":3}},{\"id\":\"aVgKv7-ZZm\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"VhLPqqGAiE\",\"type\":\"card\",\"data\":{\"card_name\":\"INCIDENTS\",\"col\":4}},{\"id\":\"nApQ_sjti1\",\"type\":\"card\",\"data\":{\"card_name\":\"Setups\",\"col\":4}}]",
+ "creation": "2025-07-09 00:45:32.703567",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "permission",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Incident Manager",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setups",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Type",
+   "link_count": 0,
+   "link_to": "Incident Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "INCIDENTS",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incidents",
+   "link_count": 0,
+   "link_to": "Incident",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Investigation",
+   "link_count": 0,
+   "link_to": "Incident Investigation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Resolution",
+   "link_count": 0,
+   "link_to": "Incident Resolution",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Action Item",
+   "link_count": 0,
+   "link_to": "Action Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Assessment",
+   "link_count": 0,
+   "link_to": "Risk Assessment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-07-23 11:58:00.306166",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incident Manager",
+ "number_cards": [
+  {
+   "label": "Open Incidents",
+   "number_card_name": "Open Incidents"
+  },
+  {
+   "label": "Currently Investigating",
+   "number_card_name": "Currently Investigating"
+  },
+  {
+   "label": "Resolved Incidents",
+   "number_card_name": "Resolved Incidents"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Incident Manager"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Incident Manager Dashboard",
+   "link_to": "Incident Manager Dashboard",
+   "type": "Dashboard"
+  }
+ ],
+ "title": "Incident Manager"
+}

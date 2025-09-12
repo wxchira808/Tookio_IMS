@@ -68,9 +68,8 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2025-07-21 14:59:44.612406",
+ "modified": "2025-07-23 11:04:47.052086",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Investigation",
@@ -87,11 +86,11 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

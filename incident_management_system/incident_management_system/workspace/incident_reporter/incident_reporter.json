@@ -11,12 +11,12 @@
  "idx": 0,
  "indicator_color": "",
  "is_hidden": 0,
- "label": "Reporter",
+ "label": "Incident Reporter",
  "links": [],
- "modified": "2025-07-18 14:50:29.210919",
+ "modified": "2025-07-23 11:29:30.497740",
  "modified_by": "Administrator",
  "module": "Incident Management System",
- "name": "Reporter",
+ "name": "Incident Reporter",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -46,5 +46,5 @@
    "type": "DocType"
   }
  ],
- "title": "Reporter"
+ "title": "Incident Reporter"
 }
