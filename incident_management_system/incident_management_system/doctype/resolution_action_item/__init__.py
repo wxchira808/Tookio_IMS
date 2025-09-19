@@ -1,0 +1,1 @@
+# Resolution Action Item DocType

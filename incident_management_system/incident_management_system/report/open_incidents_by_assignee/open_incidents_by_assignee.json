@@ -1,0 +1,9 @@
+{
+ "doctype": "Report",
+ "name": "Open Incidents by Assignee",
+ "report_name": "Open Incidents by Assignee",
+ "is_standard": "No",
+ "report_type": "Script Report",
+ "ref_doctype": "Incident",
+ "report_script": "def execute(filters=None):\n    if not filters:\n        filters = {}\n    columns = [\n        {\"fieldname\":\"assigned_responder\",\"label\":_(\"Assigned To\"),\"fieldtype\":\"Link\",\"options\":\"User\",\"width\":160},\n        {\"fieldname\":\"open_count\",\"label\":_(\"Open Incidents\"),\"fieldtype\":\"Int\",\"width\":120}\n    ]\n\n    data = frappe.db.sql(\"\"\"\n        SELECT assigned_responder, COUNT(*) as open_count\n        FROM `tabIncident`\n        WHERE status NOT IN ('Resolved','Closed','Cancelled')\n        GROUP BY assigned_responder\n        ORDER BY open_count DESC\n    \"\"\", as_dict=1)\n\n    return columns, data"
+}

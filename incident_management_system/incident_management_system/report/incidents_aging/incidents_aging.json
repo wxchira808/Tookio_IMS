@@ -1,0 +1,9 @@
+{
+ "doctype": "Report",
+ "name": "Incident Aging",
+ "report_name": "Incident Aging",
+ "is_standard": "No",
+ "report_type": "Script Report",
+ "ref_doctype": "Incident",
+ "report_script": "def execute(filters=None):\n    if not filters:\n        filters = {}\n\n    columns = [\n        {\"fieldname\":\"name\",\"label\":_(\"Incident\"),\"fieldtype\":\"Link\",\"options\":\"Incident\",\"width\":140},\n        {\"fieldname\":\"title\",\"label\":_(\"Title\"),\"fieldtype\":\"Data\",\"width\":200},\n        {\"fieldname\":\"assigned_responder\",\"label\":_(\"Assigned To\"),\"fieldtype\":\"Link\",\"options\":\"User\",\"width\":140},\n        {\"fieldname\":\"status\",\"label\":_(\"Status\"),\"fieldtype\":\"Data\",\"width\":100},\n        {\"fieldname\":\"days_open\",\"label\":_(\"Days Open\"),\"fieldtype\":\"Int\",\"width\":100}\n    ]\n\n    data = frappe.db.sql(\"\"\"\n        SELECT i.name, i.title1 as title, i.assigned_responder, i.status,\n            DATEDIFF(CURDATE(), DATE(i.incident_date)) as days_open\n        FROM `tabIncident` i\n        WHERE i.status NOT IN ('Resolved','Closed','Cancelled')\n        ORDER BY days_open DESC\n    \"\"\", as_dict=1)\n\n    return columns, data"
+}

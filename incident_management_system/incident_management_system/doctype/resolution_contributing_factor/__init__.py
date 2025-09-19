@@ -1,0 +1,1 @@
+# Resolution Contributing Factor DocType

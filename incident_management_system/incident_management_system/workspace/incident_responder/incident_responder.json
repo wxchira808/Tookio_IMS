@@ -1,38 +1,131 @@
 {
- "charts": [],
- "content": "[{\"id\":\"ongaB_UhPh\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"RE3qDKDPaR\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"8h1HDe598t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Currently Investigating\",\"col\":4}},{\"id\":\"UsCl1rOqTH\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"FofEFeffDC\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"HPTdzn0Fb5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incidents\",\"col\":3}},{\"id\":\"Oqs5ISP4cQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Investigation\",\"col\":3}},{\"id\":\"m8yIE2PUdg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Resolution\",\"col\":3}},{\"id\":\"xssUKfuTfF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Action Items\",\"col\":3}}]",
- "creation": "2025-07-18 11:39:09.702057",
+ "charts": [
+  {
+   "chart_name": "Incidents By Severity",
+   "label": "Incidents By Severity"
+  }
+ ],
+ "content": "[{\"id\":\"responder_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Responder Dashboard</span>\",\"col\":12}},{\"id\":\"responder_kpi1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":3}},{\"id\":\"responder_kpi2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Investigations\",\"col\":3}},{\"id\":\"responder_kpi3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Action Items\",\"col\":3}},{\"id\":\"responder_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"responder_chart\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Incidents By Severity\",\"col\":8}},{\"id\":\"responder_incidents\",\"type\":\"card\",\"data\":{\"card_name\":\"ASSIGNED INCIDENTS\",\"col\":4}},{\"id\":\"responder_investigations\",\"type\":\"card\",\"data\":{\"card_name\":\"INVESTIGATIONS\",\"col\":4}}]",
+ "creation": "2025-09-18 21:13:24.472762",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "edit",
+ "icon": "users",
  "idx": 0,
- "indicator_color": "",
+ "indicator_color": "green",
  "is_hidden": 0,
  "label": "Incident Responder",
- "links": [],
- "modified": "2025-07-23 11:29:21.863385",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ASSIGNED INCIDENTS",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident",
+   "link_count": 0,
+   "link_to": "Incident",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Resolution",
+   "link_count": 0,
+   "link_to": "Incident Resolution",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Action Item",
+   "link_count": 0,
+   "link_to": "Action Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "INVESTIGATIONS",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Investigation",
+   "link_count": 0,
+   "link_to": "Incident Investigation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Investigation Evidence",
+   "link_count": 0,
+   "link_to": "Investigation Evidence",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Investigation Witness",
+   "link_count": 0,
+   "link_to": "Investigation Witness",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Assessment",
+   "link_count": 0,
+   "link_to": "Risk Assessment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-09-18 21:18:04.169424",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Responder",
  "number_cards": [
   {
-   "label": "Resolved Incidents",
-   "number_card_name": "Resolved Incidents"
+   "number_card_name": "Reported Incidents"
   },
   {
-   "label": "Open Incidents",
-   "number_card_name": "Open Incidents"
+   "number_card_name": "Active Investigations"
   },
   {
-   "label": "Currently Investigating",
    "number_card_name": "Currently Investigating"
+  },
+  {
+   "number_card_name": "High Priority Incidents"
   }
  ],
  "owner": "Administrator",
- "parent_page": "",
  "public": 1,
  "quick_lists": [],
  "roles": [
@@ -40,41 +133,7 @@
    "role": "Incident Responder"
   }
  ],
- "sequence_id": 2.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Incidents",
-   "link_to": "Incident",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Incident Investigation",
-   "link_to": "Incident Investigation",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Action Items",
-   "link_to": "Action Item",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Incident Resolution",
-   "link_to": "Incident Resolution",
-   "stats_filter": "[]",
-   "type": "DocType"
-  }
- ],
- "title": "Incident Responder",
- "type": "Workspace"
+ "sequence_id": 3.0,
+ "shortcuts": [],
+ "title": "Incident Responder"
 }

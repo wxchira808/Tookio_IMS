@@ -6,18 +6,228 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_vc3j",
+  "investigation_details_tab",
+  "basic_information_section",
   "incident",
+  "investigation_type",
+  "investigation_priority",
+  "investigation_status",
+  "start_date",
+  "target_completion_date",
+  "actual_completion_date",
+  "column_break_basic",
+  "investigation_method",
+  "investigation_scope",
+  "investigation_objective",
+  "preliminary_assessment",
+  "evidence_and_timeline_tab",
+  "evidence_collection_section",
+  "evidence_collected",
+  "evidence_chain_of_custody",
+  "key_witnesses",
+  "column_break_evidence",
+  "timeline_section",
+  "investigation_timeline",
+  "key_milestones",
+  "chronology_of_events",
+  "analysis_and_findings_tab",
+  "root_cause_section", 
   "root_cause_category",
   "root_cause_description",
+  "contributing_factors",
+  "column_break_analysis",
+  "findings_section",
   "investigation_findings",
+  "immediate_causes",
+  "underlying_causes",
+  "systemic_issues",
   "lessons_learned",
+  "recommendations_and_actions_tab",
+  "recommendations_section",
+  "investigation_recommendations",
+  "preventive_measures",
+  "corrective_actions_required",
+  "column_break_recommendations",
+  "action_items_section",
+  "linked_action_items",
+  "follow_up_actions",
+  "implementation_timeline",
+  "review_and_approval_tab",
+  "quality_assurance_section",
+  "investigation_quality_rating",
+  "peer_review_required",
+  "peer_reviewer",
+  "peer_review_date",
+  "peer_review_comments",
+  "column_break_review",
+  "approval_section",
+  "investigation_approved",
+  "approved_by",
+  "approval_date",
+  "approval_comments",
+  "final_review_notes",
+  "reporting_and_documentation_tab",
+  "reporting_section",
+  "investigation_report",
+  "executive_summary",
+  "stakeholder_communication",
+  "column_break_reporting",
+  "documentation_section",
+  "supporting_documents",
+  "regulatory_notifications",
+  "communication_log",
   "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "section_break_vc3j",
-   "fieldtype": "Section Break"
+   "fieldname": "investigation_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Investigation Details"
+  },
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "incident",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Incident",
+   "options": "Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "investigation_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Investigation Type",
+   "options": "\nPreliminary\nDetailed\nFormal\nInternal\nExternal\nRegulatory",
+   "reqd": 1
+  },
+  {
+   "fieldname": "investigation_priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Investigation Priority",
+   "options": "\nCritical\nHigh\nMedium\nLow",
+   "reqd": 1
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "investigation_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Investigation Status",
+   "options": "\nNot Started\nIn Progress\nEvidence Collection\nAnalysis Phase\nReport Writing\nReview Pending\nCompleted\nClosed"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_completion_date",
+   "fieldtype": "Date",
+   "label": "Target Completion Date"
+  },
+  {
+   "fieldname": "actual_completion_date",
+   "fieldtype": "Date",
+   "label": "Actual Completion Date"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investigation_method",
+   "fieldtype": "Select",
+   "label": "Investigation Method",
+   "options": "\nInterview Based\nDocument Review\nTechnical Analysis\nForensic Analysis\nSite Inspection\nCombined Approach"
+  },
+  {
+   "fieldname": "investigation_scope",
+   "fieldtype": "Small Text",
+   "label": "Investigation Scope"
+  },
+  {
+   "fieldname": "investigation_objective",
+   "fieldtype": "Small Text",
+   "label": "Investigation Objective"
+  },
+  {
+   "fieldname": "preliminary_assessment",
+   "fieldtype": "Text Editor",
+   "label": "Preliminary Assessment"
+  },
+  {
+   "fieldname": "evidence_and_timeline_tab",
+   "fieldtype": "Tab Break",
+   "label": "Evidence & Timeline"
+  },
+  {
+   "fieldname": "evidence_collection_section",
+   "fieldtype": "Section Break",
+   "label": "Evidence Collection"
+  },
+  {
+   "fieldname": "evidence_collected",
+   "fieldtype": "Table",
+   "label": "Evidence Collected",
+   "options": "Investigation Evidence"
+  },
+  {
+   "fieldname": "evidence_chain_of_custody",
+   "fieldtype": "Text Editor",
+   "label": "Chain of Custody Notes"
+  },
+  {
+   "fieldname": "key_witnesses",
+   "fieldtype": "Table",
+   "label": "Key Witnesses",
+   "options": "Investigation Witness"
+  },
+  {
+   "fieldname": "column_break_evidence",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "timeline_section",
+   "fieldtype": "Section Break",
+   "label": "Investigation Timeline"
+  },
+  {
+   "fieldname": "investigation_timeline",
+   "fieldtype": "Table",
+   "label": "Timeline Events",
+   "options": "Investigation Timeline"
+  },
+  {
+   "fieldname": "key_milestones",
+   "fieldtype": "Text Editor",
+   "label": "Key Milestones"
+  },
+  {
+   "fieldname": "chronology_of_events",
+   "fieldtype": "Text Editor",
+   "label": "Chronology of Events"
+  },
+  {
+   "fieldname": "analysis_and_findings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Analysis & Findings"
+  },
+  {
+   "fieldname": "root_cause_section",
+   "fieldtype": "Section Break",
+   "label": "Root Cause Analysis"
   },
   {
    "fieldname": "root_cause_category",
@@ -35,10 +245,40 @@
    "reqd": 1
   },
   {
+   "fieldname": "contributing_factors",
+   "fieldtype": "Table",
+   "label": "Contributing Factors",
+   "options": "Contributing Factor"
+  },
+  {
+   "fieldname": "column_break_analysis",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "findings_section",
+   "fieldtype": "Section Break",
+   "label": "Investigation Findings"
+  },
+  {
    "fieldname": "investigation_findings",
    "fieldtype": "Text Editor",
    "label": "Investigation Findings",
    "reqd": 1
+  },
+  {
+   "fieldname": "immediate_causes",
+   "fieldtype": "Text Editor",
+   "label": "Immediate Causes"
+  },
+  {
+   "fieldname": "underlying_causes",
+   "fieldtype": "Text Editor",
+   "label": "Underlying Causes"
+  },
+  {
+   "fieldname": "systemic_issues",
+   "fieldtype": "Text Editor",
+   "label": "Systemic Issues Identified"
   },
   {
    "fieldname": "lessons_learned",
@@ -46,14 +286,185 @@
    "label": "Lessons Learned"
   },
   {
-   "fieldname": "incident",
+   "fieldname": "recommendations_and_actions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Recommendations & Actions"
+  },
+  {
+   "fieldname": "recommendations_section",
+   "fieldtype": "Section Break",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "investigation_recommendations",
+   "fieldtype": "Text Editor",
+   "label": "Investigation Recommendations"
+  },
+  {
+   "fieldname": "preventive_measures",
+   "fieldtype": "Text Editor",
+   "label": "Preventive Measures"
+  },
+  {
+   "fieldname": "corrective_actions_required",
+   "fieldtype": "Text Editor",
+   "label": "Corrective Actions Required"
+  },
+  {
+   "fieldname": "column_break_recommendations",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "action_items_section",
+   "fieldtype": "Section Break",
+   "label": "Action Items"
+  },
+  {
+   "fieldname": "linked_action_items",
+   "fieldtype": "Table",
+   "label": "Linked Action Items",
+   "options": "Investigation Action Item"
+  },
+  {
+   "fieldname": "follow_up_actions",
+   "fieldtype": "Text Editor",
+   "label": "Follow-up Actions"
+  },
+  {
+   "fieldname": "implementation_timeline",
+   "fieldtype": "Text Editor",
+   "label": "Implementation Timeline"
+  },
+  {
+   "fieldname": "review_and_approval_tab",
+   "fieldtype": "Tab Break",
+   "label": "Review & Approval"
+  },
+  {
+   "fieldname": "quality_assurance_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Assurance"
+  },
+  {
+   "fieldname": "investigation_quality_rating",
+   "fieldtype": "Select",
+   "label": "Investigation Quality Rating",
+   "options": "\nExcellent\nGood\nSatisfactory\nNeeds Improvement\nPoor"
+  },
+  {
+   "default": "0",
+   "fieldname": "peer_review_required",
+   "fieldtype": "Check",
+   "label": "Peer Review Required"
+  },
+  {
+   "depends_on": "peer_review_required",
+   "fieldname": "peer_reviewer",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Incident",
-   "options": "Incident",
-   "read_only": 1,
-   "reqd": 1
+   "label": "Peer Reviewer",
+   "options": "User"
+  },
+  {
+   "depends_on": "peer_review_required",
+   "fieldname": "peer_review_date",
+   "fieldtype": "Date",
+   "label": "Peer Review Date"
+  },
+  {
+   "depends_on": "peer_review_required",
+   "fieldname": "peer_review_comments",
+   "fieldtype": "Text Editor",
+   "label": "Peer Review Comments"
+  },
+  {
+   "fieldname": "column_break_review",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "default": "0",
+   "fieldname": "investigation_approved",
+   "fieldtype": "Check",
+   "label": "Investigation Approved"
+  },
+  {
+   "depends_on": "investigation_approved",
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "depends_on": "investigation_approved",
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "depends_on": "investigation_approved",
+   "fieldname": "approval_comments",
+   "fieldtype": "Text Editor",
+   "label": "Approval Comments"
+  },
+  {
+   "fieldname": "final_review_notes",
+   "fieldtype": "Text Editor",
+   "label": "Final Review Notes"
+  },
+  {
+   "fieldname": "reporting_and_documentation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reporting & Documentation"
+  },
+  {
+   "fieldname": "reporting_section",
+   "fieldtype": "Section Break",
+   "label": "Reporting"
+  },
+  {
+   "fieldname": "investigation_report",
+   "fieldtype": "Text Editor",
+   "label": "Investigation Report"
+  },
+  {
+   "fieldname": "executive_summary",
+   "fieldtype": "Text Editor",
+   "label": "Executive Summary"
+  },
+  {
+   "fieldname": "stakeholder_communication",
+   "fieldtype": "Text Editor",
+   "label": "Stakeholder Communication"
+  },
+  {
+   "fieldname": "column_break_reporting",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "documentation_section",
+   "fieldtype": "Section Break",
+   "label": "Documentation"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Table",
+   "label": "Supporting Documents",
+   "options": "Investigation Document"
+  },
+  {
+   "fieldname": "regulatory_notifications",
+   "fieldtype": "Text Editor",
+   "label": "Regulatory Notifications"
+  },
+  {
+   "fieldname": "communication_log",
+   "fieldtype": "Table",
+   "label": "Communication Log",
+   "options": "Investigation Communication"
   },
   {
    "fieldname": "amended_from",
@@ -68,8 +479,9 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-07-23 11:04:47.052086",
+ "modified": "2025-09-16 01:46:14.888877",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Investigation",
@@ -89,6 +501,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

@@ -1,0 +1,1 @@
+# Resolution Notification DocType

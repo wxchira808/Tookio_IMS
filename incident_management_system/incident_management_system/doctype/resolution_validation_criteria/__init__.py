@@ -1,0 +1,1 @@
+# Resolution Validation Criteria DocType

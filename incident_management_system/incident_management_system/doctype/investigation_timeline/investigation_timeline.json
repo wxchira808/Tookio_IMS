@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "creation": "2025-09-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "event_date",
+  "event_time",
+  "event_description",
+  "event_type",
+  "milestone_flag",
+  "responsible_party",
+  "event_outcome"
+ ],
+ "fields": [
+  {
+   "fieldname": "event_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Event Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Event Time"
+  },
+  {
+   "fieldname": "event_description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Event Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "label": "Event Type",
+   "options": "\nInvestigation Started\nEvidence Collected\nInterview Conducted\nAnalysis Completed\nReport Drafted\nReview Completed\nMilestone Reached\nOther"
+  },
+  {
+   "default": "0",
+   "fieldname": "milestone_flag",
+   "fieldtype": "Check",
+   "label": "Key Milestone"
+  },
+  {
+   "fieldname": "responsible_party",
+   "fieldtype": "Link",
+   "label": "Responsible Party",
+   "options": "User"
+  },
+  {
+   "fieldname": "event_outcome",
+   "fieldtype": "Small Text",
+   "label": "Event Outcome"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Investigation Timeline",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,56 @@
+<div class="print-format">
+  <style>
+    .h{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #333;padding-bottom:10px;margin-bottom:16px}
+    .logo{max-height:60px}
+    .section{margin-bottom:16px}
+    .section h3{margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:4px}
+    .k{font-weight:600}
+    .v{color:#111}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid #ddd;padding:8px;text-align:left}
+  </style>
+
+  <div class="h">
+    <div>
+      <img class="logo" src="{{ doc.company_logo or '/assets/erpnext/images/erpnext-logo.png' }}" />
+      <div><strong>Risk Assessment</strong></div>
+    </div>
+    <div style="text-align:right">
+      <div><strong>{{ doc.name }}</strong></div>
+      <div>Incident: {{ doc.incident }}</div>
+      <div>Risk Level: {{ doc.risk_level }}</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Assessment</h3>
+    <div><span class="k">Business Impact:</span> <span class="v">{{ doc.business_impact }}</span></div>
+    <div><span class="k">Estimated Downtime:</span> <span class="v">{{ doc.estimated_downtime }}</span></div>
+    <div style="margin-top:8px"><span class="k">Financial Impact:</span>
+      <div class="v">{{ doc.financial_impact }}</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Controls & Mitigations</h3>
+    <div class="v">{{ doc.controls }}
+      {% if doc.mitigation_actions %}
+      <table class="table" style="margin-top:8px">
+        <thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead>
+        <tbody>
+          {% for a in doc.mitigation_actions %}
+          <tr>
+            <td>{{ a.action }}</td>
+            <td>{{ a.owner }}</td>
+            <td>{{ a.due_date }}</td>
+            <td>{{ a.status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+  </div>
+
+  <div style="font-size:12px;color:#666">Generated on {{ frappe.utils.formatdate(frappe.utils.nowdate()) }}</div>
+</div>

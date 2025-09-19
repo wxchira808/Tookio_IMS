@@ -10,15 +10,17 @@ app_license = "mit"
 
 fixtures = [
     {
-    "dt": "Custom DocPerm"
-},
-{
+        "dt": "Custom DocPerm"
+    },
+    {
         "dt": "Workspace",
         "filters": [
             ["name", "in", [
-                "Incident Manager","Incident Reporter","Incident Resolver"
-
-           ]]
+                "Incident Manager",
+                "Incident Reporter", 
+                "Incident Responder",
+                "Tookio IMS"
+            ]]
         ]
     }
 ]

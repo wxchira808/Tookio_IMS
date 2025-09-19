@@ -1,0 +1,9 @@
+{
+ "doctype": "Report",
+ "name": "Monthly Trends",
+ "report_name": "Monthly Trends",
+ "is_standard": "No",
+ "report_type": "Script Report",
+ "ref_doctype": "Incident",
+ "report_script": "def execute(filters=None):\n    if not filters:\n        filters = {}\n\n    columns = [\n        {\"fieldname\":\"period\",\"label\":_(\"Period\"),\"fieldtype\":\"Data\",\"width\":120},\n        {\"fieldname\":\"total_incidents\",\"label\":_(\"Total Incidents\"),\"fieldtype\":\"Int\",\"width\":120},\n        {\"fieldname\":\"resolved\",\"label\":_(\"Resolved\"),\"fieldtype\":\"Int\",\"width\":100},\n        {\"fieldname\":\"open\",\"label\":_(\"Open\"),\"fieldtype\":\"Int\",\"width\":100}\n    ]\n\n    data = frappe.db.sql(\"\"\"\n        SELECT DATE_FORMAT(incident.incident_date, '%Y-%m') as period,\n            COUNT(*) as total_incidents,\n            SUM(CASE WHEN incident.status IN ('Resolved','Closed') THEN 1 ELSE 0 END) as resolved,\n            SUM(CASE WHEN incident.status NOT IN ('Resolved','Closed') THEN 1 ELSE 0 END) as open\n        FROM `tabIncident` incident\n        WHERE incident.incident_date IS NOT NULL\n        GROUP BY DATE_FORMAT(incident.incident_date, '%Y-%m')\n        ORDER BY DATE_FORMAT(incident.incident_date, '%Y-%m') DESC\n        LIMIT 12\n    \"\"\", as_dict=1)\n\n    return columns, data"
+}

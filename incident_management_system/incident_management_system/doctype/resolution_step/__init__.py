@@ -1,0 +1,1 @@
+# Resolution Step DocType

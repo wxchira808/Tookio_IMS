@@ -1,0 +1,1 @@
+# Resolution Document DocType

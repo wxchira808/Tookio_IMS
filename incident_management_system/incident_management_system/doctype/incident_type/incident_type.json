@@ -175,12 +175,11 @@
    "label": "Default Assigned To",
    "options": "User"
   },
-  {
-   "fieldname": "default_department",
-   "fieldtype": "Link",
-   "label": "Default Department",
-   "options": "Department"
-  },
+    {
+     "fieldname": "default_department",
+     "fieldtype": "Data",
+     "label": "Default Department"
+    },
   {
    "fieldname": "assignment_rule",
    "fieldtype": "Select",

@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "creation": "2025-09-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "witness_name",
+  "witness_role",
+  "witness_department",
+  "contact_information",
+  "interview_date",
+  "interview_method",
+  "witness_statement",
+  "statement_verified"
+ ],
+ "fields": [
+  {
+   "fieldname": "witness_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Witness Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "witness_role",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Role/Position"
+  },
+    {
+     "fieldname": "witness_department",
+     "fieldtype": "Data",
+     "label": "Department"
+    },
+  {
+   "fieldname": "contact_information",
+   "fieldtype": "Small Text",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "interview_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Interview Date"
+  },
+  {
+   "fieldname": "interview_method",
+   "fieldtype": "Select",
+   "label": "Interview Method",
+   "options": "\nIn Person\nPhone\nVideo Call\nEmail\nWritten Statement"
+  },
+  {
+   "fieldname": "witness_statement",
+   "fieldtype": "Text Editor",
+   "label": "Witness Statement"
+  },
+  {
+   "default": "0",
+   "fieldname": "statement_verified",
+   "fieldtype": "Check",
+   "label": "Statement Verified"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Investigation Witness",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

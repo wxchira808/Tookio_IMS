@@ -51,7 +51,8 @@
   "review_notes",
   "approved_by",
   "approval_date",
-  "approval_comments"
+  "approval_comments",
+  "amended_from"
  ],
  "fields": [
   {
@@ -64,7 +65,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Incident",
-   "options": "Incident"
+   "options": "Incident",
+   "reqd": 1
   },
   {
    "default": "Today",
@@ -326,12 +328,23 @@
    "fieldname": "approval_comments",
    "fieldtype": "Text",
    "label": "Approval Comments"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Risk Assessment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-07-23 11:21:25.192584",
+ "modified": "2025-09-16 15:06:22.158772",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Risk Assessment",
@@ -351,6 +364,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [

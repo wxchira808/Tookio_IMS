@@ -6,40 +6,579 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_i2ne",
-  "resolution_date",
+  "resolution_information_tab",
   "incident",
+  "resolution_status",
+  "column_break_1",
+  "resolution_date",
+  "resolution_time",
+  "section_break_basic",
+  "incident_title",
+  "incident_priority",
+  "column_break_basic",
+  "incident_severity",
+  "incident_type",
+  "section_break_resolver",
+  "resolved_by",
+  "resolution_team",
+  "column_break_resolver",
+  "supervisor",
+  "department",
+  
+  "root_cause_tab",
+  "section_break_root_cause",
+  "root_cause_analysis_method",
+  "primary_root_cause",
+  "column_break_root_cause",
+  "root_cause_category",
+  "contributing_factors",
+  "section_break_analysis_details",
+  "detailed_root_cause_analysis",
+  "section_break_factors",
+  "resolution_contributing_factors",
+  
+  "solution_tab",
+  "section_break_solution",
+  "resolution_type",
+  "resolution_approach",
+  "column_break_solution",
+  "temporary_solution",
+  "permanent_solution",
+  "section_break_summary",
   "resolution_summary",
+  "section_break_technical",
+  "technical_details",
+  "section_break_steps",
+  "resolution_steps",
+  
+  "actions_tab",
+  "section_break_corrective",
   "corrective_actions",
+  "section_break_preventive",
   "preventive_actions",
+  "section_break_followup",
+  "follow_up_actions",
+  
+  "verification_tab",
+  "section_break_verification",
+  "verification_method",
+  "verification_status",
+  "column_break_verification",
+  "verified_by",
+  "verification_date",
+  "section_break_testing",
+  "solution_testing_details",
+  "section_break_validation",
+  "validation_criteria",
+  "section_break_sign_off",
+  "stakeholder_sign_offs",
+  
+  "communication_tab",
+  "section_break_notification",
+  "resolution_notifications",
+  "section_break_documentation",
+  "resolution_documents",
+  "section_break_knowledge",
+  "knowledge_base_updated",
+  "knowledge_article_link",
+  "column_break_knowledge",
+  "lessons_learned",
+  "best_practices_documented",
+  
+  "closure_tab",
+  "section_break_closure",
+  "closure_criteria_met",
+  "stakeholder_satisfaction",
+  "column_break_closure",
+  "customer_feedback",
+  "resolution_rating",
+  "section_break_metrics",
+  "resolution_time_hours",
+  "sla_compliance",
+  "column_break_metrics",
+  "cost_of_resolution",
+  "business_impact_reduced",
+  "section_break_final",
+  "final_review_comments",
   "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "section_break_i2ne",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "resolution_summary",
-   "fieldtype": "Text Editor",
-   "label": "Resolution Summary"
-  },
-  {
-   "fieldname": "corrective_actions",
-   "fieldtype": "Text Editor",
-   "label": "Corrective Actions"
-  },
-  {
-   "fieldname": "preventive_actions",
-   "fieldtype": "Text Editor",
-   "label": "Preventive Actions"
+   "fieldname": "resolution_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Resolution Information"
   },
   {
    "fieldname": "incident",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Incident",
-   "options": "Incident"
+   "options": "Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resolution_status",
+   "fieldtype": "Select",
+   "label": "Resolution Status",
+   "options": "Draft\nIn Progress\nPending Verification\nVerified\nClosed",
+   "default": "Draft",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "resolution_date",
+   "fieldtype": "Date",
+   "label": "Resolution Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resolution_time",
+   "fieldtype": "Time",
+   "label": "Resolution Time"
+  },
+  {
+   "fieldname": "section_break_basic",
+   "fieldtype": "Section Break",
+   "label": "Incident Details"
+  },
+  {
+   "fieldname": "incident_title",
+   "fieldtype": "Data",
+   "label": "Incident Title",
+   "read_only": 1,
+   "fetch_from": "incident.title"
+  },
+  {
+   "fieldname": "incident_priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "read_only": 1,
+   "fetch_from": "incident.priority"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "incident_severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "read_only": 1,
+   "fetch_from": "incident.severity"
+  },
+  {
+   "fieldname": "incident_type",
+   "fieldtype": "Link",
+   "label": "Incident Type",
+   "options": "Incident Type",
+   "read_only": 1,
+   "fetch_from": "incident.incident_type"
+  },
+  {
+   "fieldname": "section_break_resolver",
+   "fieldtype": "Section Break",
+   "label": "Resolution Team"
+  },
+  {
+   "fieldname": "resolved_by",
+   "fieldtype": "Link",
+   "label": "Resolved By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resolution_team",
+   "fieldtype": "Small Text",
+   "label": "Resolution Team Members"
+  },
+  {
+   "fieldname": "column_break_resolver",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Link",
+   "label": "Supervisor",
+   "options": "User"
+  },
+    {
+     "fieldname": "department",
+     "fieldtype": "Data",
+     "label": "Department"
+    },
+  
+  {
+   "fieldname": "root_cause_tab",
+   "fieldtype": "Tab Break",
+   "label": "Root Cause Analysis"
+  },
+  {
+   "fieldname": "section_break_root_cause",
+   "fieldtype": "Section Break",
+   "label": "Root Cause Identification"
+  },
+  {
+   "fieldname": "root_cause_analysis_method",
+   "fieldtype": "Select",
+   "label": "Analysis Method",
+   "options": "5 Whys\nFishbone Diagram\nFault Tree Analysis\nRoot Cause Mapping\nFailure Mode Analysis\nOther"
+  },
+  {
+   "fieldname": "primary_root_cause",
+   "fieldtype": "Small Text",
+   "label": "Primary Root Cause",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_root_cause",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "root_cause_category",
+   "fieldtype": "Select",
+   "label": "Root Cause Category",
+   "options": "Human Error\nProcess Failure\nTechnology Issue\nEnvironmental\nVendor/Third Party\nCompliance\nOther"
+  },
+  {
+   "fieldname": "contributing_factors",
+   "fieldtype": "Small Text",
+   "label": "Contributing Factors"
+  },
+  {
+   "fieldname": "section_break_analysis_details",
+   "fieldtype": "Section Break",
+   "label": "Detailed Analysis"
+  },
+  {
+   "fieldname": "detailed_root_cause_analysis",
+   "fieldtype": "Text Editor",
+   "label": "Detailed Root Cause Analysis"
+  },
+  {
+   "fieldname": "section_break_factors",
+   "fieldtype": "Section Break",
+   "label": "Contributing Factors Details"
+  },
+  {
+   "fieldname": "resolution_contributing_factors",
+   "fieldtype": "Table",
+   "label": "Contributing Factors",
+   "options": "Resolution Contributing Factor"
+  },
+  
+  {
+   "fieldname": "solution_tab",
+   "fieldtype": "Tab Break",
+   "label": "Solution & Implementation"
+  },
+  {
+   "fieldname": "section_break_solution",
+   "fieldtype": "Section Break",
+   "label": "Solution Details"
+  },
+  {
+   "fieldname": "resolution_type",
+   "fieldtype": "Select",
+   "label": "Resolution Type",
+   "options": "Immediate Fix\nWorkaround\nPermanent Solution\nConfiguration Change\nProcess Update\nVendor Fix\nUpgrade/Patch"
+  },
+  {
+   "fieldname": "resolution_approach",
+   "fieldtype": "Select",
+   "label": "Resolution Approach",
+   "options": "Technical Fix\nProcess Change\nTraining\nPolicy Update\nVendor Escalation\nSystem Upgrade\nCombination"
+  },
+  {
+   "fieldname": "column_break_solution",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "temporary_solution",
+   "fieldtype": "Check",
+   "label": "Temporary Solution Applied"
+  },
+  {
+   "fieldname": "permanent_solution",
+   "fieldtype": "Check",
+   "label": "Permanent Solution Implemented"
+  },
+  {
+   "fieldname": "section_break_summary",
+   "fieldtype": "Section Break",
+   "label": "Resolution Summary"
+  },
+  {
+   "fieldname": "resolution_summary",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Summary",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_technical",
+   "fieldtype": "Section Break",
+   "label": "Technical Implementation"
+  },
+  {
+   "fieldname": "technical_details",
+   "fieldtype": "Text Editor",
+   "label": "Technical Implementation Details"
+  },
+  {
+   "fieldname": "section_break_steps",
+   "fieldtype": "Section Break",
+   "label": "Resolution Steps"
+  },
+  {
+   "fieldname": "resolution_steps",
+   "fieldtype": "Table",
+   "label": "Resolution Steps",
+   "options": "Resolution Step"
+  },
+  
+  {
+   "fieldname": "actions_tab",
+   "fieldtype": "Tab Break",
+   "label": "Actions & Prevention"
+  },
+  {
+   "fieldname": "section_break_corrective",
+   "fieldtype": "Section Break",
+   "label": "Corrective Actions"
+  },
+  {
+   "fieldname": "corrective_actions",
+   "fieldtype": "Table",
+   "label": "Corrective Actions",
+   "options": "Resolution Action Item"
+  },
+  {
+   "fieldname": "section_break_preventive",
+   "fieldtype": "Section Break",
+   "label": "Preventive Actions"
+  },
+  {
+   "fieldname": "preventive_actions",
+   "fieldtype": "Table",
+   "label": "Preventive Actions",
+   "options": "Resolution Action Item"
+  },
+  {
+   "fieldname": "section_break_followup",
+   "fieldtype": "Section Break",
+   "label": "Follow-up Actions"
+  },
+  {
+   "fieldname": "follow_up_actions",
+   "fieldtype": "Table",
+   "label": "Follow-up Actions",
+   "options": "Resolution Action Item"
+  },
+  
+  {
+   "fieldname": "verification_tab",
+   "fieldtype": "Tab Break",
+   "label": "Verification & Testing"
+  },
+  {
+   "fieldname": "section_break_verification",
+   "fieldtype": "Section Break",
+   "label": "Solution Verification"
+  },
+  {
+   "fieldname": "verification_method",
+   "fieldtype": "Select",
+   "label": "Verification Method",
+   "options": "Functional Testing\nUser Acceptance Testing\nStress Testing\nMonitoring\nPeer Review\nCustomer Validation\nAutomated Testing"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "label": "Verification Status",
+   "options": "Not Started\nIn Progress\nPassed\nFailed\nPartially Verified"
+  },
+  {
+   "fieldname": "column_break_verification",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "verification_date",
+   "fieldtype": "Date",
+   "label": "Verification Date"
+  },
+  {
+   "fieldname": "section_break_testing",
+   "fieldtype": "Section Break",
+   "label": "Testing Details"
+  },
+  {
+   "fieldname": "solution_testing_details",
+   "fieldtype": "Text Editor",
+   "label": "Solution Testing Details"
+  },
+  {
+   "fieldname": "section_break_validation",
+   "fieldtype": "Section Break",
+   "label": "Validation Criteria"
+  },
+  {
+   "fieldname": "validation_criteria",
+   "fieldtype": "Table",
+   "label": "Validation Criteria",
+   "options": "Resolution Validation Criteria"
+  },
+  {
+   "fieldname": "section_break_sign_off",
+   "fieldtype": "Section Break",
+   "label": "Stakeholder Sign-offs"
+  },
+  {
+   "fieldname": "stakeholder_sign_offs",
+   "fieldtype": "Table",
+   "label": "Stakeholder Sign-offs",
+   "options": "Resolution Sign Off"
+  },
+  
+  {
+   "fieldname": "communication_tab",
+   "fieldtype": "Tab Break",
+   "label": "Communication & Documentation"
+  },
+  {
+   "fieldname": "section_break_notification",
+   "fieldtype": "Section Break",
+   "label": "Resolution Notifications"
+  },
+  {
+   "fieldname": "resolution_notifications",
+   "fieldtype": "Table",
+   "label": "Resolution Notifications",
+   "options": "Resolution Notification"
+  },
+  {
+   "fieldname": "section_break_documentation",
+   "fieldtype": "Section Break",
+   "label": "Supporting Documentation"
+  },
+  {
+   "fieldname": "resolution_documents",
+   "fieldtype": "Table",
+   "label": "Resolution Documents",
+   "options": "Resolution Document"
+  },
+  {
+   "fieldname": "section_break_knowledge",
+   "fieldtype": "Section Break",
+   "label": "Knowledge Management"
+  },
+  {
+   "fieldname": "knowledge_base_updated",
+   "fieldtype": "Check",
+   "label": "Knowledge Base Updated"
+  },
+  {
+   "fieldname": "knowledge_article_link",
+   "fieldtype": "Data",
+   "label": "Knowledge Article Link"
+  },
+  {
+   "fieldname": "column_break_knowledge",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lessons_learned",
+   "fieldtype": "Text Editor",
+   "label": "Lessons Learned"
+  },
+  {
+   "fieldname": "best_practices_documented",
+   "fieldtype": "Check",
+   "label": "Best Practices Documented"
+  },
+  
+  {
+   "fieldname": "closure_tab",
+   "fieldtype": "Tab Break",
+   "label": "Closure & Metrics"
+  },
+  {
+   "fieldname": "section_break_closure",
+   "fieldtype": "Section Break",
+   "label": "Closure Criteria"
+  },
+  {
+   "fieldname": "closure_criteria_met",
+   "fieldtype": "Check",
+   "label": "All Closure Criteria Met"
+  },
+  {
+   "fieldname": "stakeholder_satisfaction",
+   "fieldtype": "Select",
+   "label": "Stakeholder Satisfaction",
+   "options": "Very Satisfied\nSatisfied\nNeutral\nDissatisfied\nVery Dissatisfied"
+  },
+  {
+   "fieldname": "column_break_closure",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_feedback",
+   "fieldtype": "Text",
+   "label": "Customer/User Feedback"
+  },
+  {
+   "fieldname": "resolution_rating",
+   "fieldtype": "Rating",
+   "label": "Resolution Quality Rating"
+  },
+  {
+   "fieldname": "section_break_metrics",
+   "fieldtype": "Section Break",
+   "label": "Resolution Metrics"
+  },
+  {
+   "fieldname": "resolution_time_hours",
+   "fieldtype": "Float",
+   "label": "Total Resolution Time (Hours)",
+   "precision": 2
+  },
+  {
+   "fieldname": "sla_compliance",
+   "fieldtype": "Check",
+   "label": "SLA Compliance Met"
+  },
+  {
+   "fieldname": "column_break_metrics",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_of_resolution",
+   "fieldtype": "Currency",
+   "label": "Cost of Resolution"
+  },
+  {
+   "fieldname": "business_impact_reduced",
+   "fieldtype": "Percent",
+   "label": "Business Impact Reduction %"
+  },
+  {
+   "fieldname": "section_break_final",
+   "fieldtype": "Section Break",
+   "label": "Final Review"
+  },
+  {
+   "fieldname": "final_review_comments",
+   "fieldtype": "Text Editor",
+   "label": "Final Review Comments"
   },
   {
    "fieldname": "amended_from",
@@ -50,20 +589,13 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
-  },
-  {
-   "default": "Today",
-   "fieldname": "resolution_date",
-   "fieldtype": "Date",
-   "hidden": 1,
-   "label": "Resolution Date"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-23 11:06:20.616291",
+ "modified": "2025-09-16 01:46:20.604977",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Resolution",
@@ -83,6 +615,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

@@ -1,11 +1,25 @@
 {
  "actions": [],
- "allow_events_in_timeline": 1,
+ "allow_guest_to_view": 1,
  "autoname": "Format:INC-{YYYY}-{MM}-{DD}-{###}",
  "creation": "2025-07-08 17:15:29.039696",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "reporter_details_tab",
+  "reporter_details_section",
+  "full_name",
+  "email",
+  "phone_number",
+  "address",
+  "organization",
+  "role",
+  "column_break_reporter",
+  "reporter_department",
+  "reporter_manager",
+  "reporter_employee_id",
+  "witness_present",
+  "witness_contact",
   "incident_details_tab",
   "incident_details_section",
   "title1",
@@ -15,12 +29,39 @@
   "severity",
   "priority",
   "status",
+  "column_break_details",
+  "department",
+  "incident_category",
+  "immediate_action_taken",
+  "injuries_involved",
+  "property_damage",
   "tab_2_tab",
   "time_and_location_section",
   "incident_date",
   "reported_date",
   "location",
   "affected_systems",
+  "column_break_location",
+  "detection_method",
+  "response_team_deployed",
+  "initial_response_time",
+  "affected_parties_section",
+  "affected_parties",
+  "impact_assessment_tab",
+  "business_impact_section",
+  "business_impact",
+  "financial_impact",
+  "operational_impact",
+  "customer_impact",
+  "column_break_impact",
+  "regulatory_impact",
+  "reputation_impact",
+  "environmental_impact",
+  "safety_impact",
+  "impact_rating_section",
+  "overall_impact_rating",
+  "estimated_downtime",
+  "estimated_cost",
   "assignment_and_escalation_tab",
   "assignment_and_escalation_section",
   "due_date",
@@ -29,13 +70,30 @@
   "escalated_to",
   "escalation_date",
   "sla_breach_time",
+  "sla_deadline",
+  "column_break_assignment",
+  "assigned_responder",
+  "response_team",
+  "external_support_required",
+  "vendor_involved",
+  "timeline_and_updates_section",
+  "incident_timeline",
+  "status_updates",
   "investigation_tab",
   "investigation_section",
   "investigation_id",
+  "investigation_required",
+  "investigation_type",
+  "investigation_priority",
   "root_cause_category",
   "root_cause_description",
   "investigation_findings",
   "lessons_learned",
+  "column_break_investigation",
+  "evidence_preserved",
+  "forensic_analysis_required",
+  "external_investigation",
+  "regulatory_reporting_required",
   "resolution_tab",
   "resolution_section",
   "resolution_id",
@@ -48,22 +106,36 @@
   "verified_by",
   "verification_date",
   "verification_notes",
-  "impact_assessment_tab",
-  "impact_assessment_section",
-  "business_impact",
-  "financial_impact",
-  "operational_impact",
-  "regulatory_impact",
-  "customer_impact",
-  "reputation_impact",
-  "environmental_impact",
-  "safety_impact",
+  "column_break_resolution",
+  "permanent_fix_implemented",
+  "testing_completed",
+  "documentation_updated",
+  "stakeholder_approval",
   "communication_tab",
-  "communication_section",
+  "internal_communication_section",
   "internal_communication",
-  "external_communication",
   "stakeholder_notification",
+  "management_briefing",
+  "column_break_communication",
+  "external_communication_section",
+  "external_communication",
+  "customer_notification",
   "media_involvement",
+  "regulatory_notification",
+  "notification_log_section",
+  "notifications_sent",
+  "closure_and_review_tab",
+  "closure_section",
+  "closure_date",
+  "closure_reason",
+  "closure_approved_by",
+  "final_report_completed",
+  "column_break_closure",
+  "post_incident_review_section",
+  "post_incident_review_date",
+  "review_participants",
+  "improvement_opportunities",
+  "follow_up_actions_required",
   "route",
   "published",
   "amended_from"
@@ -82,43 +154,75 @@
    "set_only_once": 1
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "incident_type",
    "fieldtype": "Link",
    "label": "Incident Type",
    "options": "Incident Type",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "severity",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Severity",
    "options": "\nCritical\nHigh\nMedium\nLow",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "priority",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Priority",
    "options": "\nUrgent\nHigh\nNormal\nLow",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "allow_on_submit": 1,
-   "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Draft\nOpen\nInvestigation\nResolved\nClosed\nCancelled"
+   "options": "\nOpen\nIn Progress\nInvestigating\nResolved\nClosed\nCancelled"
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Affected Department"
+  },
+  {
+   "fieldname": "incident_category",
+   "fieldtype": "Select",
+   "label": "Incident Category",
+   "options": "\nOperational\nSecurity\nSafety\nIT\nHR\nFinancial\nRegulatory\nEnvironmental\nOther"
+  },
+  {
+   "fieldname": "immediate_action_taken",
+   "fieldtype": "Small Text",
+   "label": "Immediate Action Taken"
+  },
+  {
+   "default": "0",
+   "fieldname": "injuries_involved",
+   "fieldtype": "Check",
+   "label": "Injuries Involved"
+  },
+  {
+   "default": "0",
+   "fieldname": "property_damage",
+   "fieldtype": "Check",
+   "label": "Property Damage"
   },
   {
    "fieldname": "time_and_location_section",
@@ -150,7 +254,40 @@
   {
    "fieldname": "affected_systems",
    "fieldtype": "Small Text",
-   "label": "Affected Systems"
+   "label": "Affected Systems",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_location",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "detection_method",
+   "fieldtype": "Select",
+   "label": "Detection Method",
+   "options": "\nAutomated Alert\nUser Report\nManual Inspection\nThird Party\nRoutine Audit\nOther"
+  },
+  {
+   "default": "0",
+   "fieldname": "response_team_deployed",
+   "fieldtype": "Check",
+   "label": "Response Team Deployed"
+  },
+  {
+   "fieldname": "initial_response_time",
+   "fieldtype": "Duration",
+   "label": "Initial Response Time"
+  },
+  {
+   "fieldname": "affected_parties_section",
+   "fieldtype": "Section Break",
+   "label": "Affected Parties"
+  },
+  {
+   "fieldname": "affected_parties",
+   "fieldtype": "Table",
+   "label": "Affected Parties",
+   "options": "Incident Affected Party"
   },
   {
    "fieldname": "incident_details_tab",
@@ -191,6 +328,8 @@
   {
    "fieldname": "escalated_to",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Escalated To",
    "options": "User"
   },
@@ -203,6 +342,54 @@
    "fieldname": "sla_breach_time",
    "fieldtype": "Datetime",
    "label": "SLA Breach Time"
+  },
+  {
+   "fieldname": "sla_deadline",
+   "fieldtype": "Datetime",
+   "label": "SLA Deadline"
+  },
+  {
+   "fieldname": "column_break_assignment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_responder",
+   "fieldtype": "Link",
+   "label": "Assigned Responder",
+   "options": "User"
+  },
+  {
+   "fieldname": "response_team",
+   "fieldtype": "Small Text",
+   "label": "Response Team"
+  },
+  {
+   "default": "0",
+   "fieldname": "external_support_required",
+   "fieldtype": "Check",
+   "label": "External Support Required"
+  },
+  {
+   "depends_on": "external_support_required",
+   "fieldname": "vendor_involved",
+   "fieldtype": "Data",
+   "label": "Vendor/Contractor Involved"
+  },
+  {
+   "fieldname": "timeline_and_updates_section",
+   "fieldtype": "Section Break",
+   "label": "Timeline & Updates"
+  },
+  {
+   "fieldname": "incident_timeline",
+   "fieldtype": "Table",
+   "label": "Incident Timeline",
+   "options": "Incident Timeline"
+  },
+  {
+   "fieldname": "status_updates",
+   "fieldtype": "Text Editor",
+   "label": "Status Updates"
   },
   {
    "fieldname": "investigation_tab",
@@ -252,10 +439,37 @@
    "read_only": 1
   },
   {
+   "fieldname": "column_break_investigation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "evidence_preserved",
+   "fieldtype": "Check",
+   "label": "Evidence Preserved"
+  },
+  {
+   "default": "0",
+   "fieldname": "forensic_analysis_required",
+   "fieldtype": "Check",
+   "label": "Forensic Analysis Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "external_investigation",
+   "fieldtype": "Check",
+   "label": "External Investigation Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "regulatory_reporting_required",
+   "fieldtype": "Check",
+   "label": "Regulatory Reporting Required"
+  },
+  {
    "fieldname": "resolution_tab",
    "fieldtype": "Tab Break",
-   "label": "Resolution",
-   "read_only": 1
+   "label": "Resolution"
   },
   {
    "fieldname": "resolution_section",
@@ -326,14 +540,42 @@
    "permlevel": 2
   },
   {
+   "fieldname": "column_break_resolution",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "permanent_fix_implemented",
+   "fieldtype": "Check",
+   "label": "Permanent Fix Implemented"
+  },
+  {
+   "default": "0",
+   "fieldname": "testing_completed",
+   "fieldtype": "Check",
+   "label": "Testing Completed"
+  },
+  {
+   "default": "0",
+   "fieldname": "documentation_updated",
+   "fieldtype": "Check",
+   "label": "Documentation Updated"
+  },
+  {
+   "default": "0",
+   "fieldname": "stakeholder_approval",
+   "fieldtype": "Check",
+   "label": "Stakeholder Approval Received"
+  },
+  {
    "fieldname": "impact_assessment_tab",
    "fieldtype": "Tab Break",
    "label": "Impact Assessment"
   },
   {
-   "fieldname": "impact_assessment_section",
+   "fieldname": "business_impact_section",
    "fieldtype": "Section Break",
-   "label": "Impact Assessment"
+   "label": "Business Impact"
   },
   {
    "fieldname": "business_impact",
@@ -356,16 +598,20 @@
    "permlevel": 2
   },
   {
-   "fieldname": "regulatory_impact",
-   "fieldtype": "Text",
-   "label": "Regulatory Impact",
-   "permlevel": 2
-  },
-  {
    "fieldname": "customer_impact",
    "fieldtype": "Select",
    "label": "Customer Impact",
    "options": "\nNone\nLow\nMedium\nHigh\nCritical",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "column_break_impact",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "regulatory_impact",
+   "fieldtype": "Text",
+   "label": "Regulatory Impact",
    "permlevel": 2
   },
   {
@@ -388,25 +634,41 @@
    "permlevel": 2
   },
   {
+   "fieldname": "impact_rating_section",
+   "fieldtype": "Section Break",
+   "label": "Overall Impact Assessment"
+  },
+  {
+   "fieldname": "overall_impact_rating",
+   "fieldtype": "Select",
+   "label": "Overall Impact Rating",
+   "options": "\nMinimal\nLow\nMedium\nHigh\nCritical",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "estimated_downtime",
+   "fieldtype": "Duration",
+   "label": "Estimated Downtime"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost"
+  },
+  {
    "fieldname": "communication_tab",
    "fieldtype": "Tab Break",
    "label": "Communication"
   },
   {
-   "fieldname": "communication_section",
+   "fieldname": "internal_communication_section",
    "fieldtype": "Section Break",
-   "label": "Communication"
+   "label": "Internal Communication"
   },
   {
    "fieldname": "internal_communication",
    "fieldtype": "Text Editor",
    "label": "Internal Communication",
-   "permlevel": 2
-  },
-  {
-   "fieldname": "external_communication",
-   "fieldtype": "Text Editor",
-   "label": "External Communication",
    "permlevel": 2
   },
   {
@@ -416,12 +678,116 @@
    "permlevel": 2
   },
   {
+   "fieldname": "management_briefing",
+   "fieldtype": "Text Editor",
+   "label": "Management Briefing"
+  },
+  {
+   "fieldname": "column_break_communication",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "external_communication_section",
+   "fieldtype": "Section Break",
+   "label": "External Communication"
+  },
+  {
+   "fieldname": "external_communication",
+   "fieldtype": "Text Editor",
+   "label": "External Communication",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "customer_notification",
+   "fieldtype": "Text Editor",
+   "label": "Customer Notification"
+  },
+  {
    "default": "0",
    "fieldname": "media_involvement",
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Media Involvement",
    "permlevel": 2
+  },
+  {
+   "fieldname": "regulatory_notification",
+   "fieldtype": "Text Editor",
+   "label": "Regulatory Notification"
+  },
+  {
+   "fieldname": "notification_log_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Log"
+  },
+  {
+   "fieldname": "notifications_sent",
+   "fieldtype": "Table",
+   "label": "Notifications Sent",
+   "options": "Incident Notification"
+  },
+  {
+   "fieldname": "closure_and_review_tab",
+   "fieldtype": "Tab Break",
+   "label": "Closure & Review"
+  },
+  {
+   "fieldname": "closure_section",
+   "fieldtype": "Section Break",
+   "label": "Incident Closure"
+  },
+  {
+   "fieldname": "closure_date",
+   "fieldtype": "Date",
+   "label": "Closure Date"
+  },
+  {
+   "fieldname": "closure_reason",
+   "fieldtype": "Select",
+   "label": "Closure Reason",
+   "options": "\nResolved\nDuplicate\nInvalid\nWithdrawn\nCannot Reproduce\nOther"
+  },
+  {
+   "fieldname": "closure_approved_by",
+   "fieldtype": "Link",
+   "label": "Closure Approved By",
+   "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "final_report_completed",
+   "fieldtype": "Check",
+   "label": "Final Report Completed"
+  },
+  {
+   "fieldname": "column_break_closure",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "post_incident_review_section",
+   "fieldtype": "Section Break",
+   "label": "Post-Incident Review"
+  },
+  {
+   "fieldname": "post_incident_review_date",
+   "fieldtype": "Date",
+   "label": "Post-Incident Review Date"
+  },
+  {
+   "fieldname": "review_participants",
+   "fieldtype": "Small Text",
+   "label": "Review Participants"
+  },
+  {
+   "fieldname": "improvement_opportunities",
+   "fieldtype": "Text Editor",
+   "label": "Improvement Opportunities"
+  },
+  {
+   "default": "0",
+   "fieldname": "follow_up_actions_required",
+   "fieldtype": "Check",
+   "label": "Follow-up Actions Required"
   },
   {
    "depends_on": "eval: doc.verification_required ==1",
@@ -456,12 +822,31 @@
    "fieldtype": "Link",
    "label": "Investigation ID",
    "options": "Incident Investigation",
-   "read_only": 1
+   "permlevel": 2
+  },
+  {
+   "default": "0",
+   "fieldname": "investigation_required",
+   "fieldtype": "Check",
+   "label": "Investigation Required"
+  },
+  {
+   "depends_on": "investigation_required",
+   "fieldname": "investigation_type",
+   "fieldtype": "Select",
+   "label": "Investigation Type",
+   "options": "\nPreliminary\nDetailed\nFormal\nInternal\nExternal\nRegulatory"
+  },
+  {
+   "depends_on": "investigation_required",
+   "fieldname": "investigation_priority",
+   "fieldtype": "Select",
+   "label": "Investigation Priority",
+   "options": "\nCritical\nHigh\nMedium\nLow"
   },
   {
    "fieldname": "title1",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Title",
    "reqd": 1,
    "set_only_once": 1
@@ -472,6 +857,7 @@
    "fieldtype": "Link",
    "label": "Resolution ID",
    "options": "Incident Resolution",
+   "permlevel": 2,
    "read_only": 1
   },
   {
@@ -479,12 +865,86 @@
    "fieldtype": "Attach",
    "label": "Attachments",
    "make_attachment_public": 1
+  },
+  {
+   "fieldname": "reporter_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reporter Details",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Data",
+   "label": "Organization"
+  },
+  {
+   "description": "e.g. \"Employee\", \"Customer\"",
+   "fieldname": "role",
+   "fieldtype": "Data",
+   "label": "Role"
+  },
+  {
+   "fieldname": "column_break_reporter",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reporter_department",
+   "fieldtype": "Data",
+   "label": "Reporter Department"
+  },
+  {
+   "fieldname": "reporter_manager",
+   "fieldtype": "Link",
+   "label": "Reporter Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "reporter_employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID"
+  },
+  {
+   "default": "0",
+   "fieldname": "witness_present",
+   "fieldtype": "Check",
+   "label": "Witnesses Present"
+  },
+  {
+   "depends_on": "witness_present",
+   "fieldname": "witness_contact",
+   "fieldtype": "Small Text",
+   "label": "Witness Contact Details"
+  },
+  {
+   "fieldname": "reporter_details_section",
+   "fieldtype": "Section Break",
+   "label": "Reporter Details"
   }
  ],
  "grid_page_length": 50,
  "has_web_view": 1,
+ "index_web_pages_for_search": 1,
  "is_published_field": "published",
- "is_submittable": 1,
  "links": [
   {
    "link_doctype": "Incident Investigation",
@@ -499,7 +959,7 @@
    "link_fieldname": "incident"
   }
  ],
- "modified": "2025-09-12 01:29:12.338950",
+ "modified": "2025-09-19 00:02:25.339164",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident",
@@ -519,6 +979,7 @@
    "write": 1
   }
  ],
+ "protect_attached_files": 1,
  "route": "incident",
  "row_format": "Dynamic",
  "sort_field": "modified",
@@ -533,6 +994,10 @@
    "title": "Open"
   },
   {
+   "color": "Blue",
+   "title": "Investigating"
+  },
+  {
    "color": "Green",
    "title": "Resolved"
   },
@@ -543,10 +1008,6 @@
   {
    "color": "Pink",
    "title": "Cancelled"
-  },
-  {
-   "color": "Blue",
-   "title": "Investigation"
   }
  ],
  "track_changes": 1

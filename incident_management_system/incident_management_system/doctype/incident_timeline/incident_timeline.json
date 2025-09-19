@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "creation": "2025-09-18 00:00:00.000000",
+ "doctype": "DocType", 
+ "engine": "InnoDB",
+ "field_order": [
+  "timestamp",
+  "event_type",
+  "event_description",
+  "updated_by",
+  "status_before",
+  "status_after"
+ ],
+ "fields": [
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Timestamp",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Event Type",
+   "options": "\nIncident Created\nStatus Change\nStatus Update\nAssignment\nEscalation\nComment\nResolution\nInvestigation\nInvestigation Started\nClosure\nReopened\nOther"
+  },
+  {
+   "fieldname": "event_description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Event Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Link",
+   "label": "Updated By",
+   "options": "User"
+  },
+  {
+   "fieldname": "status_before",
+   "fieldtype": "Data",
+   "label": "Status Before"
+  },
+  {
+   "fieldname": "status_after",
+   "fieldtype": "Data",
+   "label": "Status After"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incident Timeline",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

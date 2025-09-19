@@ -1,0 +1,9 @@
+{
+ "doctype": "Report",
+ "name": "SLA Breaches",
+ "report_name": "SLA Breaches",
+ "is_standard": "No",
+ "report_type": "Script Report",
+ "ref_doctype": "Incident",
+ "report_script": "def execute(filters=None):\n    if not filters:\n        filters = {}\n    columns = [\n        {\"fieldname\":\"name\",\"label\":_(\"Incident\"),\"fieldtype\":\"Link\",\"options\":\"Incident\",\"width\":140},\n        {\"fieldname\":\"title\",\"label\":_(\"Title\"),\"fieldtype\":\"Data\",\"width\":200},\n        {\"fieldname\":\"assigned_responder\",\"label\":_(\"Assigned To\"),\"fieldtype\":\"Link\",\"options\":\"User\",\"width\":140},\n        {\"fieldname\":\"due_date\",\"label\":_(\"Due Date\"),\"fieldtype\":\"Datetime\",\"width\":140},\n        {\"fieldname\":\"sla_breach_time\",\"label\":_(\"SLA Breach Time\"),\"fieldtype\":\"Datetime\",\"width\":160},\n        {\"fieldname\":\"status\",\"label\":_(\"Status\"),\"fieldtype\":\"Data\",\"width\":100}\n    ]\n\n    data = frappe.db.sql(\"\"\"\n        SELECT name, title1 as title, assigned_responder, due_date, sla_breach_time, status\n        FROM `tabIncident`\n        WHERE sla_breach_time IS NOT NULL\n        ORDER BY sla_breach_time DESC\n    \"\"\", as_dict=1)\n\n    return columns, data"
+}

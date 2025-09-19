@@ -1,0 +1,1 @@
+# Resolution Sign Off DocType

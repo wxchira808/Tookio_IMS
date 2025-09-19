@@ -1,0 +1,43 @@
+{
+ "based_on": "",
+ "chart_name": "Investigation Status Distribution",
+ "chart_type": "Donut",
+ "creation": "2025-09-18 10:00:00.000000",
+ "currency": "",
+ "custom_options": "{\"colors\": [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\"]}",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "document_type": "Incident Investigation",
+ "dynamic_filters_json": "[]",
+ "filters_json": "{}",
+ "group_by_based_on": "status",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "last_synced_on": "2025-09-18 10:00:00.000000",
+ "modified": "2025-09-18 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Investigation Status Distribution",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "parent_document_type": "",
+ "report_name": "",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Incident Responder"
+  }
+ ],
+ "source": "",
+ "time_interval": "Daily",
+ "timeseries": 0,
+ "type": "Donut",
+ "use_report_chart": 0,
+ "value_based_on": "",
+ "x_field": "",
+ "y_axis": []
+}

@@ -219,12 +219,11 @@
    "fieldtype": "Currency",
    "label": "Actual Cost"
   },
-  {
-   "fieldname": "department",
-   "fieldtype": "Link",
-   "label": "Department",
-   "options": "Department"
-  },
+    {
+     "fieldname": "department",
+     "fieldtype": "Data",
+     "label": "Department"
+    },
   {
    "fieldname": "resource_requirements",
    "fieldtype": "Text",

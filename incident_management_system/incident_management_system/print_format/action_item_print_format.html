@@ -1,0 +1,47 @@
+<div class="print-format">
+  <style>
+    .h{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #333;padding-bottom:10px;margin-bottom:16px}
+    .logo{max-height:60px}
+    .section{margin-bottom:16px}
+    .k{font-weight:600}
+    .v{color:#111}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border:1px solid #ddd;padding:8px;text-align:left}
+  </style>
+
+  <div class="h">
+    <div>
+      <img class="logo" src="{{ doc.company_logo or '/assets/erpnext/images/erpnext-logo.png' }}" />
+      <div><strong>Action Item</strong></div>
+    </div>
+    <div style="text-align:right">
+      <div><strong>{{ doc.name }}</strong></div>
+      <div>Status: {{ doc.status }}</div>
+      <div>Priority: {{ doc.priority }}</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Details</h3>
+    <div><span class="k">Title:</span> <span class="v">{{ doc.action_title }}</span></div>
+    <div style="margin-top:8px"><span class="k">Description:</span>
+      <div class="v">{{ doc.action_description }}</div>
+    </div>
+    <div style="margin-top:8px"><span class="k">Department:</span> <span class="v">{{ doc.department }}</span></div>
+  </div>
+
+  <div class="section">
+    <h3>Assignment & Progress</h3>
+    <div><span class="k">Assigned To:</span> <span class="v">{{ doc.assigned_to }}</span></div>
+    <div><span class="k">Due Date:</span> <span class="v">{{ doc.due_date }}</span></div>
+    <div><span class="k">Progress:</span> <span class="v">{{ doc.progress_percentage }}%</span></div>
+  </div>
+
+  <div class="section">
+    <h3>Verification & Approval</h3>
+    <div><span class="k">Verification Required:</span> <span class="v">{{ doc.verification_required }}</span></div>
+    <div><span class="k">Approved By:</span> <span class="v">{{ doc.approved_by }}</span></div>
+  </div>
+
+  <div style="font-size:12px;color:#666">Generated on {{ frappe.utils.formatdate(frappe.utils.nowdate()) }}</div>
+</div>

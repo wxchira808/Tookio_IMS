@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stakeholder",
+  "role",
+  "sign_off_type",
+  "column_break_1",
+  "signed_off",
+  "sign_off_date",
+  "comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "stakeholder",
+   "fieldtype": "Link",
+   "label": "Stakeholder",
+   "options": "User",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Data",
+   "label": "Role/Department",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sign_off_type",
+   "fieldtype": "Select",
+   "label": "Sign-off Type",
+   "options": "Technical Approval\nBusiness Approval\nSecurity Approval\nCompliance Approval\nFinal Closure",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "signed_off",
+   "fieldtype": "Check",
+   "label": "Signed Off",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sign_off_date",
+   "fieldtype": "Date",
+   "label": "Sign-off Date"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Resolution Sign Off",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

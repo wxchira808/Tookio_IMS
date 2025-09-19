@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "creation": "2025-09-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "communication_date",
+  "communication_type",
+  "stakeholder",
+  "communication_method",
+  "communication_summary",
+  "follow_up_required"
+ ],
+ "fields": [
+  {
+   "fieldname": "communication_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Communication Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "communication_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Communication Type",
+   "options": "\nStatus Update\nRequest for Information\nInterview Notification\nReport Delivery\nStakeholder Briefing\nRegulatory Notification\nOther"
+  },
+  {
+   "fieldname": "stakeholder",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Stakeholder",
+   "reqd": 1
+  },
+  {
+   "fieldname": "communication_method",
+   "fieldtype": "Select",
+   "label": "Communication Method",
+   "options": "\nEmail\nPhone\nIn Person\nVideo Call\nWritten Letter\nFormal Report\nOther"
+  },
+  {
+   "fieldname": "communication_summary",
+   "fieldtype": "Small Text",
+   "label": "Communication Summary"
+  },
+  {
+   "default": "0",
+   "fieldname": "follow_up_required",
+   "fieldtype": "Check",
+   "label": "Follow-up Required"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Investigation Communication",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

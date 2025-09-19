@@ -27,6 +27,12 @@
  "roles": [
   {
    "role": "Incident Manager"
+  },
+  {
+   "role": "Incident Reporter"
+  },
+  {
+   "role": "Incident Responder"
   }
  ],
  "source": "",
