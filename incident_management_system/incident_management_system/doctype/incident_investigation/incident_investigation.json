@@ -31,7 +31,7 @@
   "key_milestones",
   "chronology_of_events",
   "analysis_and_findings_tab",
-  "root_cause_section", 
+  "root_cause_section",
   "root_cause_category",
   "root_cause_description",
   "contributing_factors",
@@ -97,6 +97,7 @@
    "in_standard_filter": 1,
    "label": "Incident",
    "options": "Incident",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -105,8 +106,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Investigation Type",
-   "options": "\nPreliminary\nDetailed\nFormal\nInternal\nExternal\nRegulatory",
-   "reqd": 1
+   "options": "\nPreliminary\nDetailed\nFormal\nInternal\nExternal\nRegulatory"
   },
   {
    "fieldname": "investigation_priority",
@@ -114,23 +114,24 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Investigation Priority",
-   "options": "\nCritical\nHigh\nMedium\nLow",
-   "reqd": 1
+   "options": "\nCritical\nHigh\nMedium\nLow"
   },
   {
-   "default": "Not Started",
+   "default": "Draft",
+   "description": "Status is automatically updated based on investigation progress",
    "fieldname": "investigation_status",
    "fieldtype": "Select",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Investigation Status",
-   "options": "\nNot Started\nIn Progress\nEvidence Collection\nAnalysis Phase\nReport Writing\nReview Pending\nCompleted\nClosed"
+   "options": "Draft\nPlanning\nEvidence Collection\nAnalysis\nReview\nApproval Pending\nCompleted\nRejected",
+   "read_only_depends_on": "eval:doc.docstatus == 1"
   },
   {
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "label": "Start Date",
-   "reqd": 1
+   "label": "Start Date"
   },
   {
    "fieldname": "target_completion_date",
@@ -235,14 +236,12 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Root Cause Category",
-   "options": "\nHuman Error\nSystem Failure\nProcess Gap\nExternal Factor\nUnknown\nOther",
-   "reqd": 1
+   "options": "\nHuman Error\nSystem Failure\nProcess Gap\nExternal Factor\nUnknown\nOther"
   },
   {
    "fieldname": "root_cause_description",
    "fieldtype": "Text Editor",
-   "label": "Root Cause Description",
-   "reqd": 1
+   "label": "Root Cause Description"
   },
   {
    "fieldname": "contributing_factors",
@@ -262,8 +261,7 @@
   {
    "fieldname": "investigation_findings",
    "fieldtype": "Text Editor",
-   "label": "Investigation Findings",
-   "reqd": 1
+   "label": "Investigation Findings"
   },
   {
    "fieldname": "immediate_causes",
@@ -479,10 +477,9 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2025-09-16 01:46:14.888877",
- "modified_by": "Administrator",
+ "modified": "2025-09-25 01:40:17.139315",
+ "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident Investigation",
  "naming_rule": "Expression",
@@ -504,6 +501,40 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Draft"
+  },
+  {
+   "color": "Blue",
+   "title": "Planning"
+  },
+  {
+   "color": "Orange",
+   "title": "Evidence Collection"
+  },
+  {
+   "color": "Purple",
+   "title": "Analysis"
+  },
+  {
+   "color": "Yellow",
+   "title": "Review"
+  },
+  {
+   "color": "Red",
+   "title": "Approval Pending"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  }
+ ],
+ "track_changes": 1,
+ "track_seen": 1
 }

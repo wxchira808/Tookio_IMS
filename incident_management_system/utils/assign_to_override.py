@@ -19,9 +19,12 @@ def assign_to_overrride(doc, method):
         # Update incident status to "In Progress" when assigned
         try:
             incident = frappe.get_doc("Incident", doc.reference_name)
-            # Temporarily commented out auto-status change
-            # if incident.status == "Open":
-            #     incident.status = "In Progress"
+            status_before = incident.status
+            
+            # Change status to "In Progress" when assigned
+            if incident.status == "Open":
+                incident.status = "In Progress"
+            
             incident.assigned_responder = doc.allocated_to
             
             # Add timeline entry
@@ -31,8 +34,8 @@ def assign_to_overrride(doc, method):
                 "event_type": "Assignment",
                 "event_description": f"Incident assigned to: {assigned_user}",
                 "updated_by": frappe.session.user,
-                "status_before": incident.status,  # Keep current status
-                "status_after": incident.status   # No status change
+                "status_before": status_before,
+                "status_after": incident.status
             })
             
             incident.flags.ignore_permissions = True

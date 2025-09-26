@@ -44,7 +44,7 @@
   "role": "Incident Reporter",
   "select": 1,
   "share": 0,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -68,7 +68,7 @@
   "role": "Incident Manager",
   "select": 1,
   "share": 1,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -92,7 +92,7 @@
   "role": "Risk Assessor",
   "select": 1,
   "share": 0,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -404,7 +404,7 @@
   "role": "System Manager",
   "select": 0,
   "share": 1,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -788,7 +788,7 @@
   "role": "Incident Manager",
   "select": 1,
   "share": 1,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -812,7 +812,7 @@
   "role": "Incident Responder",
   "select": 1,
   "share": 0,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -884,7 +884,7 @@
   "role": "System Manager",
   "select": 0,
   "share": 1,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -1004,7 +1004,7 @@
   "role": "Incident Responder",
   "select": 1,
   "share": 0,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -1028,7 +1028,7 @@
   "role": "Incident Responder",
   "select": 1,
   "share": 0,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {
@@ -1052,7 +1052,7 @@
   "role": "Guest",
   "select": 1,
   "share": 1,
-  "submit": 1,
+  "submit": 0,
   "write": 1
  },
  {

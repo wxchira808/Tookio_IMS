@@ -1,85 +1,362 @@
-<div class="print-format">
+{% set company_logo = frappe.db.get_single_value("System Settings", "app_logo_url") or "/assets/frappe/images/frappe-framework-logo.svg" %}
+
+<div class="print-format investigation-print-format">
   <style>
-    .header {display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #333;padding-bottom:10px;margin-bottom:16px}
-    .logo{max-height:60px}
-    .section{margin-bottom:16px}
-    .section h3{margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:4px}
-    .k{font-weight:600}
-    .v{color:#111}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border:1px solid #ddd;padding:8px;text-align:left}
+    .investigation-print-format {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    
+    .print-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 3px solid #e5e7eb;
+      margin-bottom: 30px;
+    }
+    
+    .print-header .logo {
+      max-height: 50px;
+      max-width: 200px;
+    }
+    
+    .print-header .document-info {
+      text-align: right;
+    }
+    
+    .print-header .document-info h1 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .print-header .document-info .investigation-id {
+      font-size: 18px;
+      font-weight: 500;
+      color: #6b7280;
+      margin-bottom: 5px;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .status-pending { background-color: #fef3c7; color: #d97706; }
+    .status-in-progress { background-color: #dbeafe; color: #1e40af; }
+    .status-completed { background-color: #d1fae5; color: #059669; }
+    .status-on-hold { background-color: #f3f4f6; color: #374151; }
+    
+    .priority-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 10px;
+    }
+    
+    .priority-critical { background-color: #fee2e2; color: #dc2626; }
+    .priority-high { background-color: #fed7d7; color: #e53e3e; }
+    .priority-medium { background-color: #fef3c7; color: #d97706; }
+    .priority-low { background-color: #d1fae5; color: #059669; }
+    
+    .print-section {
+      margin-bottom: 30px;
+      page-break-inside: avoid;
+    }
+    
+    .print-section h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 15px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e5e7eb;
+      color: #1f2937;
+    }
+    
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .field-item {
+      margin-bottom: 15px;
+    }
+    
+    .field-label {
+      font-weight: 600;
+      color: #6b7280;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    
+    .field-value {
+      color: #1f2937;
+      font-size: 14px;
+      min-height: 20px;
+    }
+    
+    .field-value.large {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    .description-box {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .evidence-table,
+    .action-items-table,
+    .timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    
+    .evidence-table th,
+    .evidence-table td,
+    .action-items-table th,
+    .action-items-table td,
+    .timeline-table th,
+    .timeline-table td {
+      border: 1px solid #e5e7eb;
+      padding: 12px;
+      text-align: left;
+      font-size: 13px;
+    }
+    
+    .evidence-table th,
+    .action-items-table th,
+    .timeline-table th {
+      background-color: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+    
+    .print-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+    }
+    
+    .no-data {
+      color: #9ca3af;
+      font-style: italic;
+    }
+    
+    .progress-section {
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .progress-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 6px;
+    }
+    
+    .progress-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .progress-label {
+      font-weight: 500;
+      color: #1f2937;
+    }
+    
+    .progress-status {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+    
+    .progress-completed {
+      background-color: #d1fae5;
+      color: #059669;
+    }
+    
+    .progress-pending {
+      background-color: #fef3c7;
+      color: #d97706;
+    }
   </style>
 
-  <div class="header">
-    <div>
-      <img class="logo" src="{{ doc.company_logo or '/assets/erpnext/images/erpnext-logo.png' }}" alt="logo"/>
-      <div><strong>Investigation Report</strong></div>
+  <!-- Header -->
+  <div class="print-header">
+    <div class="company-info">
+      <img src="{{ company_logo }}" alt="Company Logo" class="logo">
     </div>
-    <div style="text-align:right">
-      <div><strong>{{ doc.name }}</strong></div>
-      <div>Incident: {{ doc.incident }}</div>
-      <div>Status: {{ doc.investigation_status }}</div>
-      <div>Period: {{ doc.start_date }} - {{ doc.actual_completion_date or 'Ongoing' }}</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>Overview</h3>
-    <div><span class="k">Investigation Type:</span> <span class="v">{{ doc.investigation_type }}</span></div>
-    <div><span class="k">Priority:</span> <span class="v">{{ doc.investigation_priority }}</span></div>
-    <div style="margin-top:8px"><span class="k">Objective:</span>
-      <div class="v">{{ doc.investigation_objective }}</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>Key Findings</h3>
-    <div class="v">{{ doc.investigation_findings }}</div>
-  </div>
-
-  <div class="section">
-    <h3>Root Cause Analysis</h3>
-    <div><span class="k">Primary Root Cause:</span> <span class="v">{{ doc.primary_root_cause }}</span></div>
-    <div style="margin-top:8px"><span class="k">Root Cause Description:</span>
-      <div class="v">{{ doc.root_cause_description }}</div>
-    </div>
-    <div style="margin-top:8px"><span class="k">Contributing Factors:</span>
-      <div class="v">{{ doc.contributing_factors }}</div>
+    <div class="document-info">
+      <h1>Investigation Report</h1>
+      <div class="investigation-id">{{ doc.name }}</div>
+      <div>
+        <span class="status-badge status-{{ (doc.investigation_status or '').lower().replace(' ', '-') }}">
+          {{ doc.investigation_status or 'Pending' }}
+        </span>
+        {% if doc.priority %}
+        <span class="priority-badge priority-{{ doc.priority.lower() }}">
+          {{ doc.priority }}
+        </span>
+        {% endif %}
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h3>Recommendations & Actions</h3>
-    <div class="v">{{ doc.investigation_recommendations }}</div>
-    {% if doc.corrective_actions %}
-    <table class="table" style="margin-top:8px">
-      <thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead>
-      <tbody>
-        {% for r in doc.corrective_actions %}
-        <tr>
-          <td>{{ r.action }}</td>
-          <td>{{ r.owner }}</td>
-          <td>{{ r.due_date }}</td>
-          <td>{{ r.status }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <!-- Basic Information -->
+  <div class="print-section">
+    <h2>Investigation Summary</h2>
+    <div class="field-grid">
+      <div class="field-item">
+        <div class="field-label">Investigation Title</div>
+        <div class="field-value large">{{ doc.investigation_title or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Related Incident</div>
+        <div class="field-value">{{ doc.incident or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Investigation Type</div>
+        <div class="field-value">{{ doc.investigation_type or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Lead Investigator</div>
+        <div class="field-value">{{ doc.lead_investigator or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Assigned Team</div>
+        <div class="field-value">{{ doc.investigation_team or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Investigation Scope</div>
+        <div class="field-value">{{ doc.investigation_scope or '-' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Information -->
+  <div class="print-section">
+    <h2>Investigation Timeline</h2>
+    <div class="field-grid">
+      <div class="field-item">
+        <div class="field-label">Start Date</div>
+        <div class="field-value">{{ frappe.format(doc.start_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Target Completion Date</div>
+        <div class="field-value">{{ frappe.format(doc.target_completion_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Actual Completion Date</div>
+        <div class="field-value">{{ frappe.format(doc.actual_completion_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Total Days</div>
+        <div class="field-value">
+          {% if doc.start_date and doc.actual_completion_date %}
+            {{ frappe.utils.date_diff(doc.actual_completion_date, doc.start_date) }} days
+          {% elif doc.start_date %}
+            {{ frappe.utils.date_diff(frappe.utils.today(), doc.start_date) }} days (ongoing)
+          {% else %}
+            -
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Root Cause Analysis -->
+  <div class="print-section">
+    <h2>Root Cause Analysis</h2>
+    <div class="field-grid">
+      <div class="field-item">
+        <div class="field-label">Root Cause Category</div>
+        <div class="field-value">{{ doc.root_cause_category or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Analysis Method</div>
+        <div class="field-value">{{ doc.analysis_method or '-' }}</div>
+      </div>
+    </div>
+    
+    {% if doc.root_cause_description %}
+    <div class="description-box">
+      <div class="field-label">Root Cause Description</div>
+      <div class="field-value">{{ doc.root_cause_description|safe }}</div>
+    </div>
+    {% endif %}
+    
+    {% if doc.contributing_factors %}
+    <div class="description-box">
+      <div class="field-label">Contributing Factors</div>
+      <div class="field-value">{{ doc.contributing_factors|safe }}</div>
+    </div>
     {% endif %}
   </div>
 
-  <div class="section">
-    <h3>Evidence & Attachments</h3>
-    {% if doc.attachments %}
-      <ul>
-        {% for f in doc.attachments %}
-          <li><a href="{{ f.file_url }}">{{ f.file_name }}</a></li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <div class="v">No attachments</div>
+  <!-- Investigation Findings -->
+  {% if doc.investigation_findings %}
+  <div class="print-section">
+    <h2>Investigation Findings</h2>
+    <div class="description-box">
+      <div class="field-value">{{ doc.investigation_findings|safe }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Recommendations -->
+  {% if doc.recommendations %}
+  <div class="print-section">
+    <h2>Recommendations</h2>
+    <div class="description-box">
+      <div class="field-value">{{ doc.recommendations|safe }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Lessons Learned -->
+  {% if doc.lessons_learned %}
+  <div class="print-section">
+    <h2>Lessons Learned</h2>
+    <div class="description-box">
+      <div class="field-value">{{ doc.lessons_learned|safe }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Footer -->
+  <div class="print-footer">
+    <p>This investigation report was generated on {{ frappe.format(frappe.utils.now(), {"fieldtype": "Datetime"}) }}</p>
+    <p>Report prepared by {{ doc.lead_investigator or frappe.session.user }}</p>
+    {% if doc.investigation_status == 'Completed' %}
+    <p><strong>Investigation Status: COMPLETED</strong></p>
     {% endif %}
   </div>
-
-  <div style="font-size:12px;color:#666">Generated on {{ frappe.utils.formatdate(frappe.utils.nowdate()) }}</div>
 </div>

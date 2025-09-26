@@ -1,0 +1,40 @@
+[
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "After Insert",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2025-09-14 16:09:42.619927",
+  "module": null,
+  "name": "Incident Status after assignment",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "ToDo",
+  "script": "# Check if the ToDo is linked to an Incident document\nif doc.reference_doctype == \"Incident\":\n    # Get the Incident document using the reference name\n    incident_doc = frappe.get_doc(\"Incident\", doc.reference_name)\n\n    # Check the current status to avoid unnecessary saves\n    if incident_doc.status != \"In Progress\":\n        # Update the status field of the Incident\n        incident_doc.status = \"In Progress\"\n        \n        # Save the updated Incident document\n        incident_doc.save()\n\n        # Optional: Log the change for debugging or auditing\n        frappe.log_simple(f\"Incident {incident_doc.name} status updated to 'In Progress' due to new ToDo assignment.\")",
+  "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 1,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2025-09-16 11:40:38.852525",
+  "module": "Incident Management System",
+  "name": "Incident webform submit",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "Incident",
+  "script": "# Event: Before Save\n# DocType: Incident\n# Script Type: DocType Event\n\nif doc.is_new() and frappe.form_dict.get('web_form'):\n    # This is a new incident created via web form\n    frappe.flags.ignore_permissions = True\n    doc.submit()\n    frappe.flags.ignore_permissions = False",
+  "script_type": "DocType Event"
+ }
+]

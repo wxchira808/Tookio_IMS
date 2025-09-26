@@ -3,13 +3,17 @@
 
 frappe.ui.form.on('Incident Resolution', {
     refresh: function(frm) {
+        // Update dashboard with progress and indicators
+        update_resolution_dashboard(frm);
+        
         add_custom_buttons(frm);
-        set_status_indicators(frm);
         setup_timeline_updates(frm);
         setup_auto_calculations(frm);
     },
     
     onload: function(frm) {
+        // Set up initial field requirements and dashboard
+        update_resolution_dashboard(frm);
         setup_field_filters(frm);
         setup_field_dependencies(frm);
     },
@@ -31,7 +35,23 @@ frappe.ui.form.on('Incident Resolution', {
     
     resolution_status: function(frm) {
         update_field_visibility(frm);
-        set_status_indicators(frm);
+        
+        // Add timeline entry for status changes
+        if (frm.doc.resolution_status && frm.doc.name) {
+            frm.add_child('resolution_timeline', {
+                event_date: frappe.datetime.get_today(),
+                event_time: frappe.datetime.get_time(),
+                event_description: `Resolution status changed to: ${frm.doc.resolution_status}`,
+                event_type: 'Status Change',
+                responsible_party: frappe.session.user
+            });
+            frm.refresh_field('resolution_timeline');
+        }
+        
+        // Update dashboard with a slight delay to ensure progress is calculated
+        setTimeout(() => {
+            update_resolution_dashboard(frm);
+        }, 100);
     },
     
     verification_status: function(frm) {
@@ -42,80 +62,8 @@ frappe.ui.form.on('Incident Resolution', {
 });
 
 function add_custom_buttons(frm) {
-    // Clear existing custom buttons
-    frm.clear_custom_buttons();
-    
-    if (frm.doc.docstatus === 0) {
-        // Draft state buttons
-        
-        // Primary Actions
-        frm.add_custom_button(__('Verify Solution'), function() {
-            verify_solution_dialog(frm);
-        }, __('Primary Actions')).addClass('btn-primary');
-        
-        frm.add_custom_button(__('Update Status'), function() {
-            update_status_dialog(frm);
-        }, __('Primary Actions'));
-        
-        // Validation Actions
-        frm.add_custom_button(__('Run Validation'), function() {
-            run_validation_tests(frm);
-        }, __('Validation'));
-        
-        frm.add_custom_button(__('Mark Criteria Passed'), function() {
-            mark_criteria_dialog(frm, 'passed');
-        }, __('Validation'));
-        
-        frm.add_custom_button(__('Mark Criteria Failed'), function() {
-            mark_criteria_dialog(frm, 'failed');
-        }, __('Validation'));
-        
-        // Communication Actions
-        frm.add_custom_button(__('Notify Stakeholders'), function() {
-            notify_stakeholders_dialog(frm);
-        }, __('Communication'));
-        
-        frm.add_custom_button(__('Add Documentation'), function() {
-            add_documentation_dialog(frm);
-        }, __('Communication'));
-        
-        // Action Items
-        frm.add_custom_button(__('Create Action Items'), function() {
-            create_action_items_dialog(frm);
-        }, __('Actions'));
-        
-        frm.add_custom_button(__('Assign Follow-up'), function() {
-            assign_followup_dialog(frm);
-        }, __('Actions'));
-        
-    } else if (frm.doc.docstatus === 1) {
-        // Submitted state buttons
-        
-        frm.add_custom_button(__('View Metrics'), function() {
-            show_resolution_metrics(frm);
-        }).addClass('btn-info');
-        
-        frm.add_custom_button(__('Export Report'), function() {
-            export_resolution_report(frm);
-        });
-        
-        if (frappe.user.has_role(['System Manager', 'Incident Manager'])) {
-            frm.add_custom_button(__('Reopen Resolution'), function() {
-                reopen_resolution_dialog(frm);
-            }).addClass('btn-warning');
-        }
-    }
-    
-    // Always available buttons
-    frm.add_custom_button(__('View Incident'), function() {
-        if (frm.doc.incident) {
-            frappe.set_route('Form', 'Incident', frm.doc.incident);
-        }
-    });
-    
-    frm.add_custom_button(__('Resolution Timeline'), function() {
-        show_resolution_timeline(frm);
-    });
+    // Custom buttons removed to reduce interface clutter
+    // Focus on core functionality through form fields and status workflow
 }
 
 function verify_solution_dialog(frm) {
@@ -315,39 +263,10 @@ function run_validation_tests(frm) {
     }, 2000);
 }
 
+// Legacy function - replaced by add_resolution_status_indicators
 function set_status_indicators(frm) {
-    // Status indicator colors
-    const status_colors = {
-        'Draft': 'gray',
-        'In Progress': 'blue',
-        'Pending Verification': 'orange',
-        'Verified': 'green',
-        'Closed': 'darkgreen'
-    };
-    
-    const verification_colors = {
-        'Not Started': 'gray',
-        'In Progress': 'blue',
-        'Passed': 'green',
-        'Failed': 'red',
-        'Partially Verified': 'orange'
-    };
-    
-    // Set status indicators
-    frm.dashboard.set_headline_alert(
-        `<div class="row">
-            <div class="col-xs-6">
-                <span class="indicator ${status_colors[frm.doc.resolution_status] || 'gray'}">
-                    Resolution: ${frm.doc.resolution_status || 'Draft'}
-                </span>
-            </div>
-            <div class="col-xs-6">
-                <span class="indicator ${verification_colors[frm.doc.verification_status] || 'gray'}">
-                    Verification: ${frm.doc.verification_status || 'Not Started'}
-                </span>
-            </div>
-        </div>`
-    );
+    // This function is now handled by update_resolution_dashboard()
+    update_resolution_dashboard(frm);
 }
 
 function fetch_incident_details(frm) {
@@ -568,4 +487,196 @@ function show_resolution_timeline(frm) {
         "reference_name": frm.doc.name
     };
     frappe.set_route("List", "Communication");
+}
+
+// ========== DASHBOARD AND PROGRESS BAR FUNCTIONS ==========
+
+// Consolidated dashboard update function
+function update_resolution_dashboard(frm) {
+    // Clear existing dashboard content first to prevent duplicates
+    clear_resolution_dashboard(frm);
+    
+    // Add progress bar and status indicators
+    add_resolution_progress(frm);
+    add_resolution_status_indicators(frm);
+    
+    // Handle progressive mandatory fields
+    handle_progressive_mandatory_fields(frm);
+}
+
+// Helper function to clear dashboard content
+function clear_resolution_dashboard(frm) {
+    // Clear indicators
+    if (frm.dashboard && frm.dashboard.clear_indicators) {
+        frm.dashboard.clear_indicators();
+    }
+    
+    // Clear progress bars by removing existing progress chart elements
+    if (frm.dashboard && frm.dashboard.wrapper) {
+        $(frm.dashboard.wrapper).find('.progress-chart').remove();
+    }
+    
+    // Clear headlines
+    if (frm.dashboard && frm.dashboard.clear_headline) {
+        frm.dashboard.clear_headline();
+    }
+}
+
+// Add resolution progress bar
+function add_resolution_progress(frm) {
+    // Show resolution progress based on status and actual progress field
+    if (frm.doc.resolution_status) {
+        // Use the calculated progress from the backend if available
+        let progress = frm.doc.resolution_progress || 0;
+        
+        // If no calculated progress, use status-based progress
+        if (progress === 0) {
+            let progress_map = {
+                'Draft': 0,
+                'Planning': 8,
+                'Root Cause Analysis': 16,
+                'Solution Design': 25,
+                'Implementation': 35,
+                'Testing': 45,
+                'Verification': 60,
+                'Approval Pending': 75,
+                'Deployed': 85,
+                'Monitoring': 92,
+                'Completed': 100,
+                'Rejected': 0
+            };
+            progress = progress_map[frm.doc.resolution_status] || 0;
+        }
+        
+        let status_color_map = {
+            'Draft': 'grey',
+            'Planning': 'blue',
+            'Root Cause Analysis': 'orange',
+            'Solution Design': 'purple',
+            'Implementation': 'cyan',
+            'Testing': 'yellow',
+            'Verification': 'light-blue',
+            'Approval Pending': 'orange',
+            'Deployed': 'green',
+            'Monitoring': 'dark-green',
+            'Completed': 'green',
+            'Rejected': 'red'
+        };
+        
+        let color = status_color_map[frm.doc.resolution_status] || 'blue';
+        
+        // Add main resolution progress bar
+        frm.dashboard.add_progress(
+            __('Resolution Progress'), 
+            progress, 
+            __(`${frm.doc.resolution_status} - ${progress}% Complete`),
+            color
+        );
+        
+        // Add overdue indicator if applicable
+        if (frm.doc.target_resolution_date && !frm.doc.actual_resolution_date) {
+            let today = frappe.datetime.get_today();
+            if (frappe.datetime.get_diff(today, frm.doc.target_resolution_date) > 0) {
+                let overdue_days = frappe.datetime.get_diff(today, frm.doc.target_resolution_date);
+                frm.dashboard.add_indicator(__(`Overdue by ${overdue_days} days`), 'red');
+            }
+        }
+    }
+}
+
+// Add resolution status indicators
+function add_resolution_status_indicators(frm) {
+    // Show verification status
+    if (frm.doc.verification_status) {
+        let indicator_color = {
+            'Pending': 'orange',
+            'In Progress': 'blue',
+            'Passed': 'green',
+            'Failed': 'red'
+        };
+        frm.dashboard.add_indicator(
+            __(`Verification: ${frm.doc.verification_status}`), 
+            indicator_color[frm.doc.verification_status] || 'grey'
+        );
+    }
+    
+    // Show closure criteria status
+    if (frm.doc.closure_criteria_met) {
+        frm.dashboard.add_indicator(__('Closure Criteria Met'), 'green');
+    } else if (frm.doc.resolution_status !== 'Draft') {
+        frm.dashboard.add_indicator(__('Closure Criteria Pending'), 'orange');
+    }
+}
+
+// Handle progressive mandatory fields based on resolution status
+function handle_progressive_mandatory_fields(frm) {
+    // Reset all fields to non-mandatory first
+    const all_fields = [
+        'resolved_by', 'resolution_date', 'resolution_approach', 'root_cause_analysis_method',
+        'primary_root_cause', 'detailed_root_cause_analysis', 'temporary_solution', 'permanent_solution',
+        'testing_results', 'effectiveness_verification', 'management_approval', 'approved_by',
+        'post_implementation_review', 'final_resolution_report'
+    ];
+    
+    all_fields.forEach(field => {
+        if (frm.get_field(field)) {
+            frm.toggle_reqd(field, false);
+        }
+    });
+    
+    // Set mandatory fields based on current status
+    const status = frm.doc.resolution_status;
+    
+    if (['Planning', 'Root Cause Analysis', 'Solution Design', 'Implementation', 'Testing', 
+         'Verification', 'Approval Pending', 'Deployed', 'Monitoring', 'Completed'].includes(status)) {
+        // Planning phase requirements
+        frm.toggle_reqd('resolved_by', true);
+        frm.toggle_reqd('resolution_date', true);
+    }
+    
+    if (['Root Cause Analysis', 'Solution Design', 'Implementation', 'Testing', 
+         'Verification', 'Approval Pending', 'Deployed', 'Monitoring', 'Completed'].includes(status)) {
+        // Root Cause Analysis phase requirements
+        frm.toggle_reqd('resolution_approach', true);
+        frm.toggle_reqd('root_cause_analysis_method', true);
+    }
+    
+    if (['Solution Design', 'Implementation', 'Testing', 'Verification', 
+         'Approval Pending', 'Deployed', 'Monitoring', 'Completed'].includes(status)) {
+        // Solution Design phase requirements
+        frm.toggle_reqd('primary_root_cause', true);
+        frm.toggle_reqd('detailed_root_cause_analysis', true);
+    }
+    
+    if (['Implementation', 'Testing', 'Verification', 'Approval Pending', 
+         'Deployed', 'Monitoring', 'Completed'].includes(status)) {
+        // Implementation phase requirements - either temporary or permanent solution
+        let has_temp = frm.doc.temporary_solution;
+        let has_perm = frm.doc.permanent_solution;
+        if (!has_temp && !has_perm) {
+            frm.toggle_reqd('permanent_solution', true);
+        }
+    }
+    
+    if (['Verification', 'Approval Pending', 'Deployed', 'Monitoring', 'Completed'].includes(status)) {
+        // Verification phase requirements
+        frm.toggle_reqd('testing_results', true);
+        frm.toggle_reqd('effectiveness_verification', true);
+    }
+    
+    if (['Deployed', 'Monitoring', 'Completed'].includes(status)) {
+        // Deployment phase requirements
+        frm.toggle_reqd('management_approval', true);
+        frm.toggle_reqd('approved_by', true);
+    }
+    
+    if (['Monitoring', 'Completed'].includes(status)) {
+        // Monitoring phase requirements
+        frm.toggle_reqd('post_implementation_review', true);
+    }
+    
+    if (status === 'Completed') {
+        // Completion phase requirements
+        frm.toggle_reqd('final_resolution_report', true);
+    }
 }

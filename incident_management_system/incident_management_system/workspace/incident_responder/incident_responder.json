@@ -1,11 +1,6 @@
 {
- "charts": [
-  {
-   "chart_name": "Incidents By Severity",
-   "label": "Incidents By Severity"
-  }
- ],
- "content": "[{\"id\":\"responder_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Responder Dashboard</span>\",\"col\":12}},{\"id\":\"responder_kpi1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":3}},{\"id\":\"responder_kpi2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Investigations\",\"col\":3}},{\"id\":\"responder_kpi3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Action Items\",\"col\":3}},{\"id\":\"responder_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"responder_chart\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Incidents By Severity\",\"col\":8}},{\"id\":\"responder_incidents\",\"type\":\"card\",\"data\":{\"card_name\":\"ASSIGNED INCIDENTS\",\"col\":4}},{\"id\":\"responder_investigations\",\"type\":\"card\",\"data\":{\"card_name\":\"INVESTIGATIONS\",\"col\":4}}]",
+ "charts": [],
+ "content": "[{\"id\":\"responder_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Responder Dashboard</span>\",\"col\":12}},{\"id\":\"PftieU7ow9\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"5CdD0cGnmy\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Investigations\",\"col\":4}},{\"id\":\"f9qjWZmF0A\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"responder_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"responder_incidents\",\"type\":\"card\",\"data\":{\"card_name\":\"ASSIGNED INCIDENTS\",\"col\":4}},{\"id\":\"responder_investigations\",\"type\":\"card\",\"data\":{\"card_name\":\"INVESTIGATIONS\",\"col\":4}}]",
  "creation": "2025-09-18 21:13:24.472762",
  "custom_blocks": [],
  "docstatus": 0,
@@ -107,22 +102,22 @@
    "type": "Link"
   }
  ],
- "modified": "2025-09-18 21:18:04.169424",
- "modified_by": "Administrator",
+ "modified": "2025-09-24 15:08:52.265868",
+ "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident Responder",
  "number_cards": [
   {
-   "number_card_name": "Reported Incidents"
+   "label": "Resolved Incidents",
+   "number_card_name": "Resolved Incidents"
   },
   {
+   "label": "Open Incidents",
+   "number_card_name": "Open Incidents"
+  },
+  {
+   "label": "Active Investigations",
    "number_card_name": "Active Investigations"
-  },
-  {
-   "number_card_name": "Currently Investigating"
-  },
-  {
-   "number_card_name": "High Priority Incidents"
   }
  ],
  "owner": "Administrator",

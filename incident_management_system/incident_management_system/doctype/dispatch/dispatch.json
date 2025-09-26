@@ -1,0 +1,24 @@
+{
+  "doctype": "DocType",
+  "name": "Dispatch",
+  "module": "Incident Management System",
+  "custom": 1,
+  "fields": [
+    {"fieldname": "incident", "label": "Incident", "fieldtype": "Link", "options": "Incident", "reqd": 1},
+    {"fieldname": "responder_team", "label": "Responder Team", "fieldtype": "Table MultiSelect", "options": "User", "reqd": 1},
+    {"fieldname": "dispatch_time", "label": "Dispatch Time", "fieldtype": "Datetime", "reqd": 1},
+    {"fieldname": "arrival_time", "label": "Arrival Time", "fieldtype": "Datetime"},
+    {"fieldname": "location", "label": "Location", "fieldtype": "Geolocation", "reqd": 1, "default": "{\"type\": \"Point\", \"coordinates\": [-1.2921, 36.8219]}"},
+    {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Dispatched\nEn Route\nOn Site\nCompleted\nCancelled", "reqd": 1},
+    {"fieldname": "notes", "label": "Notes", "fieldtype": "Text"}
+  ],
+  "permissions": [
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1, "amend": 1},
+    {"role": "Incident Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1, "amend": 1},
+    {"role": "Responder", "read": 1, "write": 1, "create": 1}
+  ],
+  "is_submittable": 1,
+  "track_changes": 1,
+  "track_views": 1,
+  "track_seen": 1
+}

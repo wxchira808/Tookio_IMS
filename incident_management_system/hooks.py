@@ -12,17 +12,10 @@ fixtures = [
     {
         "dt": "Custom DocPerm"
     },
-    {
-        "dt": "Workspace",
-        "filters": [
-            ["name", "in", [
-                "Incident Manager",
-                "Incident Reporter", 
-                "Incident Responder",
-                "Tookio IMS"
-            ]]
-        ]
-    }
+    { "dt": "Role" }
+    ,
+    {"dt": "Client Script"}
+    ,{"dt": "Server Script"}
 ]
 
 

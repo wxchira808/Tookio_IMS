@@ -24,7 +24,6 @@
   "column_break_resolver",
   "supervisor",
   "department",
-  
   "root_cause_tab",
   "section_break_root_cause",
   "root_cause_analysis_method",
@@ -36,7 +35,6 @@
   "detailed_root_cause_analysis",
   "section_break_factors",
   "resolution_contributing_factors",
-  
   "solution_tab",
   "section_break_solution",
   "resolution_type",
@@ -50,7 +48,6 @@
   "technical_details",
   "section_break_steps",
   "resolution_steps",
-  
   "actions_tab",
   "section_break_corrective",
   "corrective_actions",
@@ -58,7 +55,6 @@
   "preventive_actions",
   "section_break_followup",
   "follow_up_actions",
-  
   "verification_tab",
   "section_break_verification",
   "verification_method",
@@ -72,7 +68,6 @@
   "validation_criteria",
   "section_break_sign_off",
   "stakeholder_sign_offs",
-  
   "communication_tab",
   "section_break_notification",
   "resolution_notifications",
@@ -84,7 +79,6 @@
   "column_break_knowledge",
   "lessons_learned",
   "best_practices_documented",
-  
   "closure_tab",
   "section_break_closure",
   "closure_criteria_met",
@@ -114,15 +108,19 @@
    "in_list_view": 1,
    "label": "Incident",
    "options": "Incident",
+   "read_only": 1,
    "reqd": 1
   },
   {
+   "description": "Status is automatically updated based on resolution progress",
    "fieldname": "resolution_status",
    "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Resolution Status",
-   "options": "Draft\nIn Progress\nPending Verification\nVerified\nClosed",
-   "default": "Draft",
-   "in_list_view": 1
+   "options": "Draft\nPlanning\nRoot Cause Analysis\nSolution Design\nImplementation\nTesting\nVerification\nApproval Pending\nDeployed\nMonitoring\nCompleted\nRejected",
+   "read_only_depends_on": "eval:doc.docstatus == 1"
   },
   {
    "fieldname": "column_break_1",
@@ -132,8 +130,7 @@
    "default": "Today",
    "fieldname": "resolution_date",
    "fieldtype": "Date",
-   "label": "Resolution Date",
-   "reqd": 1
+   "label": "Resolution Date"
   },
   {
    "fieldname": "resolution_time",
@@ -146,37 +143,37 @@
    "label": "Incident Details"
   },
   {
+   "fetch_from": "incident.title1",
    "fieldname": "incident_title",
    "fieldtype": "Data",
    "label": "Incident Title",
-   "read_only": 1,
-   "fetch_from": "incident.title"
+   "read_only": 1
   },
   {
+   "fetch_from": "incident.priority",
    "fieldname": "incident_priority",
    "fieldtype": "Select",
    "label": "Priority",
-   "read_only": 1,
-   "fetch_from": "incident.priority"
+   "read_only": 1
   },
   {
    "fieldname": "column_break_basic",
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "incident.severity",
    "fieldname": "incident_severity",
    "fieldtype": "Select",
    "label": "Severity",
-   "read_only": 1,
-   "fetch_from": "incident.severity"
+   "read_only": 1
   },
   {
+   "fetch_from": "incident.incident_type",
    "fieldname": "incident_type",
    "fieldtype": "Link",
    "label": "Incident Type",
    "options": "Incident Type",
-   "read_only": 1,
-   "fetch_from": "incident.incident_type"
+   "read_only": 1
   },
   {
    "fieldname": "section_break_resolver",
@@ -187,8 +184,7 @@
    "fieldname": "resolved_by",
    "fieldtype": "Link",
    "label": "Resolved By",
-   "options": "User",
-   "reqd": 1
+   "options": "User"
   },
   {
    "fieldname": "resolution_team",
@@ -205,12 +201,11 @@
    "label": "Supervisor",
    "options": "User"
   },
-    {
-     "fieldname": "department",
-     "fieldtype": "Data",
-     "label": "Department"
-    },
-  
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
   {
    "fieldname": "root_cause_tab",
    "fieldtype": "Tab Break",
@@ -230,8 +225,7 @@
   {
    "fieldname": "primary_root_cause",
    "fieldtype": "Small Text",
-   "label": "Primary Root Cause",
-   "reqd": 1
+   "label": "Primary Root Cause"
   },
   {
    "fieldname": "column_break_root_cause",
@@ -269,7 +263,6 @@
    "label": "Contributing Factors",
    "options": "Resolution Contributing Factor"
   },
-  
   {
    "fieldname": "solution_tab",
    "fieldtype": "Tab Break",
@@ -297,11 +290,13 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "temporary_solution",
    "fieldtype": "Check",
    "label": "Temporary Solution Applied"
   },
   {
+   "default": "0",
    "fieldname": "permanent_solution",
    "fieldtype": "Check",
    "label": "Permanent Solution Implemented"
@@ -314,8 +309,7 @@
   {
    "fieldname": "resolution_summary",
    "fieldtype": "Text Editor",
-   "label": "Resolution Summary",
-   "reqd": 1
+   "label": "Resolution Summary"
   },
   {
    "fieldname": "section_break_technical",
@@ -338,7 +332,6 @@
    "label": "Resolution Steps",
    "options": "Resolution Step"
   },
-  
   {
    "fieldname": "actions_tab",
    "fieldtype": "Tab Break",
@@ -377,7 +370,6 @@
    "label": "Follow-up Actions",
    "options": "Resolution Action Item"
   },
-  
   {
    "fieldname": "verification_tab",
    "fieldtype": "Tab Break",
@@ -447,7 +439,6 @@
    "label": "Stakeholder Sign-offs",
    "options": "Resolution Sign Off"
   },
-  
   {
    "fieldname": "communication_tab",
    "fieldtype": "Tab Break",
@@ -481,6 +472,7 @@
    "label": "Knowledge Management"
   },
   {
+   "default": "0",
    "fieldname": "knowledge_base_updated",
    "fieldtype": "Check",
    "label": "Knowledge Base Updated"
@@ -500,11 +492,11 @@
    "label": "Lessons Learned"
   },
   {
+   "default": "0",
    "fieldname": "best_practices_documented",
    "fieldtype": "Check",
    "label": "Best Practices Documented"
   },
-  
   {
    "fieldname": "closure_tab",
    "fieldtype": "Tab Break",
@@ -516,6 +508,7 @@
    "label": "Closure Criteria"
   },
   {
+   "default": "0",
    "fieldname": "closure_criteria_met",
    "fieldtype": "Check",
    "label": "All Closure Criteria Met"
@@ -549,9 +542,10 @@
    "fieldname": "resolution_time_hours",
    "fieldtype": "Float",
    "label": "Total Resolution Time (Hours)",
-   "precision": 2
+   "precision": "2"
   },
   {
+   "default": "0",
    "fieldname": "sla_compliance",
    "fieldtype": "Check",
    "label": "SLA Compliance Met"
@@ -593,10 +587,9 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2025-09-16 01:46:20.604977",
- "modified_by": "Administrator",
+ "modified": "2025-09-25 09:49:09.808481",
+ "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident Resolution",
  "naming_rule": "Expression",
@@ -618,5 +611,54 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Draft"
+  },
+  {
+   "color": "Blue",
+   "title": "Planning"
+  },
+  {
+   "color": "Orange",
+   "title": "Root Cause Analysis"
+  },
+  {
+   "color": "Purple",
+   "title": "Solution Design"
+  },
+  {
+   "color": "Yellow",
+   "title": "Implementation"
+  },
+  {
+   "color": "Light Blue",
+   "title": "Testing"
+  },
+  {
+   "color": "Cyan",
+   "title": "Verification"
+  },
+  {
+   "color": "Red",
+   "title": "Approval Pending"
+  },
+  {
+   "color": "Green",
+   "title": "Deployed"
+  },
+  {
+   "color": "Green",
+   "title": "Monitoring"
+  },
+  {
+   "color": "Blue",
+   "title": "Completed"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  }
+ ]
 }

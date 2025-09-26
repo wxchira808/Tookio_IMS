@@ -14,14 +14,73 @@ class IncidentResolution(Document):
         self.calculate_resolution_metrics()
         self.validate_stakeholder_signoffs()
         
+    def update_resolution_status(self):
+        """Auto-update resolution status based on progress and key milestones"""
+        if self.docstatus == 0:  # Draft state
+            if self.resolution_status == "Draft":
+                if self.resolved_by and self.resolution_date:
+                    self.resolution_status = "Planning"
+                    
+            if self.resolution_status == "Planning":
+                if self.resolution_approach and self.resolution_type:
+                    self.resolution_status = "Root Cause Analysis"
+                    
+            if self.resolution_status == "Root Cause Analysis":
+                if self.primary_root_cause and self.detailed_root_cause_analysis:
+                    self.resolution_status = "Solution Design"
+                    
+            if self.resolution_status == "Solution Design":
+                if self.temporary_solution or self.permanent_solution:
+                    self.resolution_status = "Implementation"
+                    
+            if self.resolution_status == "Implementation":
+                if len(self.get("resolution_steps", [])) > 0:
+                    self.resolution_status = "Testing"
+                    
+            if self.resolution_status == "Testing":
+                if self.testing_results and self.quality_assurance_notes:
+                    self.resolution_status = "Verification"
+                    
+            if self.resolution_status == "Verification":
+                if self.effectiveness_verification and self.verification_status == "Passed":
+                    self.resolution_status = "Approval Pending"
+                    
+            if self.resolution_status == "Approval Pending":
+                if self.management_approval and self.approved_by:
+                    self.resolution_status = "Deployed"
+                elif self.approval_comments and not self.management_approval:
+                    self.resolution_status = "Rejected"
+                    
+            if self.resolution_status == "Deployed":
+                if self.post_implementation_review:
+                    self.resolution_status = "Monitoring"
+                    
+            if self.resolution_status == "Monitoring":
+                if self.closure_criteria_met and self.final_resolution_report:
+                    self.resolution_status = "Completed"
+                    
+        elif self.docstatus == 1:  # Submitted
+            self.resolution_status = "Completed"
+        
     def before_save(self):
         """Before saving the resolution"""
         self.update_incident_details()
         self.set_default_values()
         self.calculate_resolution_time()
+        self.update_resolution_status()
         
     def after_insert(self):
         """After creating the resolution"""
+        # Update parent incident status to "Resolved" when resolution is created
+        if self.incident:
+            incident = frappe.get_doc("Incident", self.incident)
+            # Only update if incident is not already in a "higher" state
+            if incident.status not in ["Resolved", "Closed", "Cancelled"]:
+                incident.status = "Resolved"
+                incident.resolution_id = self.name
+                incident.flags.ignore_permissions = True
+                incident.save()
+        
         self.create_default_validation_criteria()
         self.notify_stakeholders("resolution_created")
         
@@ -39,25 +98,88 @@ class IncidentResolution(Document):
         self.notify_stakeholders("resolution_cancelled")
         
     def validate_incident_investigation(self):
-        """Ensure investigation is completed before resolution"""
+        """Ensure investigation exists before resolution"""
         if not self.incident:
             frappe.throw("Incident is required")
             
         investigation = frappe.db.exists("Incident Investigation", {
-            "incident": self.incident, 
-            "docstatus": 1
+            "incident": self.incident
         })
         
         if not investigation:
-            frappe.throw("Cannot create Resolution without a submitted Investigation for this incident")
+            frappe.throw("Cannot create Resolution without an Investigation for this incident")
             
     def validate_required_fields(self):
-        """Validate required fields based on resolution status"""
-        if self.resolution_status in ["Verified", "Closed"]:
+        """Validate required fields based on resolution status - Progressive validation"""
+        status = self.resolution_status
+        
+        # Draft: No mandatory fields beyond basic info
+        if status == "Draft":
+            pass
+            
+        # Planning: Need resolver and basic planning
+        if status in ["Planning", "Root Cause Analysis", "Solution Design", "Implementation", 
+                     "Testing", "Verification", "Approval Pending", "Deployed", "Monitoring", "Completed"]:
+            if not self.resolved_by:
+                frappe.throw("Resolved By is required when resolution is in planning phase")
+            if not self.resolution_date:
+                frappe.throw("Resolution Date is required when resolution is in planning phase")
+                
+        # Root Cause Analysis: Need approach and analysis method
+        if status in ["Root Cause Analysis", "Solution Design", "Implementation", "Testing", 
+                     "Verification", "Approval Pending", "Deployed", "Monitoring", "Completed"]:
+            if not self.resolution_approach:
+                frappe.throw("Resolution Approach is required for root cause analysis phase")
+            if not self.root_cause_analysis_method:
+                frappe.throw("Root Cause Analysis Method is required for analysis phase")
+                
+        # Solution Design: Need root cause and analysis
+        if status in ["Solution Design", "Implementation", "Testing", "Verification", 
+                     "Approval Pending", "Deployed", "Monitoring", "Completed"]:
             if not self.primary_root_cause:
-                frappe.throw("Primary Root Cause is required for verified/closed resolutions")
-            if not self.resolution_summary:
-                frappe.throw("Resolution Summary is required for verified/closed resolutions")
+                frappe.throw("Primary Root Cause is required for solution design phase")
+            if not self.detailed_root_cause_analysis:
+                frappe.throw("Detailed Root Cause Analysis is required for solution design phase")
+                
+        # Implementation: Need solution details
+        if status in ["Implementation", "Testing", "Verification", "Approval Pending", 
+                     "Deployed", "Monitoring", "Completed"]:
+            if not self.permanent_solution and not self.temporary_solution:
+                frappe.throw("Either Temporary or Permanent Solution is required for implementation phase")
+                
+        # Testing: Need implementation steps
+        if status in ["Testing", "Verification", "Approval Pending", "Deployed", "Monitoring", "Completed"]:
+            if not len(self.get("resolution_steps", [])):
+                frappe.throw("Resolution Steps are required for testing phase")
+                
+        # Verification: Need testing results
+        if status in ["Verification", "Approval Pending", "Deployed", "Monitoring", "Completed"]:
+            if not self.testing_results:
+                frappe.throw("Testing Results are required for verification phase")
+            if not self.effectiveness_verification:
+                frappe.throw("Effectiveness Verification is required for verification phase")
+                
+        # Approval Pending: Need verification passed
+        if status in ["Approval Pending", "Deployed", "Monitoring", "Completed"]:
+            if self.verification_status != "Passed":
+                frappe.throw("Verification must be Passed before seeking approval")
+                
+        # Deployed: Need management approval
+        if status in ["Deployed", "Monitoring", "Completed"]:
+            if not self.management_approval or not self.approved_by:
+                frappe.throw("Management Approval is required before deployment")
+                
+        # Monitoring: Need post-implementation review
+        if status in ["Monitoring", "Completed"]:
+            if not self.post_implementation_review:
+                frappe.throw("Post Implementation Review is required for monitoring phase")
+                
+        # Completed: Need final report and closure criteria
+        if status == "Completed":
+            if not self.final_resolution_report:
+                frappe.throw("Final Resolution Report is required for completion")
+            if not self.closure_criteria_met:
+                frappe.throw("All Closure Criteria must be met for completion")
                 
     def validate_stakeholder_signoffs(self):
         """Validate required sign-offs for closure"""
@@ -86,7 +208,7 @@ class IncidentResolution(Document):
         """Fetch incident details for display"""
         if self.incident and not self.incident_title:
             incident = frappe.get_doc("Incident", self.incident)
-            self.incident_title = incident.title
+            self.incident_title = incident.title1
             self.incident_priority = incident.priority
             self.incident_severity = incident.severity
             self.incident_type = incident.incident_type
@@ -107,14 +229,17 @@ class IncidentResolution(Document):
         if self.incident and self.resolution_date:
             incident = frappe.get_doc("Incident", self.incident)
             if incident.incident_date:
-                resolution_datetime = datetime.combine(
-                    frappe.utils.getdate(self.resolution_date),
-                    frappe.utils.get_time(self.resolution_time or "00:00:00")
-                )
-                incident_datetime = datetime.combine(
-                    frappe.utils.getdate(incident.incident_date),
-                    frappe.utils.get_time(incident.incident_time or "00:00:00")
-                )
+                # Create resolution datetime
+                if self.resolution_time:
+                    resolution_datetime = datetime.combine(
+                        frappe.utils.getdate(self.resolution_date),
+                        frappe.utils.get_time(self.resolution_time)
+                    )
+                else:
+                    resolution_datetime = frappe.utils.get_datetime(self.resolution_date)
+                
+                # Get incident datetime (incident_date is already a datetime field)
+                incident_datetime = frappe.utils.get_datetime(incident.incident_date)
                 
                 time_diff = resolution_datetime - incident_datetime
                 self.resolution_time_hours = flt(time_diff.total_seconds() / 3600, 2)

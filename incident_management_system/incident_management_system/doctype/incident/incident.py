@@ -183,6 +183,33 @@ class Incident(Document):
             return get_datetime() > get_datetime(self.sla_breach_time)
         return False
 
+    # AI-powered methods
+    def generate_ai_summary(self):
+        """Generate AI-powered incident summary"""
+        try:
+            from incident_management_system.utils.ai_helper import generate_ai_incident_summary
+            return generate_ai_incident_summary(self.name)
+        except ImportError:
+            frappe.throw("AI helper module not available. Please install required dependencies.")
+        except Exception as e:
+            frappe.log_error(f"AI Summary Generation Error: {str(e)}")
+            return f"Error generating AI summary: {str(e)}"
+    
+    def get_ai_investigation_suggestions(self):
+        """Get AI suggestions for investigation steps"""
+        try:
+            from incident_management_system.utils.ai_helper import get_ai_investigation_suggestions
+            return get_ai_investigation_suggestions(
+                self.incident_type or "General", 
+                self.severity or "Medium", 
+                self.description or ""
+            )
+        except ImportError:
+            frappe.throw("AI helper module not available. Please install required dependencies.")
+        except Exception as e:
+            frappe.log_error(f"AI Investigation Suggestions Error: {str(e)}")
+            return f"Error generating AI suggestions: {str(e)}"
+
 @frappe.whitelist()
 def make_investigation(source_name, target_doc=None):
     def set_missing_values(source, target):
@@ -214,5 +241,28 @@ def make_resolution(source_name, target_doc=None):
     }, target_doc, set_missing_values)
     
     return doclist
-    
+
+@frappe.whitelist()
+def generate_incident_ai_summary(incident_name):
+    """Whitelisted method to generate AI summary for an incident"""
+    incident = frappe.get_doc("Incident", incident_name)
+    return incident.generate_ai_summary()
+
+@frappe.whitelist()
+def get_incident_ai_suggestions(incident_name):
+    """Whitelisted method to get AI investigation suggestions"""
+    incident = frappe.get_doc("Incident", incident_name)
+    return incident.get_ai_investigation_suggestions()
+
+@frappe.whitelist()
+def analyze_incident_trends():
+    """Whitelisted method to analyze incident trends using AI"""
+    try:
+        from incident_management_system.utils.ai_helper import analyze_incident_trends_ai
+        return analyze_incident_trends_ai()
+    except ImportError:
+        frappe.throw("AI helper module not available. Please install required dependencies.")
+    except Exception as e:
+        frappe.log_error(f"AI Trend Analysis Error: {str(e)}")
+        return f"Error generating trend analysis: {str(e)}"
   

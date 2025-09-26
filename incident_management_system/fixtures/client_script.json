@@ -1,0 +1,68 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Incident",
+  "enabled": 0,
+  "modified": "2025-09-11 12:29:21.300326",
+  "module": "Incident Management System",
+  "name": "Hide Incident Tabs",
+  "script": "// Script Name: Hide Incident Tabs\r\nfrappe.ui.form.on('Incident', {\r\n    refresh: function(frm) {\r\n        // Hide tabs based on user roles and document status\r\n        hide_tabs_based_on_conditions(frm);\r\n    },\r\n    \r\n    status: function(frm) {\r\n        // Re-run visibility checks when status changes\r\n        hide_tabs_based_on_conditions(frm);\r\n    },\r\n    \r\n    severity: function(frm) {\r\n        // Re-run visibility checks when severity changes\r\n        hide_tabs_based_on_conditions(frm);\r\n    }\r\n});\r\n\r\nfunction hide_tabs_based_on_conditions(frm) {\r\n    // Check if user has incident management roles\r\n    let is_incident_responder = frappe.user.has_role(\"Incident Responder\");\r\n    let is_incident_manager = frappe.user.has_role(\"Incident Manager\");\r\n    let has_incident_role = is_incident_responder || is_incident_manager;\r\n    \r\n    // Get current document status and severity\r\n    let status = frm.doc.status || \"\";\r\n    let severity = frm.doc.severity || \"\";\r\n    \r\n    // Investigation tab - show only for In Progress/Resolved status and authorized roles\r\n    let show_investigation = has_incident_role && (status === \"In Progress\" || status === \"Resolved\");\r\n    frm.toggle_display(\"investigation_tab\", show_investigation);\r\n    \r\n    // Resolution tab - show for In Progress/Resolved/Closed status and authorized roles\r\n    let show_resolution = has_incident_role && (status === \"In Progress\" || status === \"Resolved\" || status === \"Closed\");\r\n    frm.toggle_display(\"resolution_tab\", show_resolution);\r\n    \r\n    // Impact Assessment tab - show only for Critical/High severity and authorized roles\r\n    let show_impact = has_incident_role && (severity === \"Critical\" || severity === \"High\");\r\n    frm.toggle_display(\"impact_assessment_tab\", show_impact);\r\n    \r\n    // Categorization tab - always hide\r\n    frm.toggle_display(\"categorization_tab\", false);\r\n    \r\n    // Alternative method using set_df_property if toggle_display doesn't work\r\n    setTimeout(function() {\r\n        if (frm.fields_dict.investigation_tab) {\r\n            frm.set_df_property(\"investigation_tab\", \"hidden\", !show_investigation);\r\n        }\r\n        if (frm.fields_dict.resolution_tab) {\r\n            frm.set_df_property(\"resolution_tab\", \"hidden\", !show_resolution);\r\n        }\r\n        if (frm.fields_dict.impact_assessment_tab) {\r\n            frm.set_df_property(\"impact_assessment_tab\", \"hidden\", !show_impact);\r\n        }\r\n        if (frm.fields_dict.categorization_tab) {\r\n            frm.set_df_property(\"categorization_tab\", \"hidden\", true);\r\n        }\r\n    }, 100);\r\n}",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Incident",
+  "enabled": 0,
+  "modified": "2025-07-12 01:41:44.559528",
+  "module": "Incident Management System",
+  "name": "Hide Sidebar For Reporter",
+  "script": "frappe.ui.form.on('Incident', {\r\n    onload: function(frm) {\r\n        // Check if user has specific role\r\n        if (frappe.user.has_role('Incident Reporter')) {\r\n            // Hide the sidebar\r\n            $('.layout-side-section').hide();\r\n            // Or hide specific sidebar sections\r\n            $('.form-sidebar').hide();\r\n            \r\n            // Hide the comments and activity section\r\n            $('.form-footer').hide();\r\n            $('.timeline-content').hide();\r\n            $('.comment-box').hide();\r\n            $('.timeline-item').hide();\r\n            $('.activity-timeline').hide();\r\n            \r\n            // Hide the entire bottom section with comments and activity\r\n            $('[data-fieldtype=\"Comment\"]').hide();\r\n            $('.timeline-section').hide();\r\n            $('.communications-section').hide();\r\n            $('.form-timeline').hide();\r\n            \r\n            // More specific targeting - avoid hiding tab content\r\n            $('.form-comments-section').hide();\r\n            $('.timeline-message-box').hide();\r\n        }\r\n    },\r\n    \r\n    refresh: function(frm) {\r\n        // Also hide on refresh with a small delay to ensure DOM is ready\r\n        if (frappe.user.has_role('Incident Reporter')) {\r\n            setTimeout(function() {\r\n                $('.layout-side-section').hide();\r\n                $('.form-sidebar').hide();\r\n                $('.form-footer').hide();\r\n                $('.timeline-content').hide();\r\n                $('.comment-box').hide();\r\n                $('.timeline-item').hide();\r\n                $('.activity-timeline').hide();\r\n                $('[data-fieldtype=\"Comment\"]').hide();\r\n                $('.timeline-section').hide();\r\n                $('.communications-section').hide();\r\n                $('.form-timeline').hide();\r\n                $('.form-comments-section').hide();\r\n                $('.timeline-message-box').hide();\r\n                \r\n                // Target specific elements without affecting tabs\r\n                $('h6:contains(\"Comments\")').closest('.section-head').next('.section-body').hide();\r\n                $('h6:contains(\"Comments\")').closest('.section-head').hide();\r\n                $('h6:contains(\"Activity\")').closest('.section-head').next('.section-body').hide();\r\n                $('h6:contains(\"Activity\")').closest('.section-head').hide();\r\n                \r\n                $('.timeline-head').hide();\r\n                $('.comment-input-container').hide();\r\n                \r\n                // Hide only the timeline wrapper, not tab content\r\n                $('.timeline-wrapper').hide();\r\n                $('.form-timeline-wrapper').hide();\r\n            }, 200);\r\n        }\r\n    }\r\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Incident",
+  "enabled": 1,
+  "modified": "2025-09-12 00:41:26.539945",
+  "module": "Incident Management System",
+  "name": "Hide Assign To Incident",
+  "script": "frappe.ui.form.on('Incident', {\n    refresh: function(frm) {\n        // Check if current user has Incident Manager role\n        const hasSystemManagerRole = frappe.user.has_role('Incident Manager');\n        \n        if (!hasSystemManagerRole) {\n            // Hide assignments section only for non-Incident Managers\n            $('.form-assignments').hide();\n            \n            // Make assign_to field read-only for non-Incident Managers\n            frm.set_df_property('assign_to', 'read_only', 1);\n        } else {\n            // Ensure assignments are visible for Incident Managers\n            $('.form-assignments').show();\n            \n            // Make assign_to field editable for Incident Managers\n            frm.set_df_property('assign_to', 'read_only', 0);\n        }\n    }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Incident",
+  "enabled": 0,
+  "modified": "2025-09-14 14:41:45.118594",
+  "module": "Incident Management System",
+  "name": "Hide comments Incident",
+  "script": "frappe.ui.form.on('Incident', {\n    refresh: function(frm) {\n        // Check if current user has Incident Reporter role\n        const hasIncidentReporterRole = frappe.user.has_role('Incident Reporter');\n        \n        if (hasIncidentReporterRole) {\n            // Hide activity section for Incident Reporters\n            $('.timeline-items').hide();\n            $('.form-timeline').hide();\n            $('.timeline-head').hide();\n        } else {\n            // Ensure activity section is visible for other users\n            $('.timeline-items').show();\n            $('.form-timeline').show();\n            $('.timeline-head').show();\n        }\n    }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Incident",
+  "enabled": 1,
+  "modified": "2025-09-14 14:29:50.893543",
+  "module": "Incident Management System",
+  "name": "Hide shared incident",
+  "script": "frappe.ui.form.on('Incident', {\n    refresh: function(frm) {\n        // Check if current user has Incident Manager role\n        const hasSystemManagerRole = frappe.user.has_role('Incident Manager');\n        \n        if (!hasSystemManagerRole) {\n            // Hide share button only for non-Incident Managers\n            $('.form-shared').hide();\n        } else {\n            // Ensure share button is visible for Incident Managers\n            $('.form-shared').show();\n        }\n    }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Incident",
+  "enabled": 0,
+  "modified": "2025-09-14 16:03:52.308197",
+  "module": "Incident Management System",
+  "name": "Hide assigned to icon",
+  "script": "frappe.listview_settings['Incident'] = {\n    refresh: function(listview) {\n        // Check if current user has 'Incident Reporter' role\n        if (frappe.user_roles.includes('Incident Reporter')) {\n            // Hide the avatar/assigned icon for incident reporters only\n            $(\".avatar-small\").hide(); \n            // Hide the comment count if it's part of the assigned icon\n            $(\".comment-count\").hide(); \n        }\n    }\n};",
+  "view": "List"
+ }
+]

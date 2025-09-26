@@ -136,6 +136,16 @@
   "review_participants",
   "improvement_opportunities",
   "follow_up_actions_required",
+  "risk_analysis_tab",
+  "risk_exposure_section",
+  "exposure_type",
+  "likelihood_score",
+  "impact_score",
+  "risk_score",
+  "column_break_risk",
+  "mitigation_measures",
+  "residual_risk_score",
+  "risk_owner",
   "route",
   "published",
   "amended_from"
@@ -446,25 +456,29 @@
    "default": "0",
    "fieldname": "evidence_preserved",
    "fieldtype": "Check",
-   "label": "Evidence Preserved"
+   "label": "Evidence Preserved",
+   "permlevel": 2
   },
   {
    "default": "0",
    "fieldname": "forensic_analysis_required",
    "fieldtype": "Check",
-   "label": "Forensic Analysis Required"
+   "label": "Forensic Analysis Required",
+   "permlevel": 2
   },
   {
    "default": "0",
    "fieldname": "external_investigation",
    "fieldtype": "Check",
-   "label": "External Investigation Required"
+   "label": "External Investigation Required",
+   "permlevel": 2
   },
   {
    "default": "0",
    "fieldname": "regulatory_reporting_required",
    "fieldtype": "Check",
-   "label": "Regulatory Reporting Required"
+   "label": "Regulatory Reporting Required",
+   "permlevel": 2
   },
   {
    "fieldname": "resolution_tab",
@@ -648,12 +662,14 @@
   {
    "fieldname": "estimated_downtime",
    "fieldtype": "Duration",
-   "label": "Estimated Downtime"
+   "label": "Estimated Downtime",
+   "permlevel": 2
   },
   {
    "fieldname": "estimated_cost",
    "fieldtype": "Currency",
-   "label": "Estimated Cost"
+   "label": "Estimated Cost",
+   "permlevel": 2
   },
   {
    "fieldname": "communication_tab",
@@ -680,7 +696,8 @@
   {
    "fieldname": "management_briefing",
    "fieldtype": "Text Editor",
-   "label": "Management Briefing"
+   "label": "Management Briefing",
+   "permlevel": 2
   },
   {
    "fieldname": "column_break_communication",
@@ -700,7 +717,8 @@
   {
    "fieldname": "customer_notification",
    "fieldtype": "Text Editor",
-   "label": "Customer Notification"
+   "label": "Customer Notification",
+   "permlevel": 2
   },
   {
    "default": "0",
@@ -713,7 +731,8 @@
   {
    "fieldname": "regulatory_notification",
    "fieldtype": "Text Editor",
-   "label": "Regulatory Notification"
+   "label": "Regulatory Notification",
+   "permlevel": 2
   },
   {
    "fieldname": "notification_log_section",
@@ -724,7 +743,8 @@
    "fieldname": "notifications_sent",
    "fieldtype": "Table",
    "label": "Notifications Sent",
-   "options": "Incident Notification"
+   "options": "Incident Notification",
+   "permlevel": 2
   },
   {
    "fieldname": "closure_and_review_tab",
@@ -739,19 +759,22 @@
   {
    "fieldname": "closure_date",
    "fieldtype": "Date",
-   "label": "Closure Date"
+   "label": "Closure Date",
+   "permlevel": 1
   },
   {
    "fieldname": "closure_reason",
    "fieldtype": "Select",
    "label": "Closure Reason",
-   "options": "\nResolved\nDuplicate\nInvalid\nWithdrawn\nCannot Reproduce\nOther"
+   "options": "\nResolved\nDuplicate\nInvalid\nWithdrawn\nCannot Reproduce\nOther",
+   "permlevel": 1
   },
   {
    "fieldname": "closure_approved_by",
    "fieldtype": "Link",
    "label": "Closure Approved By",
-   "options": "User"
+   "options": "User",
+   "permlevel": 1
   },
   {
    "default": "0",
@@ -771,23 +794,27 @@
   {
    "fieldname": "post_incident_review_date",
    "fieldtype": "Date",
-   "label": "Post-Incident Review Date"
+   "label": "Post-Incident Review Date",
+   "permlevel": 2
   },
   {
    "fieldname": "review_participants",
    "fieldtype": "Small Text",
-   "label": "Review Participants"
+   "label": "Review Participants",
+   "permlevel": 2
   },
   {
    "fieldname": "improvement_opportunities",
    "fieldtype": "Text Editor",
-   "label": "Improvement Opportunities"
+   "label": "Improvement Opportunities",
+   "permlevel": 2
   },
   {
    "default": "0",
    "fieldname": "follow_up_actions_required",
    "fieldtype": "Check",
-   "label": "Follow-up Actions Required"
+   "label": "Follow-up Actions Required",
+   "permlevel": 2
   },
   {
    "depends_on": "eval: doc.verification_required ==1",
@@ -804,6 +831,73 @@
    "fieldname": "published",
    "fieldtype": "Data",
    "label": "Published",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "risk_analysis_tab",
+   "fieldtype": "Tab Break",
+   "label": "Risk Analysis"
+  },
+  {
+   "fieldname": "risk_exposure_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Exposure Assessment"
+  },
+  {
+   "fieldname": "exposure_type",
+   "fieldtype": "Select",
+   "label": "Primary Exposure Type",
+   "options": "\nTheft by Employees\nCollusion (Employee + Outsider)\nOutsider Fraud\nWorkplace Accidents\nOccupational Accidents\nSexual Harassment\nData Breach\nCyber Attack\nRegulatory Violation\nEnvironmental Damage\nEquipment Failure\nSupply Chain Disruption\nReputational Damage\nOther",
+   "permlevel": 2
+  },
+  {
+   "description": "Probability this type of incident will occur again",
+   "fieldname": "likelihood_score",
+   "fieldtype": "Select",
+   "label": "Likelihood (1-5)",
+   "options": "\n1 - Very Unlikely\n2 - Unlikely\n3 - Possible\n4 - Likely\n5 - Very Likely",
+   "permlevel": 2
+  },
+  {
+   "description": "Severity of consequences if this occurs",
+   "fieldname": "impact_score",
+   "fieldtype": "Select",
+   "label": "Impact (1-5)",
+   "options": "\n1 - Minimal\n2 - Minor\n3 - Moderate\n4 - Major\n5 - Severe",
+   "permlevel": 2
+  },
+  {
+   "description": "Calculated: Likelihood \u00d7 Impact",
+   "fieldname": "risk_score",
+   "fieldtype": "Int",
+   "label": "Risk Score",
+   "permlevel": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_risk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Controls in place to reduce this risk",
+   "fieldname": "mitigation_measures",
+   "fieldtype": "Text",
+   "label": "Mitigation Measures",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "residual_risk_score",
+   "fieldtype": "Select",
+   "label": "Residual Risk (After Controls)",
+   "options": "\n1 - Very Low\n2 - Low\n3 - Medium\n4 - High\n5 - Very High",
+   "permlevel": 2
+  },
+  {
+   "description": "Person responsible for managing this risk",
+   "fieldname": "risk_owner",
+   "fieldtype": "Link",
+   "label": "Risk Owner",
+   "options": "User",
    "permlevel": 2
   },
   {
@@ -828,21 +922,24 @@
    "default": "0",
    "fieldname": "investigation_required",
    "fieldtype": "Check",
-   "label": "Investigation Required"
+   "label": "Investigation Required",
+   "permlevel": 1
   },
   {
    "depends_on": "investigation_required",
    "fieldname": "investigation_type",
    "fieldtype": "Select",
    "label": "Investigation Type",
-   "options": "\nPreliminary\nDetailed\nFormal\nInternal\nExternal\nRegulatory"
+   "options": "\nPreliminary\nDetailed\nFormal\nInternal\nExternal\nRegulatory",
+   "permlevel": 1
   },
   {
    "depends_on": "investigation_required",
    "fieldname": "investigation_priority",
    "fieldtype": "Select",
    "label": "Investigation Priority",
-   "options": "\nCritical\nHigh\nMedium\nLow"
+   "options": "\nCritical\nHigh\nMedium\nLow",
+   "permlevel": 1
   },
   {
    "fieldname": "title1",
@@ -875,22 +972,26 @@
   {
    "fieldname": "full_name",
    "fieldtype": "Data",
-   "label": "Full Name"
+   "label": "Full Name",
+   "reqd": 1
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "reqd": 1
   },
   {
    "fieldname": "phone_number",
    "fieldtype": "Data",
-   "label": "Phone Number"
+   "label": "Phone Number",
+   "reqd": 1
   },
   {
    "fieldname": "address",
    "fieldtype": "Data",
-   "label": "Address"
+   "label": "Address",
+   "reqd": 1
   },
   {
    "fieldname": "organization",
@@ -955,12 +1056,20 @@
    "link_fieldname": "incident"
   },
   {
-   "link_doctype": "Risk Assessment",
+   "link_doctype": "Action Item",
+   "link_fieldname": "incident"
+  },
+  {
+   "link_doctype": "Dispatch",
+   "link_fieldname": "incident"
+  },
+  {
+   "link_doctype": "AI Incident Summary",
    "link_fieldname": "incident"
   }
  ],
- "modified": "2025-09-19 00:02:25.339164",
- "modified_by": "Administrator",
+ "modified": "2025-09-24 21:15:56.435065",
+ "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident",
  "naming_rule": "Expression",

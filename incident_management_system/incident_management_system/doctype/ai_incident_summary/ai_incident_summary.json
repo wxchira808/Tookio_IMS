@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-09-22 10:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "incident",
+  "column_break_3",
+  "generated_on",
+  "section_break_5",
+  "title",
+  "summary_content",
+  "column_break_8",
+  "extracted_data",
+  "section_break_10",
+  "executive_summary",
+  "key_findings",
+  "column_break_13",
+  "recommendations",
+  "risk_assessment",
+  "section_break_16",
+  "raw_ai_response",
+  "tokens_used",
+  "column_break_19",
+  "model_used",
+  "generation_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "AI-SUM-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incident",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Incident",
+   "options": "Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "now",
+   "fieldname": "generated_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Generated On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Summary Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "summary_content",
+   "fieldtype": "Text Editor",
+   "label": "Formatted Summary"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extracted_data",
+   "fieldtype": "JSON",
+   "label": "Extracted Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break",
+   "label": "Extracted Components"
+  },
+  {
+   "fieldname": "executive_summary",
+   "fieldtype": "Small Text",
+   "label": "Executive Summary"
+  },
+  {
+   "fieldname": "key_findings",
+   "fieldtype": "Text",
+   "label": "Key Findings"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Text",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "risk_assessment",
+   "fieldtype": "Small Text",
+   "label": "Risk Assessment"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break",
+   "label": "Technical Details"
+  },
+  {
+   "fieldname": "raw_ai_response",
+   "fieldtype": "Long Text",
+   "label": "Raw AI Response",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tokens_used",
+   "fieldtype": "Int",
+   "label": "Tokens Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model_used",
+   "fieldtype": "Data",
+   "label": "AI Model",
+   "read_only": 1
+  },
+  {
+   "fieldname": "generation_time",
+   "fieldtype": "Float",
+   "label": "Generation Time (seconds)",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-22 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "AI Incident Summary",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Incident Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

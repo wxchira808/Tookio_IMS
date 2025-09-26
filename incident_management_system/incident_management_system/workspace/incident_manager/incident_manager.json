@@ -9,7 +9,7 @@
    "label": "Incidents By Severity"
   }
  ],
- "content": "[{\"id\":\"7YhsemaQ5S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"5Nw-_EG_dv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"oBfNXeF47t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"In Progress\",\"col\":4}},{\"id\":\"mnUb0reZ0-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"aVgKv7-ZZm\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"pM5knPueFx\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Dashboard</span>\",\"col\":12}},{\"id\":\"tOWouAjv-1\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Resolved Incidents\",\"col\":6}},{\"id\":\"cYUWfRIIeN\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Incidents By Severity\",\"col\":6}},{\"id\":\"eEieNo_bEt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Manager Dashboard\",\"col\":3}},{\"id\":\"YupvOVnDLV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"VhLPqqGAiE\",\"type\":\"card\",\"data\":{\"card_name\":\"INCIDENTS\",\"col\":4}},{\"id\":\"nApQ_sjti1\",\"type\":\"card\",\"data\":{\"card_name\":\"Setups\",\"col\":4}},{\"id\":\"E74ft3mBlJ\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"7YhsemaQ5S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"5Nw-_EG_dv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"oBfNXeF47t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"In Progress\",\"col\":4}},{\"id\":\"mnUb0reZ0-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"pM5knPueFx\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Dashboard</span>\",\"col\":12}},{\"id\":\"eEieNo_bEt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Manager Dashboard\",\"col\":3}},{\"id\":\"eChIGGaOWo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IMS Dashboard\",\"col\":3}},{\"id\":\"Sf-ZNUiDHj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Risk Heatmap\",\"col\":3}},{\"id\":\"YnYfqKCOyv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tOWouAjv-1\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Resolved Incidents\",\"col\":6}},{\"id\":\"cYUWfRIIeN\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Incidents By Severity\",\"col\":6}},{\"id\":\"YupvOVnDLV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"VhLPqqGAiE\",\"type\":\"card\",\"data\":{\"card_name\":\"INCIDENTS\",\"col\":4}},{\"id\":\"nApQ_sjti1\",\"type\":\"card\",\"data\":{\"card_name\":\"Setups\",\"col\":4}},{\"id\":\"E74ft3mBlJ\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2025-09-19 12:00:25.015401",
  "custom_blocks": [],
  "docstatus": 0,
@@ -96,16 +96,6 @@
    "label": "Incident Type",
    "link_count": 0,
    "link_to": "Incident Type",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Departments",
-   "link_count": 0,
-   "link_to": "Department",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -200,8 +190,8 @@
    "type": "Link"
   }
  ],
- "modified": "2025-09-19 13:07:33.848678",
- "modified_by": "Administrator",
+ "modified": "2025-09-25 10:05:11.072857",
+ "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident Manager",
  "number_cards": [
@@ -227,8 +217,22 @@
    "role": "Incident Manager"
   }
  ],
- "sequence_id": 1.0,
+ "sequence_id": 2.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "IMS Dashboard",
+   "type": "URL",
+   "url": "/dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Risk Heatmap",
+   "type": "URL",
+   "url": "/risk_heatmap"
+  },
   {
    "color": "Grey",
    "doc_view": "List",

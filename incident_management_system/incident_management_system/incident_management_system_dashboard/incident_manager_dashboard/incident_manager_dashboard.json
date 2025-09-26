@@ -1,9 +1,22 @@
 {
- "cards": [],
+ "cards": [
+  {
+   "card": "Open Incidents"
+  },
+  {
+   "card": "Active Investigations"
+  },
+  {
+   "card": "Resolved Incidents"
+  },
+  {
+   "card": "Overdue SLA Incidents"
+  }
+ ],
  "charts": [
   {
    "chart": "Resolved Incidents",
-   "width": "Half"
+   "width": "Full"
   },
   {
    "chart": "Incidents By Status",
@@ -21,8 +34,8 @@
  "idx": 0,
  "is_default": 1,
  "is_standard": 1,
- "modified": "2025-07-16 17:41:36.529897",
- "modified_by": "Administrator",
+ "modified": "2025-09-25 11:04:15.748266",
+ "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident Manager Dashboard",
  "owner": "Administrator"

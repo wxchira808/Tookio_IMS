@@ -1,33 +1,558 @@
-<div class="print-format">
+{% set company_logo = frappe.db.get_single_value("System Settings", "app_logo_url") or "/assets/frappe/images/frappe-framework-logo.svg" %}
+
+<div class="print-format risk-assessment-print-format">
   <style>
-    .h{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #333;padding-bottom:10px;margin-bottom:16px}
-    .logo{max-height:60px}
-    .section{margin-bottom:16px}
-    .section h3{margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:4px}
-    .k{font-weight:600}
-    .v{color:#111}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border:1px solid #ddd;padding:8px;text-align:left}
+    .risk-assessment-print-format {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    
+    .print-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 3px solid #e5e7eb;
+      margin-bottom: 30px;
+    }
+    
+    .print-header .logo {
+      max-height: 50px;
+      max-width: 200px;
+    }
+    
+    .print-header .document-info {
+      text-align: right;
+    }
+    
+    .print-header .document-info h1 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .print-header .document-info .assessment-id {
+      font-size: 18px;
+      font-weight: 500;
+      color: #6b7280;
+      margin-bottom: 5px;
+    }
+    
+    .risk-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .risk-critical { background-color: #fee2e2; color: #dc2626; }
+    .risk-high { background-color: #fed7d7; color: #e53e3e; }
+    .risk-medium { background-color: #fef3c7; color: #d97706; }
+    .risk-low { background-color: #d1fae5; color: #059669; }
+    .risk-minimal { background-color: #f0fdf4; color: #16a34a; }
+    
+    .print-section {
+      margin-bottom: 30px;
+      page-break-inside: avoid;
+    }
+    
+    .print-section h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 15px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e5e7eb;
+      color: #1f2937;
+    }
+    
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .field-item {
+      margin-bottom: 15px;
+    }
+    
+    .field-label {
+      font-weight: 600;
+      color: #6b7280;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    
+    .field-value {
+      color: #1f2937;
+      font-size: 14px;
+      min-height: 20px;
+    }
+    
+    .field-value.large {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    .description-box {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .risk-matrix {
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .risk-matrix h3 {
+      margin: 0 0 15px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    
+    .matrix-table th,
+    .matrix-table td {
+      border: 1px solid #e5e7eb;
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    .matrix-table th {
+      background-color: #374151;
+      color: white;
+    }
+    
+    .matrix-low { background-color: #d1fae5; color: #065f46; }
+    .matrix-medium { background-color: #fef3c7; color: #92400e; }
+    .matrix-high { background-color: #fed7d7; color: #991b1b; }
+    .matrix-critical { background-color: #fee2e2; color: #7f1d1d; }
+    
+    .impact-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .impact-card {
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+    }
+    
+    .impact-card h4 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .impact-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .print-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: #6b7280;
+      font-size: 12px;
+    }
+    
+    .no-data {
+      color: #9ca3af;
+      font-style: italic;
+    }
+    
+    .alert-box {
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid;
+    }
+    
+    .alert-critical {
+      background-color: #fef2f2;
+      border-color: #dc2626;
+      color: #7f1d1d;
+    }
+    
+    .alert-high {
+      background-color: #fff7ed;
+      border-color: #ea580c;
+      color: #9a3412;
+    }
+    
+    .alert-medium {
+      background-color: #fffbeb;
+      border-color: #d97706;
+      color: #92400e;
+    }
+    
+    .mitigation-actions {
+      background-color: #f0fdf4;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    
+    .mitigation-item {
+      display: flex;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #d1fae5;
+    }
+    
+    .mitigation-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .mitigation-priority {
+      font-weight: 600;
+      color: #16a34a;
+      margin-right: 15px;
+      min-width: 80px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    
+    .mitigation-content {
+      flex: 1;
+      color: #14532d;
+    }
   </style>
 
-  <div class="h">
-    <div>
-      <img class="logo" src="{{ doc.company_logo or '/assets/erpnext/images/erpnext-logo.png' }}" />
-      <div><strong>Risk Assessment</strong></div>
+  <!-- Header -->
+  <div class="print-header">
+    <div class="company-info">
+      <img src="{{ company_logo }}" alt="Company Logo" class="logo">
     </div>
-    <div style="text-align:right">
-      <div><strong>{{ doc.name }}</strong></div>
-      <div>Incident: {{ doc.incident }}</div>
-      <div>Risk Level: {{ doc.risk_level }}</div>
+    <div class="document-info">
+      <h1>Risk Assessment</h1>
+      <div class="assessment-id">{{ doc.name }}</div>
+      <div>
+        {% if doc.overall_risk_level %}
+        <span class="risk-badge risk-{{ doc.overall_risk_level.lower() }}">
+          {{ doc.overall_risk_level }} Risk
+        </span>
+        {% endif %}
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h3>Assessment</h3>
-    <div><span class="k">Business Impact:</span> <span class="v">{{ doc.business_impact }}</span></div>
-    <div><span class="k">Estimated Downtime:</span> <span class="v">{{ doc.estimated_downtime }}</span></div>
-    <div style="margin-top:8px"><span class="k">Financial Impact:</span>
-      <div class="v">{{ doc.financial_impact }}</div>
+  <!-- Risk Alert -->
+  {% if doc.overall_risk_level == 'Critical' %}
+  <div class="alert-box alert-critical">
+    <strong>🚨 CRITICAL RISK IDENTIFIED</strong> - Immediate action required to mitigate this risk!
+  </div>
+  {% elif doc.overall_risk_level == 'High' %}
+  <div class="alert-box alert-high">
+    <strong>⚠️ HIGH RISK</strong> - This risk requires urgent attention and mitigation planning.
+  </div>
+  {% elif doc.overall_risk_level == 'Medium' %}
+  <div class="alert-box alert-medium">
+    <strong>⚡ MEDIUM RISK</strong> - Monitor closely and implement mitigation measures.
+  </div>
+  {% endif %}
+
+  <!-- Basic Information -->
+  <div class="print-section">
+    <h2>Risk Assessment Summary</h2>
+    <div class="field-grid">
+      <div class="field-item">
+        <div class="field-label">Related Incident</div>
+        <div class="field-value large">{{ doc.incident or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Assessment Type</div>
+        <div class="field-value">{{ doc.assessment_type or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Assessed By</div>
+        <div class="field-value">{{ doc.assessed_by or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Assessment Date</div>
+        <div class="field-value">{{ frappe.format(doc.assessment_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Review Date</div>
+        <div class="field-value">{{ frappe.format(doc.review_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Department</div>
+        <div class="field-value">{{ doc.department or '-' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Risk Description -->
+  {% if doc.risk_description %}
+  <div class="print-section">
+    <h2>Risk Description</h2>
+    <div class="description-box">
+      <div class="field-value">{{ doc.risk_description|safe }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Impact Assessment -->
+  <div class="print-section">
+    <h2>Impact Assessment</h2>
+    <div class="impact-section">
+      <div class="impact-card">
+        <h4>Business Impact</h4>
+        <div class="impact-value">{{ doc.business_impact or '-' }}</div>
+      </div>
+      <div class="impact-card">
+        <h4>Financial Impact</h4>
+        <div class="impact-value">{{ frappe.format_value(doc.financial_impact, {"fieldtype": "Currency"}) if doc.financial_impact else '-' }}</div>
+      </div>
+      <div class="impact-card">
+        <h4>Operational Impact</h4>
+        <div class="impact-value">{{ doc.operational_impact or '-' }}</div>
+      </div>
+      <div class="impact-card">
+        <h4>Reputation Impact</h4>
+        <div class="impact-value">{{ doc.reputation_impact or '-' }}</div>
+      </div>
+      <div class="impact-card">
+        <h4>Regulatory Impact</h4>
+        <div class="impact-value">{{ doc.regulatory_impact or '-' }}</div>
+      </div>
+      <div class="impact-card">
+        <h4>Safety Impact</h4>
+        <div class="impact-value">{{ doc.safety_impact or '-' }}</div>
+      </div>
+    </div>
+    
+    <div class="field-grid">
+      {% if doc.estimated_downtime %}
+      <div class="field-item">
+        <div class="field-label">Estimated Downtime</div>
+        <div class="field-value">{{ doc.estimated_downtime }}</div>
+      </div>
+      {% endif %}
+      {% if doc.affected_users %}
+      <div class="field-item">
+        <div class="field-label">Affected Users</div>
+        <div class="field-value">{{ doc.affected_users }}</div>
+      </div>
+      {% endif %}
+      {% if doc.estimated_recovery_time %}
+      <div class="field-item">
+        <div class="field-label">Estimated Recovery Time</div>
+        <div class="field-value">{{ doc.estimated_recovery_time }}</div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Risk Matrix -->
+  <div class="print-section">
+    <h2>Risk Analysis</h2>
+    <div class="risk-matrix">
+      <h3>Risk Assessment Matrix</h3>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">Probability</div>
+          <div class="field-value">{{ doc.probability or '-' }}</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Impact Severity</div>
+          <div class="field-value">{{ doc.impact_severity or '-' }}</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Overall Risk Level</div>
+          <div class="field-value">
+            {% if doc.overall_risk_level %}
+            <span class="risk-badge risk-{{ doc.overall_risk_level.lower() }}">{{ doc.overall_risk_level }}</span>
+            {% else %}
+            -
+            {% endif %}
+          </div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Risk Score</div>
+          <div class="field-value">{{ doc.risk_score or '-' }}</div>
+        </div>
+      </div>
+      
+      <!-- Risk Matrix Table -->
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Probability ↓ / Impact →</th>
+            <th>Low</th>
+            <th>Medium</th>
+            <th>High</th>
+            <th>Critical</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Very Likely</th>
+            <td class="matrix-medium">Medium</td>
+            <td class="matrix-high">High</td>
+            <td class="matrix-critical">Critical</td>
+            <td class="matrix-critical">Critical</td>
+          </tr>
+          <tr>
+            <th>Likely</th>
+            <td class="matrix-low">Low</td>
+            <td class="matrix-medium">Medium</td>
+            <td class="matrix-high">High</td>
+            <td class="matrix-critical">Critical</td>
+          </tr>
+          <tr>
+            <th>Possible</th>
+            <td class="matrix-low">Low</td>
+            <td class="matrix-low">Low</td>
+            <td class="matrix-medium">Medium</td>
+            <td class="matrix-high">High</td>
+          </tr>
+          <tr>
+            <th>Unlikely</th>
+            <td class="matrix-low">Low</td>
+            <td class="matrix-low">Low</td>
+            <td class="matrix-low">Low</td>
+            <td class="matrix-medium">Medium</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Risk Factors -->
+  {% if doc.risk_factors %}
+  <div class="print-section">
+    <h2>Risk Factors</h2>
+    <div class="description-box">
+      <div class="field-value">{{ doc.risk_factors|safe }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Mitigation Strategies -->
+  {% if doc.mitigation_strategies %}
+  <div class="print-section">
+    <h2>Mitigation Strategies</h2>
+    <div class="mitigation-actions">
+      {% set mitigation_lines = doc.mitigation_strategies.split('\n') %}
+      {% for line in mitigation_lines %}
+      {% if line.strip() %}
+      <div class="mitigation-item">
+        <div class="mitigation-priority">Action {{ loop.index }}</div>
+        <div class="mitigation-content">{{ line.strip() }}</div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Recommendations -->
+  {% if doc.recommendations %}
+  <div class="print-section">
+    <h2>Recommendations</h2>
+    <div class="description-box">
+      <div class="field-value">{{ doc.recommendations|safe }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Monitoring & Review -->
+  <div class="print-section">
+    <h2>Monitoring & Review</h2>
+    <div class="field-grid">
+      <div class="field-item">
+        <div class="field-label">Review Frequency</div>
+        <div class="field-value">{{ doc.review_frequency or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Next Review Date</div>
+        <div class="field-value">{{ frappe.format(doc.next_review_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Review Owner</div>
+        <div class="field-value">{{ doc.review_owner or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Escalation Required</div>
+        <div class="field-value">{{ 'Yes' if doc.escalation_required else 'No' }}</div>
+      </div>
+    </div>
+    
+    {% if doc.monitoring_notes %}
+    <div class="description-box">
+      <div class="field-label">Monitoring Notes</div>
+      <div class="field-value">{{ doc.monitoring_notes|safe }}</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Approval & Sign-off -->
+  {% if doc.approved_by or doc.approval_date %}
+  <div class="print-section">
+    <h2>Approval & Sign-off</h2>
+    <div class="field-grid">
+      <div class="field-item">
+        <div class="field-label">Approved By</div>
+        <div class="field-value">{{ doc.approved_by or '-' }}</div>
+      </div>
+      <div class="field-item">
+        <div class="field-label">Approval Date</div>
+        <div class="field-value">{{ frappe.format(doc.approval_date, {"fieldtype": "Date"}) or '-' }}</div>
+      </div>
+    </div>
+    
+    {% if doc.approval_notes %}
+    <div class="description-box">
+      <div class="field-label">Approval Notes</div>
+      <div class="field-value">{{ doc.approval_notes|safe }}</div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- Footer -->
+  <div class="print-footer">
+    <p>This risk assessment was generated on {{ frappe.format(frappe.utils.now(), {"fieldtype": "Datetime"}) }}</p>
+    <p>Assessment conducted by {{ doc.assessed_by or frappe.session.user }}</p>
+    {% if doc.overall_risk_level %}
+    <p><strong>Overall Risk Level: {{ doc.overall_risk_level.upper() }}</strong></p>
+    {% endif %}
+  </div>
+</div>
     </div>
   </div>
 
