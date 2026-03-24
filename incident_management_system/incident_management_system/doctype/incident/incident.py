@@ -8,6 +8,9 @@ from frappe.utils import now_datetime, getdate, add_to_date, get_datetime
 
 class Incident(Document):
     def validate(self):
+        self.normalize_affected_party_links()
+        self.sync_reporter_master_data()
+
         # Set status to Open when creating if not already set
         if not self.status:
             self.status = "Open"
@@ -29,6 +32,31 @@ class Incident(Document):
         # Auto-set investigation requirement for critical incidents
         if self.severity in ["Critical", "High"] and not self.investigation_required:
             self.investigation_required = 1
+
+    def normalize_affected_party_links(self):
+        """Normalize child-row link targets so Dynamic Link resolves to valid doctypes."""
+        party_type_map = {
+            "Employee": "Employee",
+            "Customer": "Customer",
+            "Vendor": "Supplier",
+            "Partner": "Customer",
+            "Regulator": "Contact",
+            "Public": "Contact",
+            "Other": "Contact",
+        }
+
+        for row in self.get("affected_parties") or []:
+            target_doctype = party_type_map.get(row.party_type)
+            row.party_reference_doctype = target_doctype or "Contact"
+
+    def sync_reporter_master_data(self):
+        """Backfill reporter department from selected employee when available."""
+        if not self.reporter_employee_id:
+            return
+
+        employee_department = frappe.db.get_value("Employee", self.reporter_employee_id, "department")
+        if employee_department and not self.reporter_department:
+            self.reporter_department = employee_department
     
     def before_save(self):
         # Add timeline entry for status changes

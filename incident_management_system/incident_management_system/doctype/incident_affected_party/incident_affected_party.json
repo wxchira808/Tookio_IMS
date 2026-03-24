@@ -5,6 +5,7 @@
  "engine": "InnoDB",
  "field_order": [
   "party_type",
+  "party_reference_doctype",
   "party_name",
   "contact_information",
   "impact_level",
@@ -22,10 +23,18 @@
   },
   {
    "fieldname": "party_name",
-   "fieldtype": "Data",
+   "fieldtype": "Dynamic Link",
    "in_list_view": 1,
    "label": "Party Name",
+   "options": "party_reference_doctype",
    "reqd": 1
+  },
+  {
+   "fieldname": "party_reference_doctype",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Party Reference DocType",
+   "read_only": 1
   },
   {
    "fieldname": "contact_information",

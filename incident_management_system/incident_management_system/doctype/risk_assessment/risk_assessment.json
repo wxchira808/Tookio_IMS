@@ -31,6 +31,8 @@
   "potential_consequences",
   "affected_stakeholders",
   "risk_category",
+  "risk_taxonomy",
+  "ims_risk_register",
   "risk_owner",
   "existing_controls_tab",
   "existing_controls",
@@ -216,6 +218,18 @@
    "fieldtype": "Select",
    "label": "Risk Category",
    "options": "\nStrategic\nOperational\nFinancial\nCompliance\nReputational\nTechnical"
+  },
+  {
+   "fieldname": "risk_taxonomy",
+   "fieldtype": "Link",
+   "label": "Risk Taxonomy",
+   "options": "Risk Taxonomy"
+  },
+  {
+   "fieldname": "ims_risk_register",
+   "fieldtype": "Link",
+   "label": "Risk Register Entry",
+   "options": "IMS Risk Register"
   },
   {
    "fieldname": "risk_owner",

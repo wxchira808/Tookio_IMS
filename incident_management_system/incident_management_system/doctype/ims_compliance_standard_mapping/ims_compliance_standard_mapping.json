@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "autoname": "format:IMSCMAP-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mapping_title",
+  "compliance_register",
+  "framework",
+  "requirement_clause",
+  "control_reference",
+  "applies_to_doctype",
+  "applies_to_name",
+  "attestation_status",
+  "owner_user",
+  "evidence_attachment",
+  "last_review_date",
+  "next_review_date",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname":"mapping_title","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"Mapping Title","reqd":1},
+  {"fieldname":"compliance_register","fieldtype":"Link","in_list_view":1,"label":"Compliance Register","options":"IMS Compliance Register","reqd":1},
+  {"fieldname":"framework","fieldtype":"Select","in_list_view":1,"label":"Framework","options":"\nISO 31000\nCOSO ERM\nISO 27001\nPFM Act\nPSIAS\nGIAS\nInternal Policy\nOther","reqd":1},
+  {"fieldname":"requirement_clause","fieldtype":"Data","label":"Requirement Clause"},
+  {"fieldname":"control_reference","fieldtype":"Data","label":"Control Reference"},
+  {"fieldname":"applies_to_doctype","fieldtype":"Link","label":"Applies To DocType","options":"DocType"},
+  {"fieldname":"applies_to_name","fieldtype":"Dynamic Link","label":"Applies To Name","options":"applies_to_doctype"},
+  {"default":"Pending","fieldname":"attestation_status","fieldtype":"Select","in_list_view":1,"label":"Attestation Status","options":"\nPending\nIn Progress\nAttested\nException Approved"},
+  {"fieldname":"owner_user","fieldtype":"Link","label":"Owner","options":"User"},
+  {"fieldname":"evidence_attachment","fieldtype":"Attach","label":"Evidence Attachment"},
+  {"fieldname":"last_review_date","fieldtype":"Date","label":"Last Review Date"},
+  {"fieldname":"next_review_date","fieldtype":"Date","label":"Next Review Date"},
+  {"fieldname":"notes","fieldtype":"Text Editor","label":"Notes"}
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Compliance Standard Mapping",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

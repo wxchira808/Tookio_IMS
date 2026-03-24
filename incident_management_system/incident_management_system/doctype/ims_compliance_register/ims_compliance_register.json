@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "autoname": "format:IMSCR-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "obligation_title",
+  "standard_framework",
+  "law_or_policy",
+  "requirement_description",
+  "control_owner",
+  "department",
+  "compliance_status",
+  "last_assessment_date",
+  "next_assessment_date",
+  "attestation_required",
+  "attested_by",
+  "attested_on",
+  "evidence_attachment",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname":"obligation_title","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"Obligation Title","reqd":1},
+  {"fieldname":"standard_framework","fieldtype":"Select","in_list_view":1,"label":"Standard Framework","options":"\nISO 31000\nCOSO ERM\nISO 27001\nPFM Act\nPSIAS\nGIAS\nInternal Policy\nOther","reqd":1},
+  {"fieldname":"law_or_policy","fieldtype":"Data","label":"Law/Policy"},
+  {"fieldname":"requirement_description","fieldtype":"Text Editor","label":"Requirement Description","reqd":1},
+  {"fieldname":"control_owner","fieldtype":"Link","label":"Control Owner","options":"User"},
+  {"fieldname":"department","fieldtype":"Link","label":"Department","options":"Department"},
+  {"default":"Unknown","fieldname":"compliance_status","fieldtype":"Select","in_list_view":1,"label":"Compliance Status","options":"\nCompliant\nPartially Compliant\nNon-Compliant\nUnknown"},
+  {"fieldname":"last_assessment_date","fieldtype":"Date","label":"Last Assessment Date"},
+  {"fieldname":"next_assessment_date","fieldtype":"Date","label":"Next Assessment Date"},
+  {"default":"0","fieldname":"attestation_required","fieldtype":"Check","label":"Attestation Required"},
+  {"depends_on":"attestation_required","fieldname":"attested_by","fieldtype":"Link","label":"Attested By","options":"User"},
+  {"depends_on":"attestation_required","fieldname":"attested_on","fieldtype":"Date","label":"Attested On"},
+  {"fieldname":"evidence_attachment","fieldtype":"Attach","label":"Evidence Attachment"},
+  {"fieldname":"notes","fieldtype":"Text Editor","label":"Notes"}
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Compliance Register",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

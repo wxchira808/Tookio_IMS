@@ -9,7 +9,7 @@
    "label": "Incidents By Severity"
   }
  ],
- "content": "[{\"id\":\"7YhsemaQ5S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"5Nw-_EG_dv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"oBfNXeF47t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"In Progress\",\"col\":4}},{\"id\":\"mnUb0reZ0-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"pM5knPueFx\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Dashboard</span>\",\"col\":12}},{\"id\":\"eEieNo_bEt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Manager Dashboard\",\"col\":3}},{\"id\":\"eChIGGaOWo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IMS Dashboard\",\"col\":3}},{\"id\":\"Sf-ZNUiDHj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Risk Heatmap\",\"col\":3}},{\"id\":\"YnYfqKCOyv\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"tOWouAjv-1\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Resolved Incidents\",\"col\":6}},{\"id\":\"cYUWfRIIeN\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Incidents By Severity\",\"col\":6}},{\"id\":\"YupvOVnDLV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"VhLPqqGAiE\",\"type\":\"card\",\"data\":{\"card_name\":\"INCIDENTS\",\"col\":4}},{\"id\":\"nApQ_sjti1\",\"type\":\"card\",\"data\":{\"card_name\":\"Setups\",\"col\":4}},{\"id\":\"E74ft3mBlJ\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"7YhsemaQ5S\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Management System</span>\",\"col\":12}},{\"id\":\"5Nw-_EG_dv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":4}},{\"id\":\"oBfNXeF47t\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"In Progress\",\"col\":4}},{\"id\":\"mnUb0reZ0-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Resolved Incidents\",\"col\":4}},{\"id\":\"pM5knPueFx\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Dashboard</span>\",\"col\":12}},{\"id\":\"tOWouAjv-1\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Resolved Incidents\",\"col\":6}},{\"id\":\"cYUWfRIIeN\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Incidents By Severity\",\"col\":6}},{\"id\":\"YupvOVnDLV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"VhLPqqGAiE\",\"type\":\"card\",\"data\":{\"card_name\":\"INCIDENTS\",\"col\":4}},{\"id\":\"nApQ_sjti1\",\"type\":\"card\",\"data\":{\"card_name\":\"Setups\",\"col\":4}},{\"id\":\"E74ft3mBlJ\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2025-09-19 12:00:25.015401",
  "custom_blocks": [],
  "docstatus": 0,
@@ -25,8 +25,117 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Setups",
+    "link_count": 9,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Type",
+   "link_count": 0,
+   "link_to": "Incident Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+    "label": "Risk Taxonomy",
+    "link_count": 0,
+    "link_to": "Risk Taxonomy",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Risk Register",
+    "link_count": 0,
+    "link_to": "IMS Risk Register",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Audit Plan",
+    "link_count": 0,
+    "link_to": "IMS Audit Plan",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Audit Program",
+    "link_count": 0,
+    "link_to": "IMS Audit Program",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Audit Engagement",
+    "link_count": 0,
+    "link_to": "IMS Audit Engagement",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Workpaper",
+    "link_count": 0,
+    "link_to": "IMS Workpaper",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Compliance Register",
+    "link_count": 0,
+    "link_to": "IMS Compliance Register",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Compliance Standard Mapping",
+    "link_count": 0,
+    "link_to": "IMS Compliance Standard Mapping",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS KRI Definition",
+    "link_count": 0,
+    "link_to": "IMS KRI Definition",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
    "label": "INCIDENTS",
-   "link_count": 5,
+   "link_count": 6,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -84,18 +193,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Setups",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Incident Type",
+   "label": "Dispatch",
    "link_count": 0,
-   "link_to": "Incident Type",
+   "link_to": "Dispatch",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -104,7 +204,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Reports",
-   "link_count": 8,
+   "link_count": 9,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -188,9 +288,19 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Incidents By Severity",
+   "link_count": 0,
+   "link_to": "Incidents By Severity",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-09-25 10:05:11.072857",
+ "modified": "2025-09-26 11:59:39.436817",
  "modified_by": "bwkinyua01@gmail.com",
  "module": "Incident Management System",
  "name": "Incident Manager",
@@ -218,28 +328,6 @@
   }
  ],
  "sequence_id": 2.0,
- "shortcuts": [
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "IMS Dashboard",
-   "type": "URL",
-   "url": "/dashboard"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Risk Heatmap",
-   "type": "URL",
-   "url": "/risk_heatmap"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Incident Manager Dashboard",
-   "link_to": "Incident Manager Dashboard",
-   "type": "Dashboard"
-  }
- ],
+ "shortcuts": [],
  "title": "Incident Manager"
 }

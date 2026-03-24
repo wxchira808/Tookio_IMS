@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"reporter_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Reporter Dashboard</span>\",\"col\":12}},{\"id\":\"P5mN9NFnqq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Reported Incidents\",\"col\":4}},{\"id\":\"reporter_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"_WueWCJ3-k\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Report New Incident\",\"col\":3}},{\"id\":\"BmKuNIOPdO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incidents\",\"col\":3}}]",
+ "content": "[{\"id\":\"reporter_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Incident Reporter Dashboard</span>\",\"col\":12}},{\"id\":\"P5mN9NFnqq\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Reported Incidents\",\"col\":4}},{\"id\":\"reporter_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"_WueWCJ3-k\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Report New Incident\",\"col\":3}},{\"id\":\"BmKuNIOPdO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incidents\",\"col\":3}},{\"id\":\"NcpYFuXZWz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Web Incident\",\"col\":3}}]",
  "creation": "2025-09-18 10:00:00",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,8 +13,8 @@
  "is_hidden": 0,
  "label": "Incident Reporter",
  "links": [],
- "modified": "2025-09-24 15:09:07.653191",
- "modified_by": "bwkinyua01@gmail.com",
+ "modified": "2025-09-27 16:47:35.427861",
+ "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Reporter",
  "number_cards": [
@@ -33,6 +33,13 @@
  ],
  "sequence_id": 2.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Web Incident",
+   "type": "URL",
+   "url": "/incidents"
+  },
   {
    "color": "Grey",
    "doc_view": "New",

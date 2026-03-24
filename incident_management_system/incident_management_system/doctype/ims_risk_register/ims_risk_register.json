@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "autoname": "format:IMSRISK-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "risk_title",
+  "risk_taxonomy",
+  "risk_owner",
+  "department",
+  "company",
+  "project",
+  "source_type",
+  "source_reference",
+  "risk_description",
+  "likelihood",
+  "impact",
+  "velocity",
+  "control_effectiveness",
+  "inherent_risk_score",
+  "residual_risk_score",
+  "risk_level",
+  "status",
+  "mitigation_status",
+  "last_review_date",
+  "next_review_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "risk_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Risk Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_taxonomy",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Risk Taxonomy",
+   "options": "Risk Taxonomy",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_owner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Risk Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Select",
+   "label": "Source Type",
+   "options": "\nIncident\nAudit\nExternal Feed\nManual"
+  },
+  {
+   "fieldname": "source_reference",
+   "fieldtype": "Data",
+   "label": "Source Reference"
+  },
+  {
+   "fieldname": "risk_description",
+   "fieldtype": "Text Editor",
+   "label": "Risk Description"
+  },
+  {
+   "default": "3",
+   "fieldname": "likelihood",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Likelihood (1-5)"
+  },
+  {
+   "default": "3",
+   "fieldname": "impact",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Impact (1-5)"
+  },
+  {
+   "default": "3",
+   "fieldname": "velocity",
+   "fieldtype": "Int",
+   "label": "Velocity (1-5)"
+  },
+  {
+   "default": "3",
+   "fieldname": "control_effectiveness",
+   "fieldtype": "Int",
+   "label": "Control Effectiveness (1-5)"
+  },
+  {
+   "fieldname": "inherent_risk_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Inherent Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "residual_risk_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Residual Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Level",
+   "options": "\nVery Low\nLow\nMedium\nHigh\nVery High",
+   "read_only": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nActive\nMonitoring\nClosed"
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "mitigation_status",
+   "fieldtype": "Select",
+   "label": "Mitigation Status",
+   "options": "\nNot Started\nIn Progress\nCompleted\nOverdue"
+  },
+  {
+   "fieldname": "last_review_date",
+   "fieldtype": "Date",
+   "label": "Last Review Date"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Risk Assessment",
+   "link_fieldname": "ims_risk_register"
+  }
+ ],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Risk Register",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

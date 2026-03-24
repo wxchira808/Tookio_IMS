@@ -25,6 +25,12 @@ doc_events = {
     }
 }
 
+scheduler_events = {
+    "daily": [
+        "incident_management_system.tasks.daily"
+    ]
+}
+
 #app_include_css = "/assets/incident_management_system/css/incident_management_system.css"
 
 # Apps

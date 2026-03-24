@@ -2,16 +2,19 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:INR-{incident}",
- "creation": "2025-07-20 21:23:55.758287",
+ "creation": "2025-09-26 19:53:33.071361",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "resolution_information_tab",
   "incident",
   "resolution_status",
+  "resolution_progress",
   "column_break_1",
   "resolution_date",
   "resolution_time",
+  "target_completion_date",
+  "actual_completion_date",
   "section_break_basic",
   "incident_title",
   "incident_priority",
@@ -79,6 +82,11 @@
   "column_break_knowledge",
   "lessons_learned",
   "best_practices_documented",
+  "approval_section",
+  "peer_review_required",
+  "peer_review_comments",
+  "resolution_approved",
+  "approved_by",
   "closure_tab",
   "section_break_closure",
   "closure_criteria_met",
@@ -119,8 +127,15 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Resolution Status",
-   "options": "Draft\nPlanning\nRoot Cause Analysis\nSolution Design\nImplementation\nTesting\nVerification\nApproval Pending\nDeployed\nMonitoring\nCompleted\nRejected",
+   "options": "\nDraft\nPlanning\nRoot Cause Analysis\nSolution Design\nImplementation\nTesting\nVerification\nApproval Pending\nDeployed\nMonitoring\nCompleted\nRejected",
    "read_only_depends_on": "eval:doc.docstatus == 1"
+  },
+  {
+   "description": "Progress percentage of the resolution process",
+   "fieldname": "resolution_progress",
+   "fieldtype": "Percent",
+   "hidden": 1,
+   "label": "Resolution Progress"
   },
   {
    "fieldname": "column_break_1",
@@ -136,6 +151,18 @@
    "fieldname": "resolution_time",
    "fieldtype": "Time",
    "label": "Resolution Time"
+  },
+  {
+   "description": "Expected date for resolution completion",
+   "fieldname": "target_completion_date",
+   "fieldtype": "Date",
+   "label": "Target Completion Date"
+  },
+  {
+   "description": "Actual date when resolution was completed",
+   "fieldname": "actual_completion_date",
+   "fieldtype": "Date",
+   "label": "Actual Completion Date"
   },
   {
    "fieldname": "section_break_basic",
@@ -220,7 +247,7 @@
    "fieldname": "root_cause_analysis_method",
    "fieldtype": "Select",
    "label": "Analysis Method",
-   "options": "5 Whys\nFishbone Diagram\nFault Tree Analysis\nRoot Cause Mapping\nFailure Mode Analysis\nOther"
+   "options": "\n5 Whys\nFishbone Diagram\nFault Tree Analysis\nRoot Cause Mapping\nFailure Mode Analysis\nOther"
   },
   {
    "fieldname": "primary_root_cause",
@@ -235,7 +262,7 @@
    "fieldname": "root_cause_category",
    "fieldtype": "Select",
    "label": "Root Cause Category",
-   "options": "Human Error\nProcess Failure\nTechnology Issue\nEnvironmental\nVendor/Third Party\nCompliance\nOther"
+   "options": "\nHuman Error\nProcess Failure\nTechnology Issue\nEnvironmental\nVendor/Third Party\nCompliance\nOther"
   },
   {
    "fieldname": "contributing_factors",
@@ -277,13 +304,13 @@
    "fieldname": "resolution_type",
    "fieldtype": "Select",
    "label": "Resolution Type",
-   "options": "Immediate Fix\nWorkaround\nPermanent Solution\nConfiguration Change\nProcess Update\nVendor Fix\nUpgrade/Patch"
+   "options": "\nImmediate Fix\nWorkaround\nPermanent Solution\nConfiguration Change\nProcess Update\nVendor Fix\nUpgrade/Patch"
   },
   {
    "fieldname": "resolution_approach",
    "fieldtype": "Select",
    "label": "Resolution Approach",
-   "options": "Technical Fix\nProcess Change\nTraining\nPolicy Update\nVendor Escalation\nSystem Upgrade\nCombination"
+   "options": "\nTechnical Fix\nProcess Change\nTraining\nPolicy Update\nVendor Escalation\nSystem Upgrade\nCombination"
   },
   {
    "fieldname": "column_break_solution",
@@ -384,13 +411,13 @@
    "fieldname": "verification_method",
    "fieldtype": "Select",
    "label": "Verification Method",
-   "options": "Functional Testing\nUser Acceptance Testing\nStress Testing\nMonitoring\nPeer Review\nCustomer Validation\nAutomated Testing"
+   "options": "\nFunctional Testing\nUser Acceptance Testing\nStress Testing\nMonitoring\nPeer Review\nCustomer Validation\nAutomated Testing"
   },
   {
    "fieldname": "verification_status",
    "fieldtype": "Select",
    "label": "Verification Status",
-   "options": "Not Started\nIn Progress\nPassed\nFailed\nPartially Verified"
+   "options": "\nNot Started\nIn Progress\nPassed\nFailed\nPartially Verified"
   },
   {
    "fieldname": "column_break_verification",
@@ -498,6 +525,36 @@
    "label": "Best Practices Documented"
   },
   {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval & Review"
+  },
+  {
+   "default": "0",
+   "fieldname": "peer_review_required",
+   "fieldtype": "Check",
+   "label": "Peer Review Required"
+  },
+  {
+   "depends_on": "peer_review_required",
+   "fieldname": "peer_review_comments",
+   "fieldtype": "Text Editor",
+   "label": "Peer Review Comments"
+  },
+  {
+   "default": "0",
+   "fieldname": "resolution_approved",
+   "fieldtype": "Check",
+   "label": "Resolution Approved"
+  },
+  {
+   "depends_on": "resolution_approved",
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
    "fieldname": "closure_tab",
    "fieldtype": "Tab Break",
    "label": "Closure & Metrics"
@@ -517,7 +574,7 @@
    "fieldname": "stakeholder_satisfaction",
    "fieldtype": "Select",
    "label": "Stakeholder Satisfaction",
-   "options": "Very Satisfied\nSatisfied\nNeutral\nDissatisfied\nVery Dissatisfied"
+   "options": "\nVery Satisfied\nSatisfied\nNeutral\nDissatisfied\nVery Dissatisfied"
   },
   {
    "fieldname": "column_break_closure",
@@ -588,8 +645,8 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-25 09:49:09.808481",
- "modified_by": "bwkinyua01@gmail.com",
+ "modified": "2025-09-26 22:53:24.088012",
+ "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Resolution",
  "naming_rule": "Expression",

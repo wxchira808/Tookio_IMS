@@ -31,6 +31,8 @@
   "status",
   "column_break_details",
   "department",
+    "related_customer",
+    "related_project",
   "incident_category",
   "immediate_action_taken",
   "injuries_involved",
@@ -178,8 +180,7 @@
    "in_standard_filter": 1,
    "label": "Severity",
    "options": "\nCritical\nHigh\nMedium\nLow",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "fieldname": "priority",
@@ -188,14 +189,12 @@
    "in_standard_filter": 1,
    "label": "Priority",
    "options": "\nUrgent\nHigh\nNormal\nLow",
-   "reqd": 1,
-   "set_only_once": 1
+   "reqd": 1
   },
   {
    "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
-   "hidden": 1,
    "ignore_user_permissions": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
@@ -208,8 +207,21 @@
   },
   {
    "fieldname": "department",
-   "fieldtype": "Data",
-   "label": "Affected Department"
+   "fieldtype": "Link",
+    "label": "Affected Department",
+    "options": "Department"
+  },
+  {
+   "fieldname": "related_customer",
+   "fieldtype": "Link",
+   "label": "Related Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "related_project",
+   "fieldtype": "Link",
+   "label": "Related Project",
+   "options": "Project"
   },
   {
    "fieldname": "incident_category",
@@ -1010,8 +1022,9 @@
   },
   {
    "fieldname": "reporter_department",
-   "fieldtype": "Data",
-   "label": "Reporter Department"
+   "fieldtype": "Link",
+   "label": "Reporter Department",
+   "options": "Department"
   },
   {
    "fieldname": "reporter_manager",
@@ -1021,8 +1034,9 @@
   },
   {
    "fieldname": "reporter_employee_id",
-   "fieldtype": "Data",
-   "label": "Employee ID"
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
   },
   {
    "default": "0",
@@ -1066,10 +1080,14 @@
   {
    "link_doctype": "AI Incident Summary",
    "link_fieldname": "incident"
+  },
+  {
+   "link_doctype": "Risk Assessment",
+   "link_fieldname": "incident"
   }
  ],
- "modified": "2025-09-24 21:15:56.435065",
- "modified_by": "bwkinyua01@gmail.com",
+ "modified": "2025-09-27 19:36:11.414442",
+ "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident",
  "naming_rule": "Expression",

@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "autoname": "format:IMSWP-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "workpaper_title",
+  "audit_engagement",
+  "reference_code",
+  "document_file",
+  "version_number",
+  "status",
+  "reviewed_by",
+  "reviewed_on",
+  "tags",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname":"workpaper_title","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"Workpaper Title","reqd":1},
+  {"fieldname":"audit_engagement","fieldtype":"Link","in_list_view":1,"label":"Audit Engagement","options":"IMS Audit Engagement","reqd":1},
+  {"fieldname":"reference_code","fieldtype":"Data","in_list_view":1,"label":"Reference Code"},
+  {"fieldname":"document_file","fieldtype":"Attach","label":"Document File","reqd":1},
+  {"default":"1","fieldname":"version_number","fieldtype":"Int","in_list_view":1,"label":"Version Number","read_only":1},
+  {"default":"Draft","fieldname":"status","fieldtype":"Select","in_list_view":1,"label":"Status","options":"\nDraft\nUnder Review\nApproved\nArchived"},
+  {"fieldname":"reviewed_by","fieldtype":"Link","label":"Reviewed By","options":"User"},
+  {"fieldname":"reviewed_on","fieldtype":"Date","label":"Reviewed On"},
+  {"fieldname":"tags","fieldtype":"Data","label":"Tags"},
+  {"fieldname":"notes","fieldtype":"Text Editor","label":"Notes"}
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Workpaper",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

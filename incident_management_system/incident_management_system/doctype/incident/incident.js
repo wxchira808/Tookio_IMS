@@ -405,6 +405,24 @@ frappe.ui.form.on('Incident Timeline', {
 frappe.ui.form.on('Incident Affected Party', {
     party_type: function(frm, cdt, cdn) {
         let row = locals[cdt][cdn];
+        const partyDoctypeMap = {
+            'Employee': 'Employee',
+            'Customer': 'Customer',
+            'Vendor': 'Supplier',
+            'Partner': 'Customer',
+            'Regulator': 'Contact',
+            'Public': 'Contact',
+            'Other': 'Contact'
+        };
+
+        const mappedDoctype = partyDoctypeMap[row.party_type] || 'Contact';
+        frappe.model.set_value(cdt, cdn, 'party_reference_doctype', mappedDoctype);
+
+        // Avoid saving stale identifiers when the target doctype changes.
+        if (row.party_name) {
+            frappe.model.set_value(cdt, cdn, 'party_name', '');
+        }
+
         if (row.party_type && !row.notification_sent) {
             // Auto-suggest notification based on party type
             if (['Customer', 'Regulator', 'Public'].includes(row.party_type)) {
