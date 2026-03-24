@@ -19,18 +19,83 @@
   "last_updated_on"
  ],
  "fields": [
-  {"fieldname":"kri_name","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"KRI Name","reqd":1,"unique":1},
-  {"fieldname":"risk_taxonomy","fieldtype":"Link","in_list_view":1,"label":"Risk Taxonomy","options":"Risk Taxonomy"},
-  {"fieldname":"unit","fieldtype":"Select","label":"Unit","options":"\nCount\nPercentage\nCurrency\nDays\nScore"},
-  {"default":"Higher Is Worse","fieldname":"threshold_direction","fieldtype":"Select","label":"Threshold Direction","options":"\nHigher Is Worse\nLower Is Worse"},
-  {"fieldname":"threshold_green","fieldtype":"Float","label":"Green Threshold"},
-  {"fieldname":"threshold_yellow","fieldtype":"Float","label":"Yellow Threshold"},
-  {"fieldname":"threshold_red","fieldtype":"Float","label":"Red Threshold"},
-  {"fieldname":"current_value","fieldtype":"Float","in_list_view":1,"label":"Current Value"},
-  {"fieldname":"alert_level","fieldtype":"Select","in_list_view":1,"label":"Alert Level","options":"\nGreen\nAmber\nRed\nUnknown","read_only":1},
-  {"fieldname":"owner","fieldtype":"Link","label":"Owner","options":"User"},
-  {"default":"Active","fieldname":"status","fieldtype":"Select","in_list_view":1,"label":"Status","options":"\nActive\nPaused\nRetired"},
-  {"fieldname":"last_updated_on","fieldtype":"Datetime","label":"Last Updated On"}
+  {
+   "fieldname": "kri_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KRI Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "risk_taxonomy",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Risk Taxonomy",
+   "options": "Risk Taxonomy"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Select",
+   "label": "Unit",
+   "options": "\nCount\nPercentage\nCurrency\nDays\nScore"
+  },
+  {
+   "default": "Higher Is Worse",
+   "fieldname": "threshold_direction",
+   "fieldtype": "Select",
+   "label": "Threshold Direction",
+   "options": "\nHigher Is Worse\nLower Is Worse"
+  },
+  {
+   "fieldname": "threshold_green",
+   "fieldtype": "Float",
+   "label": "Green Threshold"
+  },
+  {
+   "fieldname": "threshold_yellow",
+   "fieldtype": "Float",
+   "label": "Yellow Threshold"
+  },
+  {
+   "fieldname": "threshold_red",
+   "fieldtype": "Float",
+   "label": "Red Threshold"
+  },
+  {
+   "fieldname": "current_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current Value"
+  },
+  {
+   "fieldname": "alert_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Alert Level",
+   "options": "\nGreen\nAmber\nRed\nUnknown",
+   "read_only": 1
+  },
+  {
+   "fieldname": "owner",
+   "fieldtype": "Link",
+   "label": "Owner",
+   "options": "User"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nActive\nPaused\nRetired"
+  },
+  {
+   "fieldname": "last_updated_on",
+   "fieldtype": "Datetime",
+   "label": "Last Updated On"
+  }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
@@ -41,7 +106,57 @@
  "name": "IMS KRI Definition",
  "owner": "Administrator",
  "permissions": [
-  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Incident Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Risk Assessor",
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Incident Responder",
+   "share": 0,
+   "write": 0,
+   "select": 1
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",

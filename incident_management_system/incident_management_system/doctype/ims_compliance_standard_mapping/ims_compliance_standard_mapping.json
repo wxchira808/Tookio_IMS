@@ -20,19 +20,87 @@
   "notes"
  ],
  "fields": [
-  {"fieldname":"mapping_title","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"Mapping Title","reqd":1},
-  {"fieldname":"compliance_register","fieldtype":"Link","in_list_view":1,"label":"Compliance Register","options":"IMS Compliance Register","reqd":1},
-  {"fieldname":"framework","fieldtype":"Select","in_list_view":1,"label":"Framework","options":"\nISO 31000\nCOSO ERM\nISO 27001\nPFM Act\nPSIAS\nGIAS\nInternal Policy\nOther","reqd":1},
-  {"fieldname":"requirement_clause","fieldtype":"Data","label":"Requirement Clause"},
-  {"fieldname":"control_reference","fieldtype":"Data","label":"Control Reference"},
-  {"fieldname":"applies_to_doctype","fieldtype":"Link","label":"Applies To DocType","options":"DocType"},
-  {"fieldname":"applies_to_name","fieldtype":"Dynamic Link","label":"Applies To Name","options":"applies_to_doctype"},
-  {"default":"Pending","fieldname":"attestation_status","fieldtype":"Select","in_list_view":1,"label":"Attestation Status","options":"\nPending\nIn Progress\nAttested\nException Approved"},
-  {"fieldname":"owner_user","fieldtype":"Link","label":"Owner","options":"User"},
-  {"fieldname":"evidence_attachment","fieldtype":"Attach","label":"Evidence Attachment"},
-  {"fieldname":"last_review_date","fieldtype":"Date","label":"Last Review Date"},
-  {"fieldname":"next_review_date","fieldtype":"Date","label":"Next Review Date"},
-  {"fieldname":"notes","fieldtype":"Text Editor","label":"Notes"}
+  {
+   "fieldname": "mapping_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mapping Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "compliance_register",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Compliance Register",
+   "options": "IMS Compliance Register",
+   "reqd": 1
+  },
+  {
+   "fieldname": "framework",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Framework",
+   "options": "\nISO 31000\nCOSO ERM\nISO 27001\nPFM Act\nPSIAS\nGIAS\nInternal Policy\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requirement_clause",
+   "fieldtype": "Data",
+   "label": "Requirement Clause"
+  },
+  {
+   "fieldname": "control_reference",
+   "fieldtype": "Data",
+   "label": "Control Reference"
+  },
+  {
+   "fieldname": "applies_to_doctype",
+   "fieldtype": "Link",
+   "label": "Applies To DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "applies_to_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Applies To Name",
+   "options": "applies_to_doctype"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "attestation_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Attestation Status",
+   "options": "\nPending\nIn Progress\nAttested\nException Approved"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "evidence_attachment",
+   "fieldtype": "Attach",
+   "label": "Evidence Attachment",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "last_review_date",
+   "fieldtype": "Date",
+   "label": "Last Review Date"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
@@ -43,7 +111,83 @@
  "name": "IMS Compliance Standard Mapping",
  "owner": "Administrator",
  "permissions": [
-  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Incident Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Risk Assessor",
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Incident Responder",
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1,
+   "permlevel": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Incident Manager",
+   "share": 0,
+   "write": 1,
+   "permlevel": 1
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",

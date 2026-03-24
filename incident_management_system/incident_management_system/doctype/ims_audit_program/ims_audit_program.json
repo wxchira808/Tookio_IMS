@@ -16,15 +16,64 @@
   "status"
  ],
  "fields": [
-  {"fieldname":"program_name","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"Program Name","reqd":1},
-  {"fieldname":"audit_plan","fieldtype":"Link","in_list_view":1,"label":"Audit Plan","options":"IMS Audit Plan"},
-  {"fieldname":"audit_standard","fieldtype":"Select","label":"Audit Standard","options":"\nGIAS\nISO 31000\nCOSO ERM\nISO 27001\nPSIAS\nPFM Act\nOther"},
-  {"fieldname":"objective","fieldtype":"Text Editor","label":"Objective"},
-  {"fieldname":"scope","fieldtype":"Text Editor","label":"Scope"},
-  {"fieldname":"frequency","fieldtype":"Select","label":"Frequency","options":"\nOne-time\nWeekly\nMonthly\nQuarterly\nSemi-Annual\nAnnual"},
-  {"default":"0","fieldname":"is_template","fieldtype":"Check","in_list_view":1,"label":"Is Template"},
-  {"fieldname":"owner_user","fieldtype":"Link","label":"Owner","options":"User"},
-  {"default":"Draft","fieldname":"status","fieldtype":"Select","in_list_view":1,"label":"Status","options":"\nDraft\nActive\nArchived"}
+  {
+   "fieldname": "program_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Program Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "audit_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Audit Plan",
+   "options": "IMS Audit Plan"
+  },
+  {
+   "fieldname": "audit_standard",
+   "fieldtype": "Select",
+   "label": "Audit Standard",
+   "options": "\nGIAS\nISO 31000\nCOSO ERM\nISO 27001\nPSIAS\nPFM Act\nOther"
+  },
+  {
+   "fieldname": "objective",
+   "fieldtype": "Text Editor",
+   "label": "Objective"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Text Editor",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "\nOne-time\nWeekly\nMonthly\nQuarterly\nSemi-Annual\nAnnual"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_template",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Template"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner",
+   "options": "User"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nActive\nArchived"
+  }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
@@ -35,7 +84,44 @@
  "name": "IMS Audit Program",
  "owner": "Administrator",
  "permissions": [
-  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Incident Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Incident Responder",
+   "share": 0,
+   "write": 0,
+   "select": 1
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
