@@ -1,0 +1,206 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"arc_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">ARC Command Center</span>\",\"col\":12}},{\"id\":\"arc_subheader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Audit • Risk • Compliance</span>\",\"col\":12}},{\"id\":\"arc_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"arc_risk_card\",\"type\":\"card\",\"data\":{\"card_name\":\"RISK MANAGEMENT\",\"col\":4}},{\"id\":\"arc_audit_card\",\"type\":\"card\",\"data\":{\"card_name\":\"AUDIT MANAGEMENT\",\"col\":4}},{\"id\":\"arc_compliance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"COMPLIANCE & INSIGHT\",\"col\":4}}]",
+ "creation": "2026-03-24 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "analytics",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "ARC Command Center",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "RISK MANAGEMENT",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Taxonomy",
+   "link_count": 0,
+   "link_to": "Risk Taxonomy",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Risk Register",
+   "link_count": 0,
+   "link_to": "IMS Risk Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS KRI Definition",
+   "link_count": 0,
+   "link_to": "IMS KRI Definition",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Risk Maturity Snapshot",
+   "link_count": 0,
+   "link_to": "IMS Risk Maturity Snapshot",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Assessment",
+   "link_count": 0,
+   "link_to": "Risk Assessment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AUDIT MANAGEMENT",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Plan",
+   "link_count": 0,
+   "link_to": "IMS Audit Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Program",
+   "link_count": 0,
+   "link_to": "IMS Audit Program",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Engagement",
+   "link_count": 0,
+   "link_to": "IMS Audit Engagement",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Workpaper",
+   "link_count": 0,
+   "link_to": "IMS Workpaper",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "COMPLIANCE & INSIGHT",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Compliance Register",
+   "link_count": 0,
+   "link_to": "IMS Compliance Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Compliance Standard Mapping",
+   "link_count": 0,
+   "link_to": "IMS Compliance Standard Mapping",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Lessons Learned Repository",
+   "link_count": 0,
+   "link_to": "IMS Lessons Learned Repository",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Incident Summary Report",
+   "link_count": 0,
+   "link_to": "Incident Summary Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Action Items Tracking",
+   "link_count": 0,
+   "link_to": "Action Items Tracking",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "ARC Command Center",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Risk Assessor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 4.0,
+ "shortcuts": [],
+ "title": "ARC Command Center"
+}
