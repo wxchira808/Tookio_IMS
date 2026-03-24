@@ -26,7 +26,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Setups",
-    "link_count": 9,
+    "link_count": 11,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -127,6 +127,26 @@
     "label": "IMS KRI Definition",
     "link_count": 0,
     "link_to": "IMS KRI Definition",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Risk Maturity Snapshot",
+    "link_count": 0,
+    "link_to": "IMS Risk Maturity Snapshot",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+  },
+  {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "IMS Lessons Learned Repository",
+    "link_count": 0,
+    "link_to": "IMS Lessons Learned Repository",
     "link_type": "DocType",
     "onboard": 0,
     "type": "Link"

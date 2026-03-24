@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "autoname": "format:IMSMAT-{YYYY}-{MM}-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "snapshot_date",
+  "department",
+  "risk_owner",
+  "open_risks",
+  "overdue_reviews",
+  "open_action_items",
+  "overdue_action_items",
+  "kri_red_count",
+  "maturity_score",
+  "maturity_band",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname":"snapshot_date","fieldtype":"Date","in_list_view":1,"in_standard_filter":1,"label":"Snapshot Date","reqd":1},
+  {"fieldname":"department","fieldtype":"Link","in_list_view":1,"label":"Department","options":"Department"},
+  {"fieldname":"risk_owner","fieldtype":"Link","in_list_view":1,"label":"Risk Owner","options":"User"},
+  {"fieldname":"open_risks","fieldtype":"Int","label":"Open Risks","read_only":1},
+  {"fieldname":"overdue_reviews","fieldtype":"Int","label":"Overdue Reviews","read_only":1},
+  {"fieldname":"open_action_items","fieldtype":"Int","label":"Open Action Items","read_only":1},
+  {"fieldname":"overdue_action_items","fieldtype":"Int","label":"Overdue Action Items","read_only":1},
+  {"fieldname":"kri_red_count","fieldtype":"Int","label":"Red KRIs","read_only":1},
+  {"fieldname":"maturity_score","fieldtype":"Percent","in_list_view":1,"label":"Maturity Score","read_only":1},
+  {"fieldname":"maturity_band","fieldtype":"Select","in_list_view":1,"label":"Maturity Band","options":"\nInitial\nDeveloping\nDefined\nManaged\nOptimized","read_only":1},
+  {"fieldname":"notes","fieldtype":"Text Editor","label":"Notes"}
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Risk Maturity Snapshot",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+ ],
+ "sort_field": "snapshot_date",
+ "sort_order": "DESC",
+ "states": []
+}

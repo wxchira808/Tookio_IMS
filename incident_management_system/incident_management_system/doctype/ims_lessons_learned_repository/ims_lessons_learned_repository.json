@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "autoname": "format:IMSLL-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "source_type",
+  "incident_resolution",
+  "ims_risk_register",
+  "ims_audit_engagement",
+  "department",
+  "owner_user",
+  "summary",
+  "root_cause_theme",
+  "corrective_pattern",
+  "preventive_pattern",
+  "reusability_rating",
+  "status"
+ ],
+ "fields": [
+  {"fieldname":"title","fieldtype":"Data","in_list_view":1,"in_standard_filter":1,"label":"Title","reqd":1},
+  {"fieldname":"source_type","fieldtype":"Select","in_list_view":1,"label":"Source Type","options":"\nIncident Resolution\nRisk Register\nAudit Engagement\nManual","reqd":1},
+  {"fieldname":"incident_resolution","fieldtype":"Link","label":"Incident Resolution","options":"Incident Resolution"},
+  {"fieldname":"ims_risk_register","fieldtype":"Link","label":"IMS Risk Register","options":"IMS Risk Register"},
+  {"fieldname":"ims_audit_engagement","fieldtype":"Link","label":"IMS Audit Engagement","options":"IMS Audit Engagement"},
+  {"fieldname":"department","fieldtype":"Link","label":"Department","options":"Department"},
+  {"fieldname":"owner_user","fieldtype":"Link","label":"Owner","options":"User"},
+  {"fieldname":"summary","fieldtype":"Text Editor","label":"Summary","reqd":1},
+  {"fieldname":"root_cause_theme","fieldtype":"Data","label":"Root Cause Theme"},
+  {"fieldname":"corrective_pattern","fieldtype":"Small Text","label":"Corrective Pattern"},
+  {"fieldname":"preventive_pattern","fieldtype":"Small Text","label":"Preventive Pattern"},
+  {"fieldname":"reusability_rating","fieldtype":"Select","label":"Reusability Rating","options":"\nLow\nMedium\nHigh"},
+  {"default":"Published","fieldname":"status","fieldtype":"Select","in_list_view":1,"label":"Status","options":"\nDraft\nPublished\nArchived"}
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Lessons Learned Repository",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

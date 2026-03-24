@@ -8,6 +8,7 @@ def run_daily_arc_automation():
     sweep_risk_review_overdue()
     sweep_compliance_assessment_overdue()
     sweep_kri_alerts()
+    generate_daily_maturity_snapshots()
 
 
 def sweep_risk_review_overdue():
@@ -128,3 +129,86 @@ def _get_fallback_owner():
         limit_page_length=1,
     )
     return admins[0].name if admins else None
+
+
+def generate_daily_maturity_snapshots():
+    today = getdate(nowdate())
+    departments = _get_departments_for_snapshot()
+    if not departments:
+        departments = [None]
+
+    for department in departments:
+        exists = frappe.db.exists(
+            "IMS Risk Maturity Snapshot",
+            {"snapshot_date": today, "department": department},
+        )
+        if exists:
+            continue
+
+        metrics = _collect_maturity_metrics(department)
+        score = _calculate_maturity_score(metrics)
+
+        snapshot = frappe.get_doc(
+            {
+                "doctype": "IMS Risk Maturity Snapshot",
+                "snapshot_date": today,
+                "department": department,
+                "open_risks": metrics["open_risks"],
+                "overdue_reviews": metrics["overdue_reviews"],
+                "open_action_items": metrics["open_actions"],
+                "overdue_action_items": metrics["overdue_actions"],
+                "kri_red_count": metrics["kri_red"],
+                "maturity_score": score,
+                "notes": "Auto-generated daily ARC maturity snapshot.",
+            }
+        )
+        snapshot.insert(ignore_permissions=True)
+
+
+def _get_departments_for_snapshot():
+    rows = frappe.get_all(
+        "IMS Risk Register",
+        filters={"status": ["!=", "Closed"], "department": ["is", "set"]},
+        fields=["department"],
+        distinct=True,
+        limit_page_length=2000,
+    )
+    return [row.department for row in rows if row.department]
+
+
+def _collect_maturity_metrics(department=None):
+    risk_filters = {"status": ["!=", "Closed"]}
+    action_filters = {"status": ["in", ["Open", "In Progress", "Overdue"]]}
+    kri_filters = {"status": "Active", "alert_level": "Red"}
+
+    if department:
+        risk_filters["department"] = department
+        action_filters["department"] = department
+
+    return {
+        "open_risks": frappe.db.count("IMS Risk Register", risk_filters),
+        "overdue_reviews": frappe.db.count(
+            "IMS Risk Register", {**risk_filters, "mitigation_status": "Overdue"}
+        ),
+        "open_actions": frappe.db.count("Action Item", action_filters),
+        "overdue_actions": frappe.db.count("Action Item", {**action_filters, "status": "Overdue"}),
+        "kri_red": frappe.db.count("IMS KRI Definition", kri_filters),
+    }
+
+
+def _calculate_maturity_score(metrics):
+    open_risks = metrics["open_risks"]
+    overdue_reviews = metrics["overdue_reviews"]
+    open_actions = metrics["open_actions"]
+    overdue_actions = metrics["overdue_actions"]
+    kri_red = metrics["kri_red"]
+
+    base = 100.0
+    deductions = (
+        min(overdue_reviews * 8, 40)
+        + min(overdue_actions * 5, 30)
+        + min(kri_red * 4, 20)
+        + (5 if open_risks > 0 and open_actions == 0 else 0)
+    )
+
+    return max(0, round(base - deductions, 2))

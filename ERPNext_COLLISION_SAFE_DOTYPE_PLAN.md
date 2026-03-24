@@ -44,6 +44,8 @@ Use scoped names for likely collisions in ARC expansion:
 - `IMS Risk Taxonomy`
 - `IMS Risk Register`
 - `IMS KRI Definition`
+- `IMS Risk Maturity Snapshot`
+- `IMS Lessons Learned Repository`
 
 ## First Implemented ERPNext-Compatibility Changes
 
@@ -72,6 +74,9 @@ Use scoped names for likely collisions in ARC expansion:
   - `IMS KRI Definition`
 - Added `IMS Compliance Standard Mapping` for framework control mappings to concrete records.
 - Added daily ARC automation for overdue risk/compliance reviews and KRI red-alert task generation.
+- Added ARC maturity analytics through daily `IMS Risk Maturity Snapshot` generation.
+- Added knowledge management through `IMS Lessons Learned Repository` with auto-capture from submitted Incident Resolutions.
+- Added ARC API endpoints for executive summaries, NLQ-style risk/compliance queries, and maturity trend retrieval.
 
 ## Verification Checklist
 

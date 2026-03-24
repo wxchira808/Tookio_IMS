@@ -22,6 +22,9 @@ fixtures = [
 doc_events = {
     "ToDo": {
         "on_update": "incident_management_system.utils.assign_to_override.assign_to_overrride"
+    },
+    "Incident Resolution": {
+        "on_submit": "incident_management_system.utils.knowledge_automation.create_lesson_from_resolution"
     }
 }
 
