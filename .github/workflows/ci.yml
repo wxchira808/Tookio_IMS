@@ -14,30 +14,60 @@ jobs:
 
     services:
       mariadb:
-        image: mariadb:latest
+        image: mariadb:10.6
         env:
           MYSQL_ROOT_PASSWORD: root
+          MYSQL_CHARACTER_SET_SERVER: utf8mb4
+          MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
         ports:
           - 3306:3306
-        options: --health-cmd="exec mariadb -u root -proot -e \"SHOW DATABASES;\""
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
+      - name: Install frappe-bench
+        run: pip install frappe-bench
+
+      - name: Initialize Bench
         run: |
-          pip install frappe-bench
-          bench init --skip-redis-config-generation --skip-assets --python "$(which python)" ~/frappe-bench
-          mariadb --host 127.0.0.1 --port 3306 -u root -proot -e "SET GLOBAL character_set_server = 'utf8mb4';"
-          mariadb --host 127.0.0.1 --port 3306 -u root -proot -e "SET GLOBAL collation_server = 'utf8mb4_unicode_ci';"
-          bench get-app my_app
-          bench new-site test_site --install-app my_app
+          for i in {1..3}; do
+            bench init \
+              --skip-redis-config-generation \
+              --skip-assets \
+              --frappe-branch version-15 \
+              --python "$(which python)" \
+              ~/frappe-bench && break
+            echo "Attempt $i failed, retrying in 10s..."
+            rm -rf ~/frappe-bench
+            sleep 10
+          done
+
+      - name: Install app
+        run: |
+          cd ~/frappe-bench
+          bench get-app incident_management_system $GITHUB_WORKSPACE
+
+      - name: Create site and install app
+        run: |
+          cd ~/frappe-bench
+          bench new-site test_site \
+            --mariadb-root-password root \
+            --admin-password admin \
+            --no-mariadb-socket
+          bench --site test_site install-app incident_management_system
 
       - name: Run Tests
-        run: bench --site test_site test --application my_app
+        run: |
+          cd ~/frappe-bench
+          bench --site test_site run-tests --app incident_management_system
