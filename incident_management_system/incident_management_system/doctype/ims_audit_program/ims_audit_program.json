@@ -8,12 +8,14 @@
   "program_name",
   "audit_plan",
   "audit_standard",
+  "audit_standard_other",
   "objective",
   "scope",
   "frequency",
   "is_template",
   "owner_user",
-  "status"
+  "status",
+  "program_steps"
  ],
  "fields": [
   {
@@ -35,7 +37,7 @@
    "fieldname": "audit_standard",
    "fieldtype": "Select",
    "label": "Audit Standard",
-   "options": "\nGIAS\nISO 31000\nCOSO ERM\nISO 27001\nPSIAS\nPFM Act\nOther"
+   "options": "\nGIAS\nISO 31000\nCOSO ERM\nISO 27001\nPSIAS\nPFM Act\nData Protection Act 2019\nOther"
   },
   {
    "fieldname": "objective",
@@ -73,6 +75,19 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "\nDraft\nActive\nArchived"
+  },
+  {
+   "fieldname": "program_steps",
+   "fieldtype": "Table",
+   "label": "Program Steps / Checklist",
+   "options": "IMS Audit Program Step",
+   "description": "Structured audit steps and checklist items"
+  },
+  {
+   "fieldname": "audit_standard_other",
+   "fieldtype": "Data",
+   "label": "Other Audit Standard",
+   "depends_on": "eval:doc.audit_standard=='Other'"
   }
  ],
  "grid_page_length": 50,
@@ -121,6 +136,70 @@
    "share": 0,
    "write": 0,
    "select": 1
+  },
+  {
+   "role": "Auditor",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Risk Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Compliance Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Professional User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Limited User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
   }
  ],
  "sort_field": "modified",

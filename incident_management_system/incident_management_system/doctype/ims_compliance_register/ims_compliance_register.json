@@ -8,17 +8,23 @@
   "obligation_title",
   "standard_framework",
   "law_or_policy",
+  "applicable_article",
   "requirement_description",
   "control_owner",
   "department",
   "compliance_status",
+  "risk_rating",
+  "penalty_exposure",
   "last_assessment_date",
   "next_assessment_date",
   "attestation_required",
   "attested_by",
   "attested_on",
   "evidence_attachment",
-  "notes"
+  "notes",
+  "self_assessment_section",
+  "self_assessment_items",
+  "overall_assessment_score"
  ],
  "fields": [
   {
@@ -34,7 +40,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Standard Framework",
-   "options": "\nISO 31000\nCOSO ERM\nISO 27001\nPFM Act\nPSIAS\nGIAS\nInternal Policy\nOther",
+   "options": "\nISO 31000\nCOSO ERM\nISO 27001\nPFM Act\nPSIAS\nGIAS\nData Protection Act 2019\nInternal Policy\nOther",
    "reqd": 1
   },
   {
@@ -109,6 +115,41 @@
    "fieldname": "notes",
    "fieldtype": "Text Editor",
    "label": "Notes"
+  },
+  {
+   "fieldname": "self_assessment_section",
+   "fieldtype": "Section Break",
+   "label": "Self-Assessment Checklist"
+  },
+  {
+   "fieldname": "self_assessment_items",
+   "fieldtype": "Table",
+   "label": "Self-Assessment Items",
+   "options": "IMS Compliance Self Assessment Item",
+   "description": "Checklist items for self-assessment against this compliance obligation"
+  },
+  {
+   "fieldname": "overall_assessment_score",
+   "fieldtype": "Float",
+   "label": "Overall Assessment Score (%)",
+   "read_only": 1,
+   "description": "Auto-calculated from self-assessment items"
+  },
+  {
+   "fieldname": "risk_rating",
+   "fieldtype": "Select",
+   "label": "Compliance Risk Rating",
+   "options": "\nLow\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "applicable_article",
+   "fieldtype": "Data",
+   "label": "Applicable Article / Section"
+  },
+  {
+   "fieldname": "penalty_exposure",
+   "fieldtype": "Text",
+   "label": "Penalty / Exposure Description"
   }
  ],
  "grid_page_length": 50,
@@ -196,6 +237,96 @@
    "share": 0,
    "write": 1,
    "permlevel": 1
+  },
+  {
+   "role": "Compliance Officer",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Compliance Champion",
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Auditor",
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Risk Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Professional User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Contributor",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Limited User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
   }
  ],
  "sort_field": "modified",

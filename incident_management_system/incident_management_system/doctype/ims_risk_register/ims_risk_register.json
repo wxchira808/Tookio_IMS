@@ -24,7 +24,15 @@
   "status",
   "mitigation_status",
   "last_review_date",
-  "next_review_date"
+  "next_review_date",
+  "risk_treatment_section",
+  "risk_treatment_strategy",
+  "capa_status",
+  "capa_description",
+  "capa_assigned_to",
+  "capa_due_date",
+  "capa_completion_date",
+  "capa_effectiveness_rating"
  ],
  "fields": [
   {
@@ -156,6 +164,52 @@
    "fieldname": "next_review_date",
    "fieldtype": "Date",
    "label": "Next Review Date"
+  },
+  {
+   "fieldname": "risk_treatment_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Treatment & CAPA"
+  },
+  {
+   "fieldname": "risk_treatment_strategy",
+   "fieldtype": "Select",
+   "label": "Risk Treatment Strategy",
+   "options": "\nAccept\nAvoid\nTransfer\nMitigate\nExploit\nShare"
+  },
+  {
+   "fieldname": "capa_status",
+   "fieldtype": "Select",
+   "label": "CAPA Status",
+   "options": "\nNot Initiated\nOpen\nIn Progress\nCompleted\nOverdue\nCancelled",
+   "default": "Not Initiated",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "capa_description",
+   "fieldtype": "Text Editor",
+   "label": "CAPA Description"
+  },
+  {
+   "fieldname": "capa_assigned_to",
+   "fieldtype": "Link",
+   "label": "CAPA Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "capa_due_date",
+   "fieldtype": "Date",
+   "label": "CAPA Due Date"
+  },
+  {
+   "fieldname": "capa_completion_date",
+   "fieldtype": "Date",
+   "label": "CAPA Completion Date"
+  },
+  {
+   "fieldname": "capa_effectiveness_rating",
+   "fieldtype": "Select",
+   "label": "CAPA Effectiveness Rating",
+   "options": "\nNot Rated\nIneffective\nPartially Effective\nEffective\nHighly Effective"
   }
  ],
  "grid_page_length": 50,
@@ -222,6 +276,96 @@
    "share": 0,
    "write": 0,
    "select": 1
+  },
+  {
+   "role": "Risk Officer",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Risk Champion",
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Auditor",
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Compliance Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Professional User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Contributor",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Limited User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
   }
  ],
  "sort_field": "modified",

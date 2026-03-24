@@ -212,3 +212,68 @@ def _calculate_maturity_score(metrics):
     )
 
     return max(0, round(base - deductions, 2))
+
+
+# ---------------------------------------------------------------------------
+# CAPA Automation
+# ---------------------------------------------------------------------------
+
+def sweep_capa_overdue_task():
+    """
+    Scheduled daily task: mark IMS CAPA records as Overdue when past due date
+    and create ToDo notifications for assigned owners.
+    """
+    from frappe.utils import getdate, nowdate
+
+    open_capas = frappe.get_all(
+        "IMS CAPA",
+        filters={
+            "status": ["in", ["Open", "In Progress"]],
+            "due_date": ["<", nowdate()],
+        },
+        fields=["name", "capa_title", "assigned_to", "due_date", "priority"],
+        limit_page_length=1000,
+    )
+
+    for capa in open_capas:
+        frappe.db.set_value("IMS CAPA", capa.name, "status", "Overdue")
+        message = f"CAPA overdue: {capa.capa_title or capa.name} (due {capa.due_date})"
+        _create_todo_if_missing(
+            owner=capa.assigned_to,
+            description=message,
+            reference_type="IMS CAPA",
+            reference_name=capa.name,
+        )
+
+    frappe.db.commit()
+
+
+def on_risk_register_update(doc, method=None):
+    """
+    doc_event hook: when a risk is saved, auto-sync CAPA status
+    if capa_status is Overdue but CAPA due date is still in future.
+    """
+    if not doc.capa_due_date:
+        return
+    from frappe.utils import getdate, nowdate
+
+    if (
+        doc.capa_status in ("Open", "In Progress")
+        and getdate(doc.capa_due_date) < getdate(nowdate())
+    ):
+        doc.capa_status = "Overdue"
+
+
+def on_capa_validate(doc, method=None):
+    """
+    doc_event hook: auto-set CAPA status to Overdue when past due date.
+    """
+    if not doc.due_date:
+        return
+    from frappe.utils import getdate, nowdate
+
+    if (
+        doc.status in ("Open", "In Progress")
+        and getdate(doc.due_date) < getdate(nowdate())
+    ):
+        doc.status = "Overdue"

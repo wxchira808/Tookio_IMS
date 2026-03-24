@@ -1,0 +1,329 @@
+{
+ "actions": [],
+ "autoname": "format:IMSCAPA-.#####",
+ "creation": "2026-03-24 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "capa_title",
+  "capa_type",
+  "source_doctype",
+  "source_reference",
+  "risk_register_ref",
+  "description",
+  "root_cause",
+  "root_cause_analysis_method",
+  "corrective_actions_section",
+  "corrective_action_description",
+  "preventive_action_description",
+  "action_plan_section",
+  "assigned_to",
+  "department",
+  "due_date",
+  "completion_date",
+  "status",
+  "priority",
+  "effectiveness_section",
+  "effectiveness_review_date",
+  "effectiveness_rating",
+  "effectiveness_notes",
+  "approval_section",
+  "approved_by",
+  "approval_date",
+  "approval_comments",
+  "attachments",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "capa_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "CAPA Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "capa_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "CAPA Type",
+   "options": "\nCorrective Action\nPreventive Action\nCorrective & Preventive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "\nIMS Risk Register\nIMS Compliance Register\nIMS Audit Engagement\nIncident\nManual"
+  },
+  {
+   "fieldname": "source_reference",
+   "fieldtype": "Data",
+   "label": "Source Reference"
+  },
+  {
+   "fieldname": "risk_register_ref",
+   "fieldtype": "Link",
+   "label": "Linked Risk",
+   "options": "IMS Risk Register"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Problem / Issue Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "root_cause",
+   "fieldtype": "Text Editor",
+   "label": "Root Cause"
+  },
+  {
+   "fieldname": "root_cause_analysis_method",
+   "fieldtype": "Select",
+   "label": "Root Cause Analysis Method",
+   "options": "\n5 Whys\nFishbone / Ishikawa\nFault Tree Analysis\nPareto Analysis\nOther"
+  },
+  {
+   "fieldname": "corrective_actions_section",
+   "fieldtype": "Section Break",
+   "label": "Actions"
+  },
+  {
+   "fieldname": "corrective_action_description",
+   "fieldtype": "Text Editor",
+   "label": "Corrective Action Description"
+  },
+  {
+   "fieldname": "preventive_action_description",
+   "fieldtype": "Text Editor",
+   "label": "Preventive Action Description"
+  },
+  {
+   "fieldname": "action_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Action Plan"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Actual Completion Date"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nOpen\nIn Progress\nCompleted\nOverdue\nCancelled"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "\nCritical\nHigh\nMedium\nLow"
+  },
+  {
+   "fieldname": "effectiveness_section",
+   "fieldtype": "Section Break",
+   "label": "Effectiveness Review"
+  },
+  {
+   "fieldname": "effectiveness_review_date",
+   "fieldtype": "Date",
+   "label": "Effectiveness Review Date"
+  },
+  {
+   "fieldname": "effectiveness_rating",
+   "fieldtype": "Select",
+   "label": "Effectiveness Rating",
+   "options": "\nNot Reviewed\nIneffective\nPartially Effective\nEffective\nHighly Effective"
+  },
+  {
+   "fieldname": "effectiveness_notes",
+   "fieldtype": "Text Editor",
+   "label": "Effectiveness Notes"
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "approval_comments",
+   "fieldtype": "Text",
+   "label": "Approval Comments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Evidence / Attachments"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-24 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS CAPA",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Incident Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Risk Officer",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Risk Champion",
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Officer",
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Risk Assessor",
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Professional User",
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Limited User",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
