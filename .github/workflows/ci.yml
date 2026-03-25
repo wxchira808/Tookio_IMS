@@ -53,18 +53,20 @@ jobs:
             sleep 10
           done
 
-      - name: Install app
+      - name: Install apps
         run: |
           cd ~/frappe-bench
+          bench get-app erpnext --branch version-15
           bench get-app incident_management_system $GITHUB_WORKSPACE
 
-      - name: Create site and install app
+      - name: Create site and install apps
         run: |
           cd ~/frappe-bench
           bench new-site test_site \
             --mariadb-root-password root \
             --admin-password admin \
             --no-mariadb-socket
+          bench --site test_site install-app erpnext
           bench --site test_site install-app incident_management_system
 
       - name: Run Tests
