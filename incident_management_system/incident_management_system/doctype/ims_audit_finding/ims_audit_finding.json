@@ -1,0 +1,312 @@
+{
+ "actions": [],
+ "autoname": "format:IMSAF-.#####",
+ "creation": "2026-03-25 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "finding_title",
+  "audit_engagement",
+  "finding_type",
+  "severity",
+  "department",
+  "finding_description",
+  "criteria_violated",
+  "condition",
+  "cause",
+  "effect",
+  "root_cause_section",
+  "root_cause",
+  "root_cause_analysis_method",
+  "action_section",
+  "capa_required",
+  "linked_capa",
+  "recommendation",
+  "management_response",
+  "status_section",
+  "status",
+  "target_closure_date",
+  "actual_closure_date",
+  "finding_owner",
+  "effectiveness_testing_required",
+  "effectiveness_rating",
+  "evidence_attachment",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "finding_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Finding Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "audit_engagement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Audit Engagement",
+   "options": "IMS Audit Engagement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "finding_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Finding Type",
+   "options": "\nNon-Conformity\nObservation\nOpportunity for Improvement\nCommendation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "\nCritical\nMajor\nMinor\nAdvisory"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "finding_description",
+   "fieldtype": "Text Editor",
+   "label": "Finding Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "criteria_violated",
+   "fieldtype": "Text",
+   "label": "Criteria / Standard Violated"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Text Editor",
+   "label": "Condition (What was found)"
+  },
+  {
+   "fieldname": "cause",
+   "fieldtype": "Text Editor",
+   "label": "Cause (Why it happened)"
+  },
+  {
+   "fieldname": "effect",
+   "fieldtype": "Text Editor",
+   "label": "Effect (Impact of finding)"
+  },
+  {
+   "fieldname": "root_cause_section",
+   "fieldtype": "Section Break",
+   "label": "Root Cause Analysis"
+  },
+  {
+   "fieldname": "root_cause",
+   "fieldtype": "Text Editor",
+   "label": "Root Cause"
+  },
+  {
+   "fieldname": "root_cause_analysis_method",
+   "fieldtype": "Select",
+   "label": "RCA Method",
+   "options": "\n5-Whys\nFishbone (Ishikawa)\nFault Tree Analysis\nPareto Analysis\nOther"
+  },
+  {
+   "fieldname": "action_section",
+   "fieldtype": "Section Break",
+   "label": "Corrective Actions & Recommendations"
+  },
+  {
+   "default": "0",
+   "fieldname": "capa_required",
+   "fieldtype": "Check",
+   "label": "CAPA Required"
+  },
+  {
+   "depends_on": "capa_required",
+   "fieldname": "linked_capa",
+   "fieldtype": "Link",
+   "label": "Linked CAPA",
+   "options": "IMS CAPA"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Text Editor",
+   "label": "Auditor Recommendation"
+  },
+  {
+   "fieldname": "management_response",
+   "fieldtype": "Text Editor",
+   "label": "Management Response / Action Agreed"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status & Closure"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nOpen\nIn Progress\nPending Verification\nClosed\nAccepted Risk"
+  },
+  {
+   "fieldname": "target_closure_date",
+   "fieldtype": "Date",
+   "label": "Target Closure Date"
+  },
+  {
+   "fieldname": "actual_closure_date",
+   "fieldtype": "Date",
+   "label": "Actual Closure Date"
+  },
+  {
+   "fieldname": "finding_owner",
+   "fieldtype": "Link",
+   "label": "Finding Owner",
+   "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "effectiveness_testing_required",
+   "fieldtype": "Check",
+   "label": "Effectiveness Testing Required"
+  },
+  {
+   "depends_on": "effectiveness_testing_required",
+   "fieldname": "effectiveness_rating",
+   "fieldtype": "Select",
+   "label": "Effectiveness Rating",
+   "options": "\nNot Rated\nIneffective\nPartially Effective\nEffective\nHighly Effective"
+  },
+  {
+   "fieldname": "evidence_attachment",
+   "fieldtype": "Attach",
+   "label": "Evidence / Supporting Document"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-25 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "IMS Audit Finding",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Incident Manager",
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Auditor",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Risk Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Compliance Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Incident Responder",
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Professional User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Limited User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

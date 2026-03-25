@@ -53,6 +53,12 @@ override_whitelisted_methods = {
     "incident_management_system.utils.risk_ml_service.run_monte_carlo_simulation": "incident_management_system.utils.risk_ml_service.run_monte_carlo_simulation",
     "incident_management_system.utils.risk_ml_service.run_portfolio_simulation": "incident_management_system.utils.risk_ml_service.run_portfolio_simulation",
     "incident_management_system.utils.risk_ml_service.get_risk_probability_summary": "incident_management_system.utils.risk_ml_service.get_risk_probability_summary",
+    # ARC Reporting API
+    "incident_management_system.api.arc_reporting.get_arc_dashboard_summary": "incident_management_system.api.arc_reporting.get_arc_dashboard_summary",
+    "incident_management_system.api.arc_reporting.nlq_arc_query": "incident_management_system.api.arc_reporting.nlq_arc_query",
+    "incident_management_system.api.arc_reporting.get_department_maturity_trend": "incident_management_system.api.arc_reporting.get_department_maturity_trend",
+    "incident_management_system.api.arc_reporting.get_risk_heatmap_data": "incident_management_system.api.arc_reporting.get_risk_heatmap_data",
+    "incident_management_system.api.arc_reporting.get_audit_findings_summary": "incident_management_system.api.arc_reporting.get_audit_findings_summary",
 }
 
 #app_include_css = "/assets/incident_management_system/css/incident_management_system.css"

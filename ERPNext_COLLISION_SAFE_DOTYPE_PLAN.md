@@ -39,6 +39,8 @@ Use scoped names for likely collisions in ARC expansion:
 - `IMS Audit Program`
 - `IMS Audit Engagement`
 - `IMS Workpaper`
+- `IMS Audit Finding`
+- `IMS Document Repository`
 - `IMS Compliance Register`
 - `IMS Compliance Standard Mapping`
 - `IMS Risk Taxonomy`
@@ -77,6 +79,41 @@ Use scoped names for likely collisions in ARC expansion:
 - Added ARC maturity analytics through daily `IMS Risk Maturity Snapshot` generation.
 - Added knowledge management through `IMS Lessons Learned Repository` with auto-capture from submitted Incident Resolutions.
 - Added ARC API endpoints for executive summaries, NLQ-style risk/compliance queries, and maturity trend retrieval.
+- Added Local AI service (Ollama-based, data sovereignty compliant) for NLP text mining, NLG narratives, and compliance classification.
+- Added Monte Carlo simulation and scikit-learn risk ML service for predictive risk scoring.
+
+## Second ARC Slice – Tender Gap Closure (KTNA/OT/04/2025-2026)
+
+Implemented after analysis of the KenTrade ARC tender document to close remaining functional gaps:
+
+### New Doctypes
+- `IMS Audit Finding` – structured logging of non-conformities and observations from audit engagements.
+  - Fields: finding type, severity (Critical/Major/Minor/Advisory), condition/cause/effect, root cause with RCA method,
+    auditor recommendation, management response, CAPA linkage (auto-creates IMS CAPA on save when required),
+    effectiveness testing, target/actual closure dates.
+- `IMS Document Repository` – central repository for all ARC-related documents.
+  - Fields: document type, version number, status, tagging, linked engagement/plan/risk/workpaper, version history
+    (supersedes link + change summary), retention period with auto-expiry calculation.
+  - Auto-propagates audit engagement from linked workpaper.
+
+### New Reports
+- `Audit Coverage` (Script Report on IMS Audit Engagement) – shows planned vs. in-progress vs. closed engagements
+  by department, with open/critical finding counts and closure rate. Includes bar chart.
+- `Audit Plan Progress` (Script Report on IMS Audit Plan) – shows total/completed/in-progress/planned engagements
+  per plan with completion percentage and budget. Includes stacked bar chart.
+
+### API Enhancements (`arc_reporting.py`)
+- `get_arc_dashboard_summary` – now also counts open and critical audit findings.
+- `nlq_arc_query` – expanded NLQ patterns:
+  - Overdue risks, open/critical audit findings, active audit plans, open CAPAs, red KRIs, overdue compliance assessments.
+- `get_risk_heatmap_data` – new endpoint returning 5×5 likelihood×impact matrix with risk counts per cell
+  for interactive risk heatmap visualisation.
+- `get_audit_findings_summary` – new endpoint summarising findings by severity, type, and status
+  (optionally filtered by engagement), used for board reports.
+
+### Workspace
+- ARC Command Center updated to include `IMS Audit Finding`, `IMS Document Repository`,
+  `Audit Coverage` report, and `Audit Plan Progress` report.
 
 ## Verification Checklist
 
