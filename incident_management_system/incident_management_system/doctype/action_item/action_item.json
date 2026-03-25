@@ -219,11 +219,11 @@
    "fieldtype": "Currency",
    "label": "Actual Cost"
   },
-    {
-     "fieldname": "department",
-     "fieldtype": "Data",
-     "label": "Department"
-    },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
   {
    "fieldname": "resource_requirements",
    "fieldtype": "Text",
@@ -348,6 +348,119 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "role": "Risk Officer",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Risk Champion",
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Auditor",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Compliance Officer",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Compliance Champion",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 1,
+   "select": 1
+  },
+  {
+   "role": "Professional User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
+  },
+  {
+   "role": "Contributor",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
+  },
+  {
+   "role": "Incident Manager",
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "Risk Assessor",
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
    "write": 1
   }
  ],

@@ -8,11 +8,15 @@
   "plan_title",
   "plan_year",
   "plan_type",
+  "recurring_frequency",
   "company",
   "department",
+  "lead_auditor",
   "risk_reference",
   "schedule_start",
   "schedule_end",
+  "audit_scope",
+  "audit_objectives",
   "budget_amount",
   "status",
   "approved_by",
@@ -99,6 +103,29 @@
    "fieldname": "notes",
    "fieldtype": "Text Editor",
    "label": "Notes"
+  },
+  {
+   "fieldname": "recurring_frequency",
+   "fieldtype": "Select",
+   "label": "Recurring Frequency",
+   "options": "\nOne-time\nMonthly\nQuarterly\nSemi-Annual\nAnnual",
+   "description": "Applicable for recurring audit plans"
+  },
+  {
+   "fieldname": "lead_auditor",
+   "fieldtype": "Link",
+   "label": "Lead Auditor",
+   "options": "User"
+  },
+  {
+   "fieldname": "audit_scope",
+   "fieldtype": "Text Editor",
+   "label": "Audit Scope"
+  },
+  {
+   "fieldname": "audit_objectives",
+   "fieldtype": "Text Editor",
+   "label": "Audit Objectives"
   }
  ],
  "grid_page_length": 50,
@@ -147,6 +174,72 @@
    "share": 0,
    "write": 0,
    "select": 1
+  },
+  {
+   "role": "Auditor",
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "select": 1,
+   "submit": 0,
+   "cancel": 0
+  },
+  {
+   "role": "Risk Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Compliance Officer",
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Professional User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0,
+   "select": 1
+  },
+  {
+   "role": "Limited User",
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "share": 0,
+   "write": 0
   }
  ],
  "sort_field": "modified",

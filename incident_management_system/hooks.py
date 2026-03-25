@@ -12,10 +12,10 @@ fixtures = [
     {
         "dt": "Custom DocPerm"
     },
-    { "dt": "Role" }
-    ,
-    {"dt": "Client Script"}
-    ,{"dt": "Server Script"}
+    { "dt": "Role" },
+    { "dt": "Role Profile" },
+    {"dt": "Client Script"},
+    {"dt": "Server Script"}
 ]
 
 
@@ -25,13 +25,34 @@ doc_events = {
     },
     "Incident Resolution": {
         "on_submit": "incident_management_system.utils.knowledge_automation.create_lesson_from_resolution"
-    }
+    },
+    "IMS Risk Register": {
+        "on_update": "incident_management_system.utils.arc_automation.on_risk_register_update"
+    },
+    "IMS CAPA": {
+        "validate": "incident_management_system.utils.arc_automation.on_capa_validate"
+    },
 }
 
 scheduler_events = {
     "daily": [
-        "incident_management_system.tasks.daily"
+        "incident_management_system.tasks.daily",
+        "incident_management_system.tasks.sweep_capa_overdue",
     ]
+}
+
+# Whitelisted API methods (callable from client-side or external scripts)
+override_whitelisted_methods = {
+    # Local AI Service (Ollama - data sovereignty compliant)
+    "incident_management_system.utils.local_ai_service.identify_risks_from_text": "incident_management_system.utils.local_ai_service.identify_risks_from_text",
+    "incident_management_system.utils.local_ai_service.generate_executive_summary": "incident_management_system.utils.local_ai_service.generate_executive_summary",
+    "incident_management_system.utils.local_ai_service.generate_risk_narrative": "incident_management_system.utils.local_ai_service.generate_risk_narrative",
+    "incident_management_system.utils.local_ai_service.generate_audit_finding_narrative": "incident_management_system.utils.local_ai_service.generate_audit_finding_narrative",
+    "incident_management_system.utils.local_ai_service.classify_compliance_obligation": "incident_management_system.utils.local_ai_service.classify_compliance_obligation",
+    # Risk ML Service (Monte Carlo & scikit-learn)
+    "incident_management_system.utils.risk_ml_service.run_monte_carlo_simulation": "incident_management_system.utils.risk_ml_service.run_monte_carlo_simulation",
+    "incident_management_system.utils.risk_ml_service.run_portfolio_simulation": "incident_management_system.utils.risk_ml_service.run_portfolio_simulation",
+    "incident_management_system.utils.risk_ml_service.get_risk_probability_summary": "incident_management_system.utils.risk_ml_service.get_risk_probability_summary",
 }
 
 #app_include_css = "/assets/incident_management_system/css/incident_management_system.css"

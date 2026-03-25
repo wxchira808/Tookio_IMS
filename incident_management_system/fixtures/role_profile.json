@@ -1,0 +1,66 @@
+[
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Auditor Profile",
+  "role_profile": "ARC Auditor Profile",
+  "roles": [
+   {"role": "Auditor"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Risk Officer Profile",
+  "role_profile": "ARC Risk Officer Profile",
+  "roles": [
+   {"role": "Risk Officer"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Risk Champion Profile",
+  "role_profile": "ARC Risk Champion Profile",
+  "roles": [
+   {"role": "Risk Champion"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Compliance Officer Profile",
+  "role_profile": "ARC Compliance Officer Profile",
+  "roles": [
+   {"role": "Compliance Officer"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Compliance Champion Profile",
+  "role_profile": "ARC Compliance Champion Profile",
+  "roles": [
+   {"role": "Compliance Champion"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Professional User Profile",
+  "role_profile": "ARC Professional User Profile",
+  "roles": [
+   {"role": "Professional User"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Contributor Profile",
+  "role_profile": "ARC Contributor Profile",
+  "roles": [
+   {"role": "Contributor"}
+  ]
+ },
+ {
+  "doctype": "Role Profile",
+  "name": "ARC Limited User Profile",
+  "role_profile": "ARC Limited User Profile",
+  "roles": [
+   {"role": "Limited User"}
+  ]
+ }
+]
