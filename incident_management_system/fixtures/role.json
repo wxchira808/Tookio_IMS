@@ -417,6 +417,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Auditor",
   "role_name": "Auditor",
   "desk_access": 1,
   "is_custom": 1,
@@ -425,6 +426,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Risk Officer",
   "role_name": "Risk Officer",
   "desk_access": 1,
   "is_custom": 1,
@@ -433,6 +435,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Risk Champion",
   "role_name": "Risk Champion",
   "desk_access": 1,
   "is_custom": 1,
@@ -441,6 +444,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Compliance Officer",
   "role_name": "Compliance Officer",
   "desk_access": 1,
   "is_custom": 1,
@@ -449,6 +453,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Compliance Champion",
   "role_name": "Compliance Champion",
   "desk_access": 1,
   "is_custom": 1,
@@ -457,6 +462,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Professional User",
   "role_name": "Professional User",
   "desk_access": 1,
   "is_custom": 1,
@@ -465,6 +471,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Contributor",
   "role_name": "Contributor",
   "desk_access": 1,
   "is_custom": 1,
@@ -473,6 +480,7 @@
  },
  {
   "doctype": "Role",
+  "name": "Limited User",
   "role_name": "Limited User",
   "desk_access": 0,
   "is_custom": 1,
