@@ -1,6 +1,3 @@
-
-Workflow file for this run
-.github/workflows/ci.yml at 1abc498
 name: CI
 
 on:
