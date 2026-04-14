@@ -1,0 +1,140 @@
+{
+ "app": "incident_management_system",
+ "charts": [],
+ "content": "[{\"id\":\"risk_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Risk Management</b></span>\",\"col\":12}},{\"id\":\"risk_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Operations\",\"col\":4}},{\"id\":\"risk_assessment_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Assessments\",\"col\":4}},{\"id\":\"risk_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Reports\",\"col\":4}}]",
+ "creation": "2026-03-25 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "table",
+ "idx": 0,
+ "indicator_color": "red",
+ "is_hidden": 0,
+ "label": "Risk",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Operations",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Taxonomy",
+   "link_count": 0,
+   "link_to": "Risk Taxonomy",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Risk Register",
+   "link_count": 0,
+   "link_to": "IMS Risk Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS KRI Definition",
+   "link_count": 0,
+   "link_to": "IMS KRI Definition",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Risk Maturity Snapshot",
+   "link_count": 0,
+   "link_to": "IMS Risk Maturity Snapshot",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assessments",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Assessment",
+   "link_count": 0,
+   "link_to": "Risk Assessment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Contributing Factor",
+   "link_count": 0,
+   "link_to": "Contributing Factor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Reports",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly Trends",
+   "link_count": 0,
+   "link_to": "Monthly Trends",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-25 18:10:46.786599",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Risk",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Tookio IMS",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Risk Assessor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 4.0,
+ "shortcuts": [],
+ "title": "Risk",
+ "type": "Workspace"
+}

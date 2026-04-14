@@ -1,10 +1,11 @@
 {
  "actions": [],
- "autoname": "format:IMSCR-.#####",
+ "autoname": "format:IMSCR-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_compliance_obligation",
   "obligation_title",
   "standard_framework",
   "law_or_policy",
@@ -12,21 +13,29 @@
   "requirement_description",
   "control_owner",
   "department",
+    "tab_compliance_assessment",
   "compliance_status",
   "risk_rating",
   "penalty_exposure",
   "last_assessment_date",
   "next_assessment_date",
+    "tab_compliance_attestation",
   "attestation_required",
   "attested_by",
   "attested_on",
   "evidence_attachment",
   "notes",
+    "tab_compliance_checklist",
   "self_assessment_section",
   "self_assessment_items",
   "overall_assessment_score"
  ],
  "fields": [
+    {
+     "fieldname": "tab_compliance_obligation",
+     "fieldtype": "Tab Break",
+     "label": "Obligation"
+    },
   {
    "fieldname": "obligation_title",
    "fieldtype": "Data",
@@ -67,6 +76,11 @@
    "options": "Department"
   },
   {
+    "fieldname": "tab_compliance_assessment",
+    "fieldtype": "Tab Break",
+    "label": "Assessment"
+  },
+  {
    "default": "Unknown",
    "fieldname": "compliance_status",
    "fieldtype": "Select",
@@ -83,6 +97,11 @@
    "fieldname": "next_assessment_date",
    "fieldtype": "Date",
    "label": "Next Assessment Date"
+  },
+  {
+    "fieldname": "tab_compliance_attestation",
+    "fieldtype": "Tab Break",
+    "label": "Attestation"
   },
   {
    "default": "0",
@@ -115,6 +134,11 @@
    "fieldname": "notes",
    "fieldtype": "Text Editor",
    "label": "Notes"
+  },
+  {
+    "fieldname": "tab_compliance_checklist",
+    "fieldtype": "Tab Break",
+    "label": "Self-Assessment"
   },
   {
    "fieldname": "self_assessment_section",

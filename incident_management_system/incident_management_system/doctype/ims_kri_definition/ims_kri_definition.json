@@ -5,13 +5,16 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_kri_profile",
   "kri_name",
   "risk_taxonomy",
   "unit",
+    "tab_kri_thresholds",
   "threshold_direction",
   "threshold_green",
   "threshold_yellow",
   "threshold_red",
+    "tab_kri_monitoring",
   "current_value",
   "alert_level",
   "owner",
@@ -19,6 +22,11 @@
   "last_updated_on"
  ],
  "fields": [
+    {
+     "fieldname": "tab_kri_profile",
+     "fieldtype": "Tab Break",
+     "label": "KRI Profile"
+    },
   {
    "fieldname": "kri_name",
    "fieldtype": "Data",
@@ -42,6 +50,11 @@
    "options": "\nCount\nPercentage\nCurrency\nDays\nScore"
   },
   {
+    "fieldname": "tab_kri_thresholds",
+    "fieldtype": "Tab Break",
+    "label": "Thresholds"
+  },
+  {
    "default": "Higher Is Worse",
    "fieldname": "threshold_direction",
    "fieldtype": "Select",
@@ -62,6 +75,11 @@
    "fieldname": "threshold_red",
    "fieldtype": "Float",
    "label": "Red Threshold"
+  },
+  {
+    "fieldname": "tab_kri_monitoring",
+    "fieldtype": "Tab Break",
+    "label": "Monitoring"
   },
   {
    "fieldname": "current_value",

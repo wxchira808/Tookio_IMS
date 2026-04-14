@@ -1,23 +1,31 @@
 {
  "actions": [],
- "autoname": "format:IMSAPR-.#####",
+ "autoname": "format:IMSAPR-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_program_overview",
   "program_name",
   "audit_plan",
   "audit_standard",
   "audit_standard_other",
   "objective",
   "scope",
+    "tab_program_governance",
   "frequency",
   "is_template",
   "owner_user",
   "status",
+    "tab_program_steps",
   "program_steps"
  ],
  "fields": [
+    {
+     "fieldname": "tab_program_overview",
+     "fieldtype": "Tab Break",
+     "label": "Overview"
+    },
   {
    "fieldname": "program_name",
    "fieldtype": "Data",
@@ -50,6 +58,11 @@
    "label": "Scope"
   },
   {
+    "fieldname": "tab_program_governance",
+    "fieldtype": "Tab Break",
+    "label": "Governance"
+  },
+  {
    "fieldname": "frequency",
    "fieldtype": "Select",
    "label": "Frequency",
@@ -75,6 +88,11 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "\nDraft\nActive\nArchived"
+  },
+  {
+    "fieldname": "tab_program_steps",
+    "fieldtype": "Tab Break",
+    "label": "Steps & Checklist"
   },
   {
    "fieldname": "program_steps",

@@ -1,0 +1,160 @@
+{
+ "app": "incident_management_system",
+ "charts": [],
+ "content": "[{\"id\":\"audit_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Audit Management</b></span>\",\"col\":12}},{\"id\":\"audit_exec_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Execution\",\"col\":4}},{\"id\":\"audit_controls_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Controls & Documentation\",\"col\":4}},{\"id\":\"audit_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Reports\",\"col\":4}}]",
+ "creation": "2026-03-25 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "project",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Audit",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Audit Execution",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Plan",
+   "link_count": 0,
+   "link_to": "IMS Audit Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Program",
+   "link_count": 0,
+   "link_to": "IMS Audit Program",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Program Step",
+   "link_count": 0,
+   "link_to": "IMS Audit Program Step",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Engagement",
+   "link_count": 0,
+   "link_to": "IMS Audit Engagement",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Audit Finding",
+   "link_count": 0,
+   "link_to": "IMS Audit Finding",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Controls & Documentation",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Workpaper",
+   "link_count": 0,
+   "link_to": "IMS Workpaper",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Document Repository",
+   "link_count": 0,
+   "link_to": "IMS Document Repository",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Audit Reports",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Audit Coverage",
+   "link_count": 0,
+   "link_to": "Audit Coverage",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Audit Plan Progress",
+   "link_count": 0,
+   "link_to": "Audit Plan Progress",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-25 18:10:46.692533",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Audit",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Tookio IMS",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Risk Assessor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 2.0,
+ "shortcuts": [],
+ "title": "Audit",
+ "type": "Workspace"
+}

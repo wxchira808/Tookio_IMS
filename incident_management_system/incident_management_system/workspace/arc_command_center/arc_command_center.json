@@ -1,14 +1,15 @@
 {
+ "app": "incident_management_system",
  "charts": [],
- "content": "[{\"id\":\"arc_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">ARC Command Center</span>\",\"col\":12}},{\"id\":\"arc_subheader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Audit • Risk • Compliance</span>\",\"col\":12}},{\"id\":\"arc_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"arc_risk_card\",\"type\":\"card\",\"data\":{\"card_name\":\"RISK MANAGEMENT\",\"col\":4}},{\"id\":\"arc_audit_card\",\"type\":\"card\",\"data\":{\"card_name\":\"AUDIT MANAGEMENT\",\"col\":4}},{\"id\":\"arc_compliance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"COMPLIANCE & INSIGHT\",\"col\":4}}]",
- "creation": "2026-03-24 00:00:00.000000",
+ "content": "[{\"id\":\"arc_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">ARC Command Center</span>\",\"col\":12}},{\"id\":\"arc_subheader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Audit \u2022 Risk \u2022 Compliance</span>\",\"col\":12}},{\"id\":\"arc_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"arc_risk_card\",\"type\":\"card\",\"data\":{\"card_name\":\"RISK MANAGEMENT\",\"col\":4}},{\"id\":\"arc_audit_card\",\"type\":\"card\",\"data\":{\"card_name\":\"AUDIT MANAGEMENT\",\"col\":4}},{\"id\":\"arc_compliance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"COMPLIANCE & INSIGHT\",\"col\":4}}]",
+ "creation": "2026-03-24 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
  "icon": "analytics",
- "idx": 0,
+ "idx": 1,
  "indicator_color": "blue",
  "is_hidden": 0,
  "label": "ARC Command Center",
@@ -221,14 +222,16 @@
    "type": "Link"
   }
  ],
- "modified": "2026-03-25 00:00:00.000000",
+ "modified": "2026-03-25 18:10:46.830314",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "ARC Command Center",
  "number_cards": [],
  "owner": "Administrator",
+ "parent_page": "Tookio IMS",
  "public": 1,
  "quick_lists": [],
+ "restrict_to_domain": "",
  "roles": [
   {
    "role": "Incident Manager"
@@ -242,5 +245,6 @@
  ],
  "sequence_id": 4.0,
  "shortcuts": [],
- "title": "ARC Command Center"
+ "title": "ARC Command Center",
+ "type": "Workspace"
 }

@@ -1,0 +1,180 @@
+{
+ "app": "incident_management_system",
+ "charts": [],
+ "content": "[{\"id\":\"incident_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Incident Operations</b></span>\",\"col\":12}},{\"id\":\"incident_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Operations\",\"col\":4}},{\"id\":\"incident_resolution_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Resolution & Follow-up\",\"col\":4}},{\"id\":\"incident_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Reports\",\"col\":4}}]",
+ "creation": "2026-03-25 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "support",
+ "idx": 0,
+ "indicator_color": "orange",
+ "is_hidden": 0,
+ "label": "Incident Management",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Operations",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident",
+   "link_count": 0,
+   "link_to": "Incident",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Investigation",
+   "link_count": 0,
+   "link_to": "Incident Investigation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dispatch",
+   "link_count": 0,
+   "link_to": "Dispatch",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Action Item",
+   "link_count": 0,
+   "link_to": "Action Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Resolution & Follow-up",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Resolution",
+   "link_count": 0,
+   "link_to": "Incident Resolution",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Resolution Action Item",
+   "link_count": 0,
+   "link_to": "Resolution Action Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Lessons Learned Repository",
+   "link_count": 0,
+   "link_to": "IMS Lessons Learned Repository",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Reports",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Incident Summary Report",
+   "link_count": 0,
+   "link_to": "Incident Summary Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Open Incidents by Assignee",
+   "link_count": 0,
+   "link_to": "Open Incidents by Assignee",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "SLA Breaches",
+   "link_count": 0,
+   "link_to": "SLA Breaches",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Action Items Tracking",
+   "link_count": 0,
+   "link_to": "Action Items Tracking",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-25 18:10:46.648443",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Incident Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Tookio IMS",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Risk Assessor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Incident Management",
+ "type": "Workspace"
+}

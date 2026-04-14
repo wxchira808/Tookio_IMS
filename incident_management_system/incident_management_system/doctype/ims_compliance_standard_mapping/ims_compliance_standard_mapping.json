@@ -1,25 +1,33 @@
 {
  "actions": [],
- "autoname": "format:IMSCMAP-.#####",
+ "autoname": "format:IMSCMAP-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_mapping_overview",
   "mapping_title",
   "compliance_register",
   "framework",
   "requirement_clause",
   "control_reference",
+    "tab_mapping_scope",
   "applies_to_doctype",
   "applies_to_name",
   "attestation_status",
   "owner_user",
+    "tab_mapping_review",
   "evidence_attachment",
   "last_review_date",
   "next_review_date",
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_mapping_overview",
+     "fieldtype": "Tab Break",
+     "label": "Mapping Overview"
+    },
   {
    "fieldname": "mapping_title",
    "fieldtype": "Data",
@@ -55,6 +63,11 @@
    "label": "Control Reference"
   },
   {
+    "fieldname": "tab_mapping_scope",
+    "fieldtype": "Tab Break",
+    "label": "Scope & Ownership"
+  },
+  {
    "fieldname": "applies_to_doctype",
    "fieldtype": "Link",
    "label": "Applies To DocType",
@@ -79,6 +92,11 @@
    "fieldtype": "Link",
    "label": "Owner",
    "options": "User"
+  },
+  {
+    "fieldname": "tab_mapping_review",
+    "fieldtype": "Tab Break",
+    "label": "Evidence & Review"
   },
   {
    "fieldname": "evidence_attachment",

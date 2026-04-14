@@ -1,0 +1,22 @@
+{
+ "app": "incident_management_system",
+ "bg_color": "gray",
+ "creation": "2026-03-25 00:18:55.981641",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_image": "",
+ "icon_type": "Folder",
+ "idx": 1,
+ "label": "Tookio IMS",
+ "link_to": "",
+ "link_type": "Workspace Sidebar",
+ "modified": "2026-03-26 17:36:45.402873",
+ "modified_by": "Administrator",
+ "name": "Tookio IMS",
+ "owner": "Administrator",
+ "parent_icon": "",
+ "restrict_removal": 0,
+ "roles": [],
+ "standard": 1
+}

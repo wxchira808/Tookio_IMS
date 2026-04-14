@@ -1,0 +1,42 @@
+{
+ "app": "incident_management_system",
+ "charts": [],
+ "content": "[{\"id\":\"tookio_ims_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Tookio IMS</span>\",\"col\":12}},{\"id\":\"tookio_ims_subheader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Incident Management \u2022 Audit \u2022 Compliance \u2022 Risk</span>\",\"col\":12}}]",
+ "creation": "2026-03-25 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "organization",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Tookio IMS",
+ "links": [],
+ "modified": "2026-03-25 18:10:46.447603",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Tookio IMS",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Risk Assessor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Tookio IMS",
+ "type": "Workspace"
+}

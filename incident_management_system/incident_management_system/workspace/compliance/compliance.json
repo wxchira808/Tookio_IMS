@@ -1,0 +1,140 @@
+{
+ "app": "incident_management_system",
+ "charts": [],
+ "content": "[{\"id\":\"compliance_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Compliance Management</b></span>\",\"col\":12}},{\"id\":\"compliance_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Operations\",\"col\":4}},{\"id\":\"compliance_actions_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Corrective Actions\",\"col\":4}},{\"id\":\"compliance_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Reports\",\"col\":4}}]",
+ "creation": "2026-03-25 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "quality",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Compliance",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Compliance Operations",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Compliance Register",
+   "link_count": 0,
+   "link_to": "IMS Compliance Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Compliance Standard Mapping",
+   "link_count": 0,
+   "link_to": "IMS Compliance Standard Mapping",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Compliance Self Assessment Item",
+   "link_count": 0,
+   "link_to": "IMS Compliance Self Assessment Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS Lessons Learned Repository",
+   "link_count": 0,
+   "link_to": "IMS Lessons Learned Repository",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Corrective Actions",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "IMS CAPA",
+   "link_count": 0,
+   "link_to": "IMS CAPA",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Action Item",
+   "link_count": 0,
+   "link_to": "Action Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Compliance Reports",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Action Items Tracking",
+   "link_count": 0,
+   "link_to": "Action Items Tracking",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-25 18:10:46.737593",
+ "modified_by": "Administrator",
+ "module": "Incident Management System",
+ "name": "Compliance",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Tookio IMS",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Incident Manager"
+  },
+  {
+   "role": "Risk Assessor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 3.0,
+ "shortcuts": [],
+ "title": "Compliance",
+ "type": "Workspace"
+}

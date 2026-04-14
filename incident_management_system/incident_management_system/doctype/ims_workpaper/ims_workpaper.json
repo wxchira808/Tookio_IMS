@@ -1,22 +1,29 @@
 {
  "actions": [],
- "autoname": "format:IMSWP-.#####",
+ "autoname": "format:IMSWP-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_workpaper_core",
   "workpaper_title",
   "audit_engagement",
   "reference_code",
   "document_file",
   "version_number",
   "status",
+    "tab_workpaper_review",
   "reviewed_by",
   "reviewed_on",
   "tags",
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_workpaper_core",
+     "fieldtype": "Tab Break",
+     "label": "Core Details"
+    },
   {
    "fieldname": "workpaper_title",
    "fieldtype": "Data",
@@ -60,6 +67,11 @@
    "in_list_view": 1,
    "label": "Status",
    "options": "\nDraft\nUnder Review\nApproved\nArchived"
+  },
+  {
+    "fieldname": "tab_workpaper_review",
+    "fieldtype": "Tab Break",
+    "label": "Review & Notes"
   },
   {
    "fieldname": "reviewed_by",

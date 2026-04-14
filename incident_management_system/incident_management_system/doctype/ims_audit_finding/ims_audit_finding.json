@@ -1,10 +1,11 @@
 {
  "actions": [],
- "autoname": "format:IMSAF-.#####",
+ "autoname": "format:IMSAF-#####",
  "creation": "2026-03-25 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_finding_overview",
   "finding_title",
   "audit_engagement",
   "finding_type",
@@ -15,14 +16,17 @@
   "condition",
   "cause",
   "effect",
+    "tab_finding_rca",
   "root_cause_section",
   "root_cause",
   "root_cause_analysis_method",
+    "tab_finding_actions",
   "action_section",
   "capa_required",
   "linked_capa",
   "recommendation",
   "management_response",
+    "tab_finding_closure",
   "status_section",
   "status",
   "target_closure_date",
@@ -34,6 +38,11 @@
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_finding_overview",
+     "fieldtype": "Tab Break",
+     "label": "Finding Overview"
+    },
   {
    "fieldname": "finding_title",
    "fieldtype": "Data",
@@ -98,6 +107,11 @@
    "label": "Effect (Impact of finding)"
   },
   {
+    "fieldname": "tab_finding_rca",
+    "fieldtype": "Tab Break",
+    "label": "Root Cause"
+  },
+  {
    "fieldname": "root_cause_section",
    "fieldtype": "Section Break",
    "label": "Root Cause Analysis"
@@ -112,6 +126,11 @@
    "fieldtype": "Select",
    "label": "RCA Method",
    "options": "\n5-Whys\nFishbone (Ishikawa)\nFault Tree Analysis\nPareto Analysis\nOther"
+  },
+  {
+    "fieldname": "tab_finding_actions",
+    "fieldtype": "Tab Break",
+    "label": "Actions"
   },
   {
    "fieldname": "action_section",
@@ -140,6 +159,11 @@
    "fieldname": "management_response",
    "fieldtype": "Text Editor",
    "label": "Management Response / Action Agreed"
+  },
+  {
+    "fieldname": "tab_finding_closure",
+    "fieldtype": "Tab Break",
+    "label": "Status & Closure"
   },
   {
    "fieldname": "status_section",

@@ -1,10 +1,11 @@
 {
  "actions": [],
- "autoname": "format:IMSDOC-.#####",
+ "autoname": "format:IMSDOC-#####",
  "creation": "2026-03-25 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_doc_metadata",
   "document_title",
   "document_type",
   "version_number",
@@ -12,16 +13,19 @@
   "department",
   "author",
   "document_date",
+    "tab_doc_links",
   "reference_section",
   "linked_audit_engagement",
   "linked_audit_plan",
   "linked_risk_register",
   "linked_workpaper",
+    "tab_doc_classification",
   "classification_section",
   "document_category",
   "tags",
   "description",
   "document_file",
+    "tab_doc_lifecycle",
   "version_history_section",
   "supersedes_document",
   "change_summary",
@@ -32,6 +36,11 @@
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_doc_metadata",
+     "fieldtype": "Tab Break",
+     "label": "Metadata"
+    },
   {
    "fieldname": "document_title",
    "fieldtype": "Data",
@@ -81,6 +90,11 @@
    "label": "Document Date"
   },
   {
+    "fieldname": "tab_doc_links",
+    "fieldtype": "Tab Break",
+    "label": "Linked Records"
+  },
+  {
    "fieldname": "reference_section",
    "fieldtype": "Section Break",
    "label": "Linked Records"
@@ -110,6 +124,11 @@
    "options": "IMS Workpaper"
   },
   {
+    "fieldname": "tab_doc_classification",
+    "fieldtype": "Tab Break",
+    "label": "Classification"
+  },
+  {
    "fieldname": "classification_section",
    "fieldtype": "Section Break",
    "label": "Classification & Tagging"
@@ -136,6 +155,11 @@
    "fieldtype": "Attach",
    "label": "Document File",
    "reqd": 1
+  },
+  {
+    "fieldname": "tab_doc_lifecycle",
+    "fieldtype": "Tab Break",
+    "label": "Lifecycle"
   },
   {
    "fieldname": "version_history_section",

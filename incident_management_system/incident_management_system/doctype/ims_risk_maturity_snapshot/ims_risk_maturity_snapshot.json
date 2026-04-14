@@ -1,13 +1,15 @@
 {
  "actions": [],
- "autoname": "format:IMSMAT-{YYYY}-{MM}-.#####",
+ "autoname": "format:IMSMAT-{YYYY}-{MM}-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_snapshot_context",
   "snapshot_date",
   "department",
   "risk_owner",
+    "tab_snapshot_metrics",
   "open_risks",
   "overdue_reviews",
   "open_action_items",
@@ -15,9 +17,15 @@
   "kri_red_count",
   "maturity_score",
   "maturity_band",
+    "tab_snapshot_notes",
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_snapshot_context",
+     "fieldtype": "Tab Break",
+     "label": "Snapshot Context"
+    },
   {
    "fieldname": "snapshot_date",
    "fieldtype": "Date",
@@ -39,6 +47,11 @@
    "in_list_view": 1,
    "label": "Risk Owner",
    "options": "User"
+  },
+  {
+    "fieldname": "tab_snapshot_metrics",
+    "fieldtype": "Tab Break",
+    "label": "Metrics"
   },
   {
    "fieldname": "open_risks",
@@ -84,6 +97,11 @@
    "label": "Maturity Band",
    "options": "\nInitial\nDeveloping\nDefined\nManaged\nOptimized",
    "read_only": 1
+  },
+  {
+    "fieldname": "tab_snapshot_notes",
+    "fieldtype": "Tab Break",
+    "label": "Notes"
   },
   {
    "fieldname": "notes",

@@ -1,10 +1,11 @@
 {
  "actions": [],
- "autoname": "format:IMSCAPA-.#####",
+ "autoname": "format:IMSCAPA-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_capa_issue",
   "capa_title",
   "capa_type",
   "source_doctype",
@@ -13,6 +14,7 @@
   "description",
   "root_cause",
   "root_cause_analysis_method",
+    "tab_capa_actions",
   "corrective_actions_section",
   "corrective_action_description",
   "preventive_action_description",
@@ -23,10 +25,12 @@
   "completion_date",
   "status",
   "priority",
+    "tab_capa_effectiveness",
   "effectiveness_section",
   "effectiveness_review_date",
   "effectiveness_rating",
   "effectiveness_notes",
+    "tab_capa_approval",
   "approval_section",
   "approved_by",
   "approval_date",
@@ -35,6 +39,11 @@
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_capa_issue",
+     "fieldtype": "Tab Break",
+     "label": "Issue & RCA"
+    },
   {
    "fieldname": "capa_title",
    "fieldtype": "Data",
@@ -84,6 +93,11 @@
    "fieldtype": "Select",
    "label": "Root Cause Analysis Method",
    "options": "\n5 Whys\nFishbone / Ishikawa\nFault Tree Analysis\nPareto Analysis\nOther"
+  },
+  {
+    "fieldname": "tab_capa_actions",
+    "fieldtype": "Tab Break",
+    "label": "Actions & Plan"
   },
   {
    "fieldname": "corrective_actions_section",
@@ -146,6 +160,11 @@
    "options": "\nCritical\nHigh\nMedium\nLow"
   },
   {
+    "fieldname": "tab_capa_effectiveness",
+    "fieldtype": "Tab Break",
+    "label": "Effectiveness"
+  },
+  {
    "fieldname": "effectiveness_section",
    "fieldtype": "Section Break",
    "label": "Effectiveness Review"
@@ -165,6 +184,11 @@
    "fieldname": "effectiveness_notes",
    "fieldtype": "Text Editor",
    "label": "Effectiveness Notes"
+  },
+  {
+    "fieldname": "tab_capa_approval",
+    "fieldtype": "Tab Break",
+    "label": "Approval & Evidence"
   },
   {
    "fieldname": "approval_section",

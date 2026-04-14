@@ -1,10 +1,11 @@
 {
  "actions": [],
- "autoname": "format:IMSRISK-.#####",
+ "autoname": "format:IMSRISK-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_risk_profile",
   "risk_title",
   "risk_taxonomy",
   "risk_owner",
@@ -14,6 +15,7 @@
   "source_type",
   "source_reference",
   "risk_description",
+    "tab_risk_scoring",
   "likelihood",
   "impact",
   "velocity",
@@ -21,6 +23,7 @@
   "inherent_risk_score",
   "residual_risk_score",
   "risk_level",
+    "tab_risk_treatment",
   "status",
   "mitigation_status",
   "last_review_date",
@@ -35,6 +38,11 @@
   "capa_effectiveness_rating"
  ],
  "fields": [
+    {
+     "fieldname": "tab_risk_profile",
+     "fieldtype": "Tab Break",
+     "label": "Risk Profile"
+    },
   {
    "fieldname": "risk_title",
    "fieldtype": "Data",
@@ -93,6 +101,11 @@
    "label": "Risk Description"
   },
   {
+    "fieldname": "tab_risk_scoring",
+    "fieldtype": "Tab Break",
+    "label": "Scoring"
+  },
+  {
    "default": "3",
    "fieldname": "likelihood",
    "fieldtype": "Int",
@@ -139,6 +152,11 @@
    "label": "Risk Level",
    "options": "\nVery Low\nLow\nMedium\nHigh\nVery High",
    "read_only": 1
+  },
+  {
+    "fieldname": "tab_risk_treatment",
+    "fieldtype": "Tab Break",
+    "label": "Treatment & CAPA"
   },
   {
    "default": "Active",

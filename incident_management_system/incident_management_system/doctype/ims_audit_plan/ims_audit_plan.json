@@ -1,10 +1,11 @@
 {
  "actions": [],
- "autoname": "format:IMSAP-{YYYY}-.#####",
+ "autoname": "format:IMSAP-{YYYY}-#####",
  "creation": "2026-03-24 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+    "tab_plan_overview",
   "plan_title",
   "plan_year",
   "plan_type",
@@ -12,18 +13,25 @@
   "company",
   "department",
   "lead_auditor",
+    "tab_plan_scope",
   "risk_reference",
   "schedule_start",
   "schedule_end",
   "audit_scope",
   "audit_objectives",
   "budget_amount",
+    "tab_plan_approval",
   "status",
   "approved_by",
   "approval_date",
   "notes"
  ],
  "fields": [
+    {
+     "fieldname": "tab_plan_overview",
+     "fieldtype": "Tab Break",
+     "label": "Plan Overview"
+    },
   {
    "fieldname": "plan_title",
    "fieldtype": "Data",
@@ -60,6 +68,11 @@
    "options": "Department"
   },
   {
+    "fieldname": "tab_plan_scope",
+    "fieldtype": "Tab Break",
+    "label": "Scope & Scheduling"
+  },
+  {
    "fieldname": "risk_reference",
    "fieldtype": "Link",
    "label": "Risk Reference",
@@ -79,6 +92,11 @@
    "fieldname": "budget_amount",
    "fieldtype": "Currency",
    "label": "Budget Amount"
+  },
+  {
+    "fieldname": "tab_plan_approval",
+    "fieldtype": "Tab Break",
+    "label": "Status & Approval"
   },
   {
    "default": "Draft",
