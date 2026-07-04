@@ -19,36 +19,48 @@ DESKTOP_ICONS = [
         "link_to": "",
         "parent_icon": "",
         "idx": 1,
+        "icon": "shield-check",
+        "icon_type": "Folder",
     },
     {
         "label": "Incident Management",
         "link_to": "Incident Management",
         "parent_icon": "Tookio IMS",
         "idx": 1,
+        "icon": "badge-alert",
+        "icon_type": "Link",
     },
     {
         "label": "Audit",
         "link_to": "Audit",
         "parent_icon": "Tookio IMS",
         "idx": 2,
+        "icon": "clipboard-check",
+        "icon_type": "Link",
     },
     {
         "label": "Compliance",
         "link_to": "Compliance",
         "parent_icon": "Tookio IMS",
         "idx": 3,
+        "icon": "scroll-text",
+        "icon_type": "Link",
     },
     {
         "label": "Risk",
         "link_to": "Risk",
         "parent_icon": "Tookio IMS",
         "idx": 4,
+        "icon": "shield-alert",
+        "icon_type": "Link",
     },
     {
         "label": "ARC Command Center",
         "link_to": "ARC Command Center",
         "parent_icon": "Tookio IMS",
         "idx": 5,
+        "icon": "layout-dashboard",
+        "icon_type": "Link",
     },
 ]
 
@@ -56,32 +68,32 @@ WORKSPACE_SIDEBARS = [
     {
         "name": "Tookio IMS",
         "workspace": "Tookio IMS",
-        "header_icon": "organization",
+        "header_icon": "shield-check",
     },
     {
         "name": "Incident Management",
         "workspace": "Incident Management",
-        "header_icon": "support",
+        "header_icon": "badge-alert",
     },
     {
         "name": "Audit",
         "workspace": "Audit",
-        "header_icon": "project",
+        "header_icon": "clipboard-check",
     },
     {
         "name": "Compliance",
         "workspace": "Compliance",
-        "header_icon": "quality",
+        "header_icon": "scroll-text",
     },
     {
         "name": "Risk",
         "workspace": "Risk",
-        "header_icon": "table",
+        "header_icon": "shield-alert",
     },
     {
         "name": "ARC Command Center",
         "workspace": "ARC Command Center",
-        "header_icon": "table",
+        "header_icon": "layout-dashboard",
     },
 ]
 
@@ -190,6 +202,10 @@ def _sync_desktop_icons() -> None:
         doc.link_type = "Workspace Sidebar"
         doc.link_to = icon["link_to"]
         doc.parent_icon = icon["parent_icon"]
+        doc.icon = icon["icon"]
+        doc.icon_type = icon["icon_type"]
+        doc.logo_url = ""
+        doc.icon_image = ""
         doc.app = "incident_management_system"
         doc.standard = 1
         doc.hidden = 0

@@ -1,11 +1,11 @@
 {
  "app": "incident_management_system",
- "bg_color": "gray",
+ "bg_color": "blue",
  "creation": "2026-03-25 00:14:23.886652",
  "docstatus": 0,
  "doctype": "Desktop Icon",
  "hidden": 0,
- "icon_image": "/files/tookio-high-resolution-logo.png",
+ "icon_image": "",
  "icon_type": "Link",
  "idx": 5,
  "label": "ARC Command Center",
@@ -18,5 +18,7 @@
  "parent_icon": "Tookio IMS",
  "restrict_removal": 0,
  "roles": [],
- "standard": 1
+ "standard": 1,
+ "icon": "layout-dashboard",
+ "logo_url": ""
 }

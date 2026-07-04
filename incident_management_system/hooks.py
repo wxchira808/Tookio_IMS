@@ -1,7 +1,7 @@
 app_name = "incident_management_system"
-app_title = "Incident Management System"
+app_title = "Tookio ARC"
 app_publisher = "Brian Wachira"
-app_description = "An Incident Management System designed for efficient reporting, tracking, assignment, and resolution of incidents within an organization. Built on Frappe to streamline workflows, enhance accountability, and improve response times."
+app_description = "Enterprise incident, audit, risk, and compliance command suite for risk registers, KRIs, compliance obligations, audits, CAPA, investigations, and executive oversight."
 app_email = "bwkinyua01@gmail.com"
 app_license = "mit"
 
@@ -21,7 +21,7 @@ fixtures = [
 
 doc_events = {
     "ToDo": {
-        "on_update": "incident_management_system.utils.assign_to_override.assign_to_overrride"
+        "on_update": "incident_management_system.utils.assign_to_override.assign_to_override"
     },
     "Incident Resolution": {
         "on_submit": "incident_management_system.utils.knowledge_automation.create_lesson_from_resolution"
@@ -61,7 +61,7 @@ override_whitelisted_methods = {
     "incident_management_system.api.arc_reporting.get_audit_findings_summary": "incident_management_system.api.arc_reporting.get_audit_findings_summary",
 }
 
-#app_include_css = "/assets/incident_management_system/css/incident_management_system.css"
+app_include_css = "/assets/incident_management_system/css/incident_management_system.css"
 
 # Apps
 # ------------------
@@ -69,15 +69,13 @@ override_whitelisted_methods = {
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "incident_management_system",
-# 		"logo": "/assets/incident_management_system/logo.png",
-# 		"title": "Incident Management System",
-# 		"route": "/incident_management_system",
-# 		"has_permission": "incident_management_system.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "incident_management_system",
+		"title": "Tookio ARC",
+		"route": "/app/tookio-ims",
+	}
+]
 
 # Includes in <head>
 # ------------------

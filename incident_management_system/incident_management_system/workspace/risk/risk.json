@@ -1,14 +1,14 @@
 {
  "app": "incident_management_system",
  "charts": [],
- "content": "[{\"id\":\"risk_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Risk Management</b></span>\",\"col\":12}},{\"id\":\"risk_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Operations\",\"col\":4}},{\"id\":\"risk_assessment_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Assessments\",\"col\":4}},{\"id\":\"risk_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"risk_title\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Risk Intelligence</span>\",\"col\":12}},{\"id\":\"risk_subtitle\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"text-muted\\\">Risk register, taxonomy, KRIs, treatment plans, and maturity signals</span>\",\"col\":12}},{\"id\":\"risk_open\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Risks\",\"col\":3}},{\"id\":\"risk_high\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"High Exposure Risks\",\"col\":3}},{\"id\":\"risk_overdue\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Overdue Risk Reviews\",\"col\":3}},{\"id\":\"risk_red_kris\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Red KRIs\",\"col\":3}},{\"id\":\"risk_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Operations\",\"col\":4}},{\"id\":\"risk_assessment_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Assessments\",\"col\":4}},{\"id\":\"risk_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Reports\",\"col\":4}}]",
  "creation": "2026-03-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "table",
+ "icon": "shield-alert",
  "idx": 0,
  "indicator_color": "red",
  "is_hidden": 0,
@@ -116,11 +116,40 @@
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Risk",
- "number_cards": [],
+ "number_cards": [
+  {
+   "number_card_name": "Open Risks"
+  },
+  {
+   "number_card_name": "High Exposure Risks"
+  },
+  {
+   "number_card_name": "Overdue Risk Reviews"
+  },
+  {
+   "number_card_name": "Red KRIs"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "Tookio IMS",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "label": "High Exposure Risks",
+   "document_type": "IMS Risk Register",
+   "quick_list_filter": "{\"risk_level\": [\"in\", [\"High\", \"Very High\"]], \"status\": [\"!=\", \"Closed\"]}"
+  },
+  {
+   "label": "Overdue Reviews",
+   "document_type": "IMS Risk Register",
+   "quick_list_filter": "{\"mitigation_status\": \"Overdue\", \"status\": [\"!=\", \"Closed\"]}"
+  },
+  {
+   "label": "Red KRIs",
+   "document_type": "IMS KRI Definition",
+   "quick_list_filter": "{\"status\": \"Active\", \"alert_level\": \"Red\"}"
+  }
+ ],
  "restrict_to_domain": "",
  "roles": [
   {
@@ -134,7 +163,40 @@
   }
  ],
  "sequence_id": 4.0,
- "shortcuts": [],
- "title": "Risk",
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "IMS Risk Register",
+   "label": "New Risk",
+   "icon": "shield-plus",
+   "color": "Red",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Risk Taxonomy",
+   "label": "Risk Taxonomy",
+   "icon": "network",
+   "color": "Blue",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS KRI Definition",
+   "label": "KRI Library",
+   "icon": "activity",
+   "color": "Orange",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Risk Assessment",
+   "label": "Risk Assessment",
+   "icon": "clipboard-check",
+   "color": "Green",
+   "doc_view": "List"
+  }
+ ],
+ "title": "Risk Intelligence",
  "type": "Workspace"
 }

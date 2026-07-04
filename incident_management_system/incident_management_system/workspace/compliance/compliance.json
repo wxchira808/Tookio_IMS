@@ -1,14 +1,14 @@
 {
  "app": "incident_management_system",
  "charts": [],
- "content": "[{\"id\":\"compliance_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Compliance Management</b></span>\",\"col\":12}},{\"id\":\"compliance_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Operations\",\"col\":4}},{\"id\":\"compliance_actions_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Corrective Actions\",\"col\":4}},{\"id\":\"compliance_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"compliance_title\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Compliance Operations</span>\",\"col\":12}},{\"id\":\"compliance_subtitle\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"text-muted\\\">Obligations, control evidence, attestations, CAPA, and regulatory exposure</span>\",\"col\":12}},{\"id\":\"comp_non_compliant\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Non-Compliant Obligations\",\"col\":3}},{\"id\":\"comp_open_capa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open CAPA\",\"col\":3}},{\"id\":\"comp_actions\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Action Items\",\"col\":3}},{\"id\":\"comp_lessons\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Risks\",\"col\":3}},{\"id\":\"compliance_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Operations\",\"col\":4}},{\"id\":\"compliance_actions_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Corrective Actions\",\"col\":4}},{\"id\":\"compliance_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Reports\",\"col\":4}}]",
  "creation": "2026-03-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "quality",
+ "icon": "scroll-text",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
@@ -116,11 +116,40 @@
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Compliance",
- "number_cards": [],
+ "number_cards": [
+  {
+   "number_card_name": "Non-Compliant Obligations"
+  },
+  {
+   "number_card_name": "Open CAPA"
+  },
+  {
+   "number_card_name": "Pending Action Items"
+  },
+  {
+   "number_card_name": "Open Risks"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "Tookio IMS",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "label": "Non-Compliant Obligations",
+   "document_type": "IMS Compliance Register",
+   "quick_list_filter": "{\"compliance_status\": [\"in\", [\"Non-Compliant\", \"Partially Compliant\"]]}"
+  },
+  {
+   "label": "Overdue CAPA",
+   "document_type": "IMS CAPA",
+   "quick_list_filter": "{\"status\": \"Overdue\"}"
+  },
+  {
+   "label": "Pending Actions",
+   "document_type": "Action Item",
+   "quick_list_filter": "{\"status\": [\"in\", [\"Open\", \"In Progress\", \"Overdue\"]]}"
+  }
+ ],
  "restrict_to_domain": "",
  "roles": [
   {
@@ -134,7 +163,40 @@
   }
  ],
  "sequence_id": 3.0,
- "shortcuts": [],
- "title": "Compliance",
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "IMS Compliance Register",
+   "label": "New Obligation",
+   "icon": "scroll-text",
+   "color": "Green",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Compliance Standard Mapping",
+   "label": "Standards Mapping",
+   "icon": "git-compare",
+   "color": "Blue",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS CAPA",
+   "label": "New CAPA",
+   "icon": "badge-check",
+   "color": "Violet",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Lessons Learned Repository",
+   "label": "Lessons Learned",
+   "icon": "book-open-check",
+   "color": "Orange",
+   "doc_view": "List"
+  }
+ ],
+ "title": "Compliance Operations",
  "type": "Workspace"
 }

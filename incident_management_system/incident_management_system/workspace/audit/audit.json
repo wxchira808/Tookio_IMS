@@ -1,14 +1,14 @@
 {
  "app": "incident_management_system",
  "charts": [],
- "content": "[{\"id\":\"audit_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Audit Management</b></span>\",\"col\":12}},{\"id\":\"audit_exec_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Execution\",\"col\":4}},{\"id\":\"audit_controls_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Controls & Documentation\",\"col\":4}},{\"id\":\"audit_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"audit_title\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Audit Assurance</span>\",\"col\":12}},{\"id\":\"audit_subtitle\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"text-muted\\\">Annual plans, engagements, workpapers, findings, and remediation</span>\",\"col\":12}},{\"id\":\"audit_open_findings\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Audit Findings\",\"col\":3}},{\"id\":\"audit_critical_findings\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Critical Audit Findings\",\"col\":3}},{\"id\":\"audit_open_capa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open CAPA\",\"col\":3}},{\"id\":\"audit_actions\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Action Items\",\"col\":3}},{\"id\":\"audit_exec_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Execution\",\"col\":4}},{\"id\":\"audit_controls_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Controls & Documentation\",\"col\":4}},{\"id\":\"audit_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Reports\",\"col\":4}}]",
  "creation": "2026-03-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "project",
+ "icon": "clipboard-check",
  "idx": 0,
  "indicator_color": "green",
  "is_hidden": 0,
@@ -136,11 +136,40 @@
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Audit",
- "number_cards": [],
+ "number_cards": [
+  {
+   "number_card_name": "Open Audit Findings"
+  },
+  {
+   "number_card_name": "Critical Audit Findings"
+  },
+  {
+   "number_card_name": "Open CAPA"
+  },
+  {
+   "number_card_name": "Pending Action Items"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "Tookio IMS",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "label": "Open Findings",
+   "document_type": "IMS Audit Finding",
+   "quick_list_filter": "{\"status\": [\"not in\", [\"Closed\", \"Accepted Risk\"]]}"
+  },
+  {
+   "label": "Critical Findings",
+   "document_type": "IMS Audit Finding",
+   "quick_list_filter": "{\"severity\": \"Critical\", \"status\": [\"not in\", [\"Closed\", \"Accepted Risk\"]]}"
+  },
+  {
+   "label": "Open CAPA",
+   "document_type": "IMS CAPA",
+   "quick_list_filter": "{\"status\": [\"in\", [\"Open\", \"In Progress\", \"Overdue\"]]}"
+  }
+ ],
  "restrict_to_domain": "",
  "roles": [
   {
@@ -154,7 +183,39 @@
   }
  ],
  "sequence_id": 2.0,
- "shortcuts": [],
- "title": "Audit",
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "IMS Audit Plan",
+   "label": "New Audit Plan",
+   "icon": "calendar-days",
+   "color": "Blue",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Audit Engagement",
+   "label": "New Engagement",
+   "icon": "briefcase",
+   "color": "Green",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Audit Finding",
+   "label": "New Finding",
+   "icon": "clipboard-list",
+   "color": "Red",
+   "doc_view": "New"
+  },
+  {
+   "type": "Report",
+   "link_to": "Audit Coverage",
+   "label": "Audit Coverage",
+   "icon": "bar-chart-3",
+   "color": "Violet"
+  }
+ ],
+ "title": "Audit Assurance",
  "type": "Workspace"
 }

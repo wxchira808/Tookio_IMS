@@ -1,14 +1,24 @@
 {
  "app": "incident_management_system",
- "charts": [],
- "content": "[{\"id\":\"incident_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Incident Operations</b></span>\",\"col\":12}},{\"id\":\"incident_ops_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Operations\",\"col\":4}},{\"id\":\"incident_resolution_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Resolution & Follow-up\",\"col\":4}},{\"id\":\"incident_reports_card\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Reports\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "Incidents By Status"
+  },
+  {
+   "chart_name": "Incidents By Severity"
+  },
+  {
+   "chart_name": "Investigation Status Distribution"
+  }
+ ],
+ "content": "[{\"id\":\"incident_title\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Incident Command</span>\",\"col\":12}},{\"id\":\"incident_subtitle\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"text-muted\\\">Intake, triage, investigation, resolution, and lessons learned</span>\",\"col\":12}},{\"id\":\"im_open\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Incidents\",\"col\":3}},{\"id\":\"im_active\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Currently Investigating\",\"col\":3}},{\"id\":\"im_critical\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Critical and High Priority Incidents\",\"col\":3}},{\"id\":\"im_sla\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Overdue SLA Incidents\",\"col\":3}},{\"id\":\"im_investigations\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Investigations\",\"col\":3}},{\"id\":\"im_actions\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Action Items\",\"col\":3}},{\"id\":\"im_ops\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Operations\",\"col\":4}},{\"id\":\"im_resolution\",\"type\":\"card\",\"data\":{\"card_name\":\"Resolution & Follow-up\",\"col\":4}},{\"id\":\"im_reports\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Reports\",\"col\":4}}]",
  "creation": "2026-03-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "support",
+ "icon": "badge-alert",
  "idx": 0,
  "indicator_color": "orange",
  "is_hidden": 0,
@@ -156,11 +166,46 @@
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Incident Management",
- "number_cards": [],
+ "number_cards": [
+  {
+   "number_card_name": "Open Incidents"
+  },
+  {
+   "number_card_name": "Currently Investigating"
+  },
+  {
+   "number_card_name": "Critical and High Priority Incidents"
+  },
+  {
+   "number_card_name": "Overdue SLA Incidents"
+  },
+  {
+   "number_card_name": "Active Investigations"
+  },
+  {
+   "number_card_name": "Pending Action Items"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "Tookio IMS",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "label": "Critical & High Incidents",
+   "document_type": "Incident",
+   "quick_list_filter": "{\"severity\": [\"in\", [\"Critical\", \"High\"]], \"status\": [\"not in\", [\"Resolved\", \"Closed\", \"Cancelled\"]]}"
+  },
+  {
+   "label": "SLA Breaches",
+   "document_type": "Incident",
+   "quick_list_filter": "{\"status\": [\"not in\", [\"Resolved\", \"Closed\", \"Cancelled\"]], \"sla_deadline\": [\"<\", \"Today\"]}"
+  },
+  {
+   "label": "Open Action Items",
+   "document_type": "Action Item",
+   "quick_list_filter": "{\"status\": [\"in\", [\"Open\", \"In Progress\", \"Overdue\"]]}"
+  }
+ ],
  "restrict_to_domain": "",
  "roles": [
   {
@@ -174,7 +219,39 @@
   }
  ],
  "sequence_id": 1.0,
- "shortcuts": [],
- "title": "Incident Management",
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "Incident",
+   "label": "New Incident",
+   "icon": "badge-alert",
+   "color": "Orange",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Incident Investigation",
+   "label": "Investigations",
+   "icon": "search-check",
+   "color": "Blue",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Action Item",
+   "label": "Action Items",
+   "icon": "list-checks",
+   "color": "Violet",
+   "doc_view": "List"
+  },
+  {
+   "type": "Report",
+   "link_to": "Incident Summary Report",
+   "label": "Incident Summary",
+   "icon": "bar-chart-3",
+   "color": "Green"
+  }
+ ],
+ "title": "Incident Command",
  "type": "Workspace"
 }

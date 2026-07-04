@@ -17,5 +17,8 @@
  "parent_icon": "Tookio IMS",
  "restrict_removal": 0,
  "roles": [],
- "standard": 1
+ "standard": 1,
+ "icon": "shield-alert",
+ "icon_image": "",
+ "logo_url": ""
 }

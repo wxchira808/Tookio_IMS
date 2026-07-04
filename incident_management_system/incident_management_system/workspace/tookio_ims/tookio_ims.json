@@ -1,28 +1,148 @@
 {
  "app": "incident_management_system",
  "charts": [],
- "content": "[{\"id\":\"tookio_ims_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">Tookio IMS</span>\",\"col\":12}},{\"id\":\"tookio_ims_subheader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Incident Management \u2022 Audit \u2022 Compliance \u2022 Risk</span>\",\"col\":12}}]",
+ "content": "[{\"id\":\"tookio_arc_title\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">Tookio ARC Command Suite</span>\",\"col\":12}},{\"id\":\"tookio_arc_subtitle\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"text-muted\\\">Enterprise incident, audit, risk, and compliance command suite</span>\",\"col\":12}},{\"id\":\"ta_open_risks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Risks\",\"col\":3}},{\"id\":\"ta_non_compliant\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Non-Compliant Obligations\",\"col\":3}},{\"id\":\"ta_open_findings\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Audit Findings\",\"col\":3}},{\"id\":\"ta_open_incidents\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Reported Incidents\",\"col\":3}},{\"id\":\"ta_incidents\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Command\",\"col\":4}},{\"id\":\"ta_risk\",\"type\":\"card\",\"data\":{\"card_name\":\"Risk Intelligence\",\"col\":4}},{\"id\":\"ta_audit\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit Assurance\",\"col\":4}},{\"id\":\"ta_compliance\",\"type\":\"card\",\"data\":{\"card_name\":\"Compliance Operations\",\"col\":4}},{\"id\":\"ta_command\",\"type\":\"card\",\"data\":{\"card_name\":\"Executive Command Center\",\"col\":4}}]",
  "creation": "2026-03-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "organization",
+ "icon": "shield-check",
  "idx": 0,
  "indicator_color": "blue",
  "is_hidden": 0,
  "label": "Tookio IMS",
- "links": [],
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Incident Command",
+   "link_type": "Workspace",
+   "link_count": 0,
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Incident Management",
+   "link_type": "Workspace",
+   "link_to": "Incident Management",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Card Break",
+   "label": "Risk Intelligence",
+   "link_type": "Workspace",
+   "link_count": 0,
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Risk",
+   "link_type": "Workspace",
+   "link_to": "Risk",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Card Break",
+   "label": "Audit Assurance",
+   "link_type": "Workspace",
+   "link_count": 0,
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Audit",
+   "link_type": "Workspace",
+   "link_to": "Audit",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Card Break",
+   "label": "Compliance Operations",
+   "link_type": "Workspace",
+   "link_count": 0,
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Compliance",
+   "link_type": "Workspace",
+   "link_to": "Compliance",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Card Break",
+   "label": "Executive Command Center",
+   "link_type": "Workspace",
+   "link_count": 0,
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "ARC Command Center",
+   "link_type": "Workspace",
+   "link_to": "ARC Command Center",
+   "hidden": 0,
+   "is_query_report": 0,
+   "onboard": 0
+  }
+ ],
  "modified": "2026-03-25 18:10:46.447603",
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "Tookio IMS",
- "number_cards": [],
+ "number_cards": [
+  {
+   "number_card_name": "Open Risks"
+  },
+  {
+   "number_card_name": "Non-Compliant Obligations"
+  },
+  {
+   "number_card_name": "Open Audit Findings"
+  },
+  {
+   "number_card_name": "Reported Incidents"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "label": "High Exposure Risks",
+   "document_type": "IMS Risk Register",
+   "quick_list_filter": "{\"risk_level\": [\"in\", [\"High\", \"Very High\"]], \"status\": [\"!=\", \"Closed\"]}"
+  },
+  {
+   "label": "Overdue CAPA",
+   "document_type": "IMS CAPA",
+   "quick_list_filter": "{\"status\": \"Overdue\"}"
+  },
+  {
+   "label": "Open Critical Findings",
+   "document_type": "IMS Audit Finding",
+   "quick_list_filter": "{\"severity\": \"Critical\", \"status\": [\"not in\", [\"Closed\", \"Accepted Risk\"]]}"
+  }
+ ],
  "restrict_to_domain": "",
  "roles": [
   {
@@ -36,7 +156,47 @@
   }
  ],
  "sequence_id": 1.0,
- "shortcuts": [],
- "title": "Tookio IMS",
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "Incident",
+   "label": "New Incident",
+   "icon": "badge-alert",
+   "color": "Orange",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Risk Register",
+   "label": "New Risk",
+   "icon": "shield-alert",
+   "color": "Red",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Audit Finding",
+   "label": "New Audit Finding",
+   "icon": "clipboard-check",
+   "color": "Blue",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS CAPA",
+   "label": "New CAPA",
+   "icon": "badge-check",
+   "color": "Violet",
+   "doc_view": "New"
+  },
+  {
+   "type": "Page",
+   "link_to": "arc-command-center",
+   "label": "ARC Command Center",
+   "icon": "layout-dashboard",
+   "color": "Blue"
+  }
+ ],
+ "title": "Tookio ARC Command Suite",
  "type": "Workspace"
 }

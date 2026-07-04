@@ -1,7 +1,8 @@
 import frappe
 from frappe.share import add
 
-def assign_to_overrride(doc, method):
+
+def assign_to_override(doc, method):
     """Override assign_to.add to include custom sharing logic"""
 
     # Check if the ToDo is related to an Incident
@@ -42,3 +43,7 @@ def assign_to_overrride(doc, method):
             incident.save()
         except Exception as e:
             frappe.log_error(f"Error updating incident status on assignment: {str(e)}")
+
+
+# Backward-compatible alias for older hooks/custom scripts that used the typo.
+assign_to_overrride = assign_to_override

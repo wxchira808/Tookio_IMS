@@ -1,6 +1,8 @@
-## Incident Management System
+## Tookio ARC
 
-An Incident Management System designed for efficient reporting, tracking, assignment, and resolution of incidents within an organization. Built on Frappe to streamline workflows, enhance accountability, and improve response times.
+Enterprise incident, audit, risk, and compliance command suite built on Frappe.
+
+Tookio ARC brings incident response, audit planning and findings, risk registers, KRIs, compliance obligations, CAPA, evidence, lessons learned, and executive oversight into one connected workspace.
 
 #### License
 

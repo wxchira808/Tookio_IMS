@@ -1,14 +1,21 @@
 {
  "app": "incident_management_system",
- "charts": [],
- "content": "[{\"id\":\"arc_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h1\\\">ARC Command Center</span>\",\"col\":12}},{\"id\":\"arc_subheader\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Audit \u2022 Risk \u2022 Compliance</span>\",\"col\":12}},{\"id\":\"arc_spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"arc_risk_card\",\"type\":\"card\",\"data\":{\"card_name\":\"RISK MANAGEMENT\",\"col\":4}},{\"id\":\"arc_audit_card\",\"type\":\"card\",\"data\":{\"card_name\":\"AUDIT MANAGEMENT\",\"col\":4}},{\"id\":\"arc_compliance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"COMPLIANCE & INSIGHT\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "Incidents By Status"
+  },
+  {
+   "chart_name": "Incidents By Severity"
+  }
+ ],
+ "content": "[{\"id\":\"arc_title\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\">ARC Command Center</span>\",\"col\":12}},{\"id\":\"arc_subtitle\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"text-muted\\\">Cross-functional audit, risk, compliance, and incident oversight</span>\",\"col\":12}},{\"id\":\"arc_open_risks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Risks\",\"col\":3}},{\"id\":\"arc_high_risks\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"High Exposure Risks\",\"col\":3}},{\"id\":\"arc_non_compliant\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Non-Compliant Obligations\",\"col\":3}},{\"id\":\"arc_open_capa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open CAPA\",\"col\":3}},{\"id\":\"arc_open_findings\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Audit Findings\",\"col\":3}},{\"id\":\"arc_red_kris\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Red KRIs\",\"col\":3}},{\"id\":\"arc_open_incidents\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Reported Incidents\",\"col\":3}},{\"id\":\"arc_pending_actions\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Action Items\",\"col\":3}},{\"id\":\"arc_risk_card\",\"type\":\"card\",\"data\":{\"card_name\":\"RISK MANAGEMENT\",\"col\":4}},{\"id\":\"arc_audit_card\",\"type\":\"card\",\"data\":{\"card_name\":\"AUDIT MANAGEMENT\",\"col\":4}},{\"id\":\"arc_compliance_card\",\"type\":\"card\",\"data\":{\"card_name\":\"COMPLIANCE & INSIGHT\",\"col\":4}}]",
  "creation": "2026-03-24 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "analytics",
+ "icon": "layout-dashboard",
  "idx": 1,
  "indicator_color": "blue",
  "is_hidden": 0,
@@ -226,11 +233,57 @@
  "modified_by": "Administrator",
  "module": "Incident Management System",
  "name": "ARC Command Center",
- "number_cards": [],
+ "number_cards": [
+  {
+   "number_card_name": "Open Risks"
+  },
+  {
+   "number_card_name": "High Exposure Risks"
+  },
+  {
+   "number_card_name": "Non-Compliant Obligations"
+  },
+  {
+   "number_card_name": "Open CAPA"
+  },
+  {
+   "number_card_name": "Open Audit Findings"
+  },
+  {
+   "number_card_name": "Red KRIs"
+  },
+  {
+   "number_card_name": "Reported Incidents"
+  },
+  {
+   "number_card_name": "Pending Action Items"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "Tookio IMS",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "label": "High Exposure Risks",
+   "document_type": "IMS Risk Register",
+   "quick_list_filter": "{\"risk_level\": [\"in\", [\"High\", \"Very High\"]], \"status\": [\"!=\", \"Closed\"]}"
+  },
+  {
+   "label": "Non-Compliant Obligations",
+   "document_type": "IMS Compliance Register",
+   "quick_list_filter": "{\"compliance_status\": [\"in\", [\"Non-Compliant\", \"Partially Compliant\"]]}"
+  },
+  {
+   "label": "Critical Audit Findings",
+   "document_type": "IMS Audit Finding",
+   "quick_list_filter": "{\"severity\": \"Critical\", \"status\": [\"not in\", [\"Closed\", \"Accepted Risk\"]]}"
+  },
+  {
+   "label": "Red KRIs",
+   "document_type": "IMS KRI Definition",
+   "quick_list_filter": "{\"status\": \"Active\", \"alert_level\": \"Red\"}"
+  }
+ ],
  "restrict_to_domain": "",
  "roles": [
   {
@@ -244,7 +297,40 @@
   }
  ],
  "sequence_id": 4.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "IMS Risk Register",
+   "label": "Risk Heatmap",
+   "icon": "table-2",
+   "color": "Red",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Compliance Register",
+   "label": "Compliance Register",
+   "icon": "scroll-text",
+   "color": "Green",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS Audit Finding",
+   "label": "Audit Findings",
+   "icon": "clipboard-list",
+   "color": "Blue",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "IMS CAPA",
+   "label": "Open CAPA",
+   "icon": "badge-check",
+   "color": "Violet",
+   "doc_view": "List"
+  }
+ ],
  "title": "ARC Command Center",
  "type": "Workspace"
 }
